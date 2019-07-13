@@ -1,5 +1,5 @@
 use_frameworks!
  
-target 'MSALiOS' do
+target 'StepUp' do
   pod 'MSAL', '~> 0.4.0'
 end

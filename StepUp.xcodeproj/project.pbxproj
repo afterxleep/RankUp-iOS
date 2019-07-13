@@ -7,27 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DC17E926BAC0BBF780DD200 /* Pods_MSALiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */; };
-		FBA79EA11E9A038700179A54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA79EA01E9A038700179A54 /* AppDelegate.swift */; };
-		FBA79EA31E9A038700179A54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA79EA21E9A038700179A54 /* ViewController.swift */; };
-		FBA79EA61E9A038700179A54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA79EA41E9A038700179A54 /* Main.storyboard */; };
-		FBA79EA81E9A038700179A54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA79EA71E9A038700179A54 /* Assets.xcassets */; };
-		FBA79EAB1E9A038700179A54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBA79EA91E9A038700179A54 /* LaunchScreen.storyboard */; };
+		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
+		D67FEFE922DAA04A00DA34FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE422DAA04A00DA34FE /* ViewController.swift */; };
+		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
+		D67FEFEE22DAA23B00DA34FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFEC22DAA21D00DA34FE /* Main.storyboard */; };
+		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
+		EBD35786E7C20552CC63B31B /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
 		AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7CBF881BF504F0A15F7FD5C /* Pods-MSALiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSALiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSALiOS/Pods-MSALiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		DF06CB9178C218430A5EDADB /* Pods-MSALiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSALiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSALiOS/Pods-MSALiOS.release.xcconfig"; sourceTree = "<group>"; };
-		FBA79E9D1E9A038700179A54 /* MSALiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MSALiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBA79EA01E9A038700179A54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FBA79EA21E9A038700179A54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FBA79EA51E9A038700179A54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FBA79EA71E9A038700179A54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FBA79EAA1E9A038700179A54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FBA79EAC1E9A038700179A54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBBE358D1E9C476300460053 /* MSALiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MSALiOS.xcodeproj; sourceTree = "<group>"; };
-		FBBE35B41E9DAE6C00460053 /* MSALiOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MSALiOS.entitlements; sourceTree = "<group>"; };
+		D64CF7D422DA9FC300890B2C /* StepUp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = StepUp.xcodeproj; sourceTree = "<group>"; };
+		D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StepUp-Bridging-Header.h"; sourceTree = "<group>"; };
+		D67FEFE022DAA04A00DA34FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D67FEFE222DAA04A00DA34FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D67FEFE322DAA04A00DA34FE /* StepUp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = StepUp.entitlements; sourceTree = "<group>"; };
+		D67FEFE422DAA04A00DA34FE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D67FEFEC22DAA21D00DA34FE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
+		FBA79E9D1E9A038700179A54 /* StepUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC17E926BAC0BBF780DD200 /* Pods_MSALiOS.framework in Frameworks */,
+				EBD35786E7C20552CC63B31B /* Pods_StepUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */,
+				FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -53,24 +56,39 @@
 		C864BFB36A9CE66547F41D83 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C7CBF881BF504F0A15F7FD5C /* Pods-MSALiOS.debug.xcconfig */,
-				DF06CB9178C218430A5EDADB /* Pods-MSALiOS.release.xcconfig */,
+				F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */,
+				237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FB4650C21EBBCE6300E789AD /* Products */ = {
+		D64CF7D522DA9FC300890B2C /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D64CF7D922DA9FE200890B2C /* StepUp */ = {
+			isa = PBXGroup;
+			children = (
+				D67FEFEC22DAA21D00DA34FE /* Main.storyboard */,
+				D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */,
+				D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */,
+				D67FEFE022DAA04A00DA34FE /* Assets.xcassets */,
+				D67FEFE222DAA04A00DA34FE /* Info.plist */,
+				D67FEFE322DAA04A00DA34FE /* StepUp.entitlements */,
+				D67FEFE422DAA04A00DA34FE /* ViewController.swift */,
+				D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */,
+			);
+			path = StepUp;
+			sourceTree = "<group>";
+		};
 		FBA79E941E9A038700179A54 = {
 			isa = PBXGroup;
 			children = (
-				FBBE358D1E9C476300460053 /* MSALiOS.xcodeproj */,
-				FBA79E9F1E9A038700179A54 /* MSALiOS */,
+				D64CF7D922DA9FE200890B2C /* StepUp */,
+				D64CF7D422DA9FC300890B2C /* StepUp.xcodeproj */,
 				FBA79E9E1E9A038700179A54 /* Products */,
 				C864BFB36A9CE66547F41D83 /* Pods */,
 				AED3371A3BA5BB965217412E /* Frameworks */,
@@ -80,31 +98,17 @@
 		FBA79E9E1E9A038700179A54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FBA79E9D1E9A038700179A54 /* MSALiOS.app */,
+				FBA79E9D1E9A038700179A54 /* StepUp.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		FBA79E9F1E9A038700179A54 /* MSALiOS */ = {
-			isa = PBXGroup;
-			children = (
-				FBBE35B41E9DAE6C00460053 /* MSALiOS.entitlements */,
-				FBA79EA01E9A038700179A54 /* AppDelegate.swift */,
-				FBA79EA21E9A038700179A54 /* ViewController.swift */,
-				FBA79EA41E9A038700179A54 /* Main.storyboard */,
-				FBA79EA71E9A038700179A54 /* Assets.xcassets */,
-				FBA79EA91E9A038700179A54 /* LaunchScreen.storyboard */,
-				FBA79EAC1E9A038700179A54 /* Info.plist */,
-			);
-			path = MSALiOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FBA79E9C1E9A038700179A54 /* MSALiOS */ = {
+		FBA79E9C1E9A038700179A54 /* StepUp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FBA79EC51E9A038700179A54 /* Build configuration list for PBXNativeTarget "MSALiOS" */;
+			buildConfigurationList = FBA79EC51E9A038700179A54 /* Build configuration list for PBXNativeTarget "StepUp" */;
 			buildPhases = (
 				CA99DF8CB4EFF07F56D45BE6 /* [CP] Check Pods Manifest.lock */,
 				FBA79E991E9A038700179A54 /* Sources */,
@@ -116,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = MSALiOS;
+			name = StepUp;
 			productName = MSALiOS;
-			productReference = FBA79E9D1E9A038700179A54 /* MSALiOS.app */;
+			productReference = FBA79E9D1E9A038700179A54 /* StepUp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +138,7 @@
 					FBA79E9C1E9A038700179A54 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = JM9222EF99;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -144,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FBA79E981E9A038700179A54 /* Build configuration list for PBXProject "MSALiOS" */;
+			buildConfigurationList = FBA79E981E9A038700179A54 /* Build configuration list for PBXProject "StepUp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -158,13 +162,13 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = FB4650C21EBBCE6300E789AD /* Products */;
-					ProjectRef = FBBE358D1E9C476300460053 /* MSALiOS.xcodeproj */;
+					ProductGroup = D64CF7D522DA9FC300890B2C /* Products */;
+					ProjectRef = D64CF7D422DA9FC300890B2C /* StepUp.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				FBA79E9C1E9A038700179A54 /* MSALiOS */,
+				FBA79E9C1E9A038700179A54 /* StepUp */,
 			);
 		};
 /* End PBXProject section */
@@ -174,9 +178,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA79EAB1E9A038700179A54 /* LaunchScreen.storyboard in Resources */,
-				FBA79EA81E9A038700179A54 /* Assets.xcassets in Resources */,
-				FBA79EA61E9A038700179A54 /* Main.storyboard in Resources */,
+				D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */,
+				D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */,
+				D67FEFEE22DAA23B00DA34FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +193,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MSALiOS/Pods-MSALiOS-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -198,7 +202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSALiOS/Pods-MSALiOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA99DF8CB4EFF07F56D45BE6 /* [CP] Check Pods Manifest.lock */ = {
@@ -212,7 +216,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MSALiOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-StepUp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -226,31 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA79EA31E9A038700179A54 /* ViewController.swift in Sources */,
-				FBA79EA11E9A038700179A54 /* AppDelegate.swift in Sources */,
+				D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */,
+				D67FEFE922DAA04A00DA34FE /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FBA79EA41E9A038700179A54 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBA79EA51E9A038700179A54 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FBA79EA91E9A038700179A54 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBA79EAA1E9A038700179A54 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FBA79EC31E9A038700179A54 /* Debug */ = {
@@ -368,19 +353,20 @@
 		};
 		FBA79EC61E9A038700179A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7CBF881BF504F0A15F7FD5C /* Pods-MSALiOS.debug.xcconfig */;
+			baseConfigurationReference = F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = MSALiOS/MSALiOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
 				DEVELOPMENT_TEAM = JM9222EF99;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = MSALiOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/StepUp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endava.step-up";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StepUp/StepUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
@@ -389,19 +375,20 @@
 		};
 		FBA79EC71E9A038700179A54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF06CB9178C218430A5EDADB /* Pods-MSALiOS.release.xcconfig */;
+			baseConfigurationReference = 237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = MSALiOS/MSALiOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
 				DEVELOPMENT_TEAM = JM9222EF99;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = MSALiOS/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/StepUp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endava.step-up";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StepUp/StepUp-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
@@ -410,7 +397,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FBA79E981E9A038700179A54 /* Build configuration list for PBXProject "MSALiOS" */ = {
+		FBA79E981E9A038700179A54 /* Build configuration list for PBXProject "StepUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBA79EC31E9A038700179A54 /* Debug */,
@@ -419,7 +406,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FBA79EC51E9A038700179A54 /* Build configuration list for PBXNativeTarget "MSALiOS" */ = {
+		FBA79EC51E9A038700179A54 /* Build configuration list for PBXNativeTarget "StepUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBA79EC61E9A038700179A54 /* Debug */,

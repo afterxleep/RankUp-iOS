@@ -14,11 +14,14 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
                              "https://graph.microsoft.com/people.read"]
     let kAuthority = "https://login.microsoftonline.com/0b3fc178-b730-4e8b-9843-e81259237b77"
     
-    
-    // MARK: MSGraph Authentication Settings
+    // MARK: MSGraph Authentication Variables
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
-
+    
+    // MARK: StepUP API Settings
+    let kStepUpURI = "http://localhost:1337/"
+    let kSyncUserPath = "user"
+    
     
     // MARK: App LifeCycle
     override func viewDidLoad() {
@@ -52,12 +55,40 @@ extension ViewController {
     }
 }
 
+// MARK: Retrieve Current Account and Logout
 
-// MARK: Authentication and getting token
+extension ViewController {
+    
+    func currentAccount() -> MSALAccount? {
+        guard let applicationContext = self.applicationContext else { return nil }
+        do {
+            let cachedAccounts = try applicationContext.allAccounts()
+            if !cachedAccounts.isEmpty {
+                return cachedAccounts.first
+            }
+        } catch let error as NSError {
+            print("No accounts stored in cache: \(error)")
+        }
+        return nil
+    }
+    
+    func signOut() {
+        guard let applicationContext = self.applicationContext else { return }
+        guard let account = self.currentAccount() else { return }
+        do {
+            try applicationContext.remove(account)
+            self.accessToken = ""
+        } catch let error as NSError {
+            print("Received error signing account out: \(error)")
+        }
+    }
+}
+
+
+// MARK: Authentication and User Data Retrieval
 extension ViewController {
     
     func authenticateUser() {
-        
         // Check to see if we have a current logged in account.
         // If we don't, then we need to sign someone in.
         guard let currentAccount = self.currentAccount() else {
@@ -84,7 +115,7 @@ extension ViewController {
             }
             self.accessToken = result.accessToken
             print("Access token is \(self.accessToken)")
-            self.getContentWithToken()
+            self.retrieveUserData()
         }
     }
     
@@ -113,22 +144,14 @@ extension ViewController {
             
             self.accessToken = result.accessToken
             print("Refreshed Access token is \(self.accessToken)")
-            self.getContentWithToken()
+            self.retrieveUserData()
         }
     }
     
-    
-    
-    
-    /**
-     This will invoke the call to the Microsoft Graph API. It uses the
-     built in URLSession to create a connection.
-     */
-    
-    func getContentWithToken() {
+    // Registers the User in the StepUP database or updates the access token
+    func retrieveUserData() {
         
-        /*
-        let path = "/people/" // Specify the Graph API endpoint
+        let path = "" // Specify the Graph API endpoint
         let url = URL(string: kGraphURI + path)
         var request = URLRequest(url: url!)
         
@@ -136,53 +159,28 @@ extension ViewController {
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            
             if let error = error {
-                //self.updateLogging(text: "Couldn't get graph result: \(error)")
+                print("Couldn't get graph result: \(error)")
                 return
             }
-            
             guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                
-                //self.updateLogging(text: "Couldn't deserialize result JSON")
+                print("Couldn't deserialize result JSON")
                 return
             }
             
-            //self.updateLogging(text: "Result from Graph: \(result))")
             
-            }.resume()
-         */
+            
+            
+            print("Result from Graph: \(result))")
+        }.resume()
     }
-
 }
 
 
-// MARK: Get account and removing cache
 
 extension ViewController {
     
-    func currentAccount() -> MSALAccount? {
-        guard let applicationContext = self.applicationContext else { return nil }
-        do {
-            let cachedAccounts = try applicationContext.allAccounts()
-            if !cachedAccounts.isEmpty {
-                return cachedAccounts.first
-            }
-        } catch let error as NSError {
-            print("No accounts stored in cache: \(error)")
-        }
-        return nil
+    func syncUser() {
     }
     
-    
-    func signOut() {
-        guard let applicationContext = self.applicationContext else { return }
-        guard let account = self.currentAccount() else { return }
-        do {
-            try applicationContext.remove(account)
-            self.accessToken = ""
-        } catch let error as NSError {
-            print("Received error signing account out: \(error)")
-        }
-    }
 }
