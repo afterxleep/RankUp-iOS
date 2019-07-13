@@ -65,4 +65,3 @@ fastlane/screenshots
 fastlane/test_output
 Pods/
 Podfile.lock
-*.xcworkspace

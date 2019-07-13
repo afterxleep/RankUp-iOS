@@ -133,7 +133,7 @@
 				TargetAttributes = {
 					FBA79E9C1E9A038700179A54 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = QPA5Y64RGS;
+						DevelopmentTeam = JM9222EF99;
 						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -189,7 +189,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MSALiOS/Pods-MSALiOS-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MSALiOS/Pods-MSALiOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -198,7 +198,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MSALiOS/Pods-MSALiOS-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSALiOS/Pods-MSALiOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA99DF8CB4EFF07F56D45BE6 /* [CP] Check Pods Manifest.lock */ = {
@@ -373,13 +373,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MSALiOS/MSALiOS.entitlements;
-				DEVELOPMENT_TEAM = QPA5Y64RGS;
+				DEVELOPMENT_TEAM = JM9222EF99;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MSALiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.identitysample.MSALiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.endava.step-up";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -394,13 +394,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MSALiOS/MSALiOS.entitlements;
-				DEVELOPMENT_TEAM = QPA5Y64RGS;
+				DEVELOPMENT_TEAM = JM9222EF99;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MSALiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.identitysample.MSALiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.endava.step-up";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;

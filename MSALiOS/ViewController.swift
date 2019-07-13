@@ -28,17 +28,18 @@
 import UIKit
 import MSAL
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
-
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
     
     // Update the below to your client ID you received in the portal. The below is for running the demo only
-    let kClientID = "66855f8a-60cd-445e-a9bb-8cd8eadbd3fa"
+    let kClientID = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
     
     // Additional variables for Auth and Graph API
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
-    let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
-    let kAuthority = "https://login.microsoftonline.com/common"
+    let kScopes: [String] = ["https://graph.microsoft.com/user.read",
+                             "https://graph.microsoft.com/analytics.read",
+                             "https://graph.microsoft.com/calendars.read",
+                             "https://graph.microsoft.com/people.read"]
+    let kAuthority = "https://login.microsoftonline.com/0b3fc178-b730-4e8b-9843-e81259237b77"
     
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
