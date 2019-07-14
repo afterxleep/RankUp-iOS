@@ -1,8 +1,15 @@
+//
+//  AuthViewController.swift
+//  StepUp
+//
+//  Created by Daniel Bernal on 7/14/19.
+//
+
 import UIKit
 import MSAL
 
-class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
-    
+class AuthViewController: UIViewController {
+
     // MARK: MSGraph Authentication Settings
     let kClientID = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
     
@@ -18,30 +25,18 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
     
-    // MARK: StepUP API Settings
-    let kStepUpURI = "http://localhost:1337/"
-    let kSyncUserPath = "user"
-    
-    
-    // MARK: App LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
-            try self.initMSAL()
-        } catch let error {
-            print("Unable to create Application Context \(error)")
+            try initMSAL()
+        } catch {
+            print("Could not initialize MSAL")
         }
+        
+
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-}
-
-
-// MARK: MSAL Initialization
-
-extension ViewController {
+    
+    // Inits MSAL
     func initMSAL() throws {
         guard let authorityURL = URL(string: kAuthority) else {
             print("Unable to create authority URL")
@@ -53,12 +48,8 @@ extension ViewController {
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         authenticateUser()
     }
-}
-
-// MARK: Retrieve Current Account and Logout
-
-extension ViewController {
     
+    // Get current account from cache
     func currentAccount() -> MSALAccount? {
         guard let applicationContext = self.applicationContext else { return nil }
         do {
@@ -72,22 +63,6 @@ extension ViewController {
         return nil
     }
     
-    func signOut() {
-        guard let applicationContext = self.applicationContext else { return }
-        guard let account = self.currentAccount() else { return }
-        do {
-            try applicationContext.remove(account)
-            self.accessToken = ""
-        } catch let error as NSError {
-            print("Received error signing account out: \(error)")
-        }
-    }
-}
-
-
-// MARK: Authentication and User Data Retrieval
-extension ViewController {
-    
     func authenticateUser() {
         // Check to see if we have a current logged in account.
         // If we don't, then we need to sign someone in.
@@ -98,7 +73,20 @@ extension ViewController {
         acquireTokenSilently(currentAccount)
     }
     
+    func logOutUser() {
+        guard let applicationContext = self.applicationContext else { return }
+        guard let account = self.currentAccount() else { return }
+        do {
+            try applicationContext.remove(account)
+            self.accessToken = ""
+        } catch let error as NSError {
+            print("Received error signing account out: \(error)")
+        }
+    }
     
+    
+    
+    // Token acquiring
     func acquireTokenInteractively() {
         
         guard let applicationContext = self.applicationContext else { return }
@@ -114,7 +102,8 @@ extension ViewController {
                 return
             }
             self.accessToken = result.accessToken
-            print("Access token is \(self.accessToken)")
+            
+            
             self.retrieveUserData()
         }
     }
@@ -122,6 +111,7 @@ extension ViewController {
     func acquireTokenSilently(_ account : MSALAccount!) {
         guard let applicationContext = self.applicationContext else { return }
         let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
+        print(parameters)
         applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
             if let error = error {
                 let nsError = error as NSError
@@ -136,17 +126,18 @@ extension ViewController {
                 print("Could not acquire token silently: \(error)")
                 return
             }
-            
             guard let result = result else {
                 print("Could not acquire token: No result returned")
                 return
             }
             
             self.accessToken = result.accessToken
-            print("Refreshed Access token is \(self.accessToken)")
+            //print("Refreshed Access token is \(self.accessToken)")
             self.retrieveUserData()
         }
     }
+    
+    
     
     // Registers the User in the StepUP database or updates the access token
     func retrieveUserData() {
@@ -167,20 +158,8 @@ extension ViewController {
                 print("Couldn't deserialize result JSON")
                 return
             }
-            
-            
-            
-            
             print("Result from Graph: \(result))")
-        }.resume()
+            }.resume()
     }
-}
 
-
-
-extension ViewController {
-    
-    func syncUser() {
-    }
-    
 }
