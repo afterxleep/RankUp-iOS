@@ -14,12 +14,13 @@ class AuthViewController: UIViewController {
     let kClientID = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
     
     // Additional variables for Auth and Graph API
-    let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read",
                              "https://graph.microsoft.com/analytics.read",
                              "https://graph.microsoft.com/calendars.read",
                              "https://graph.microsoft.com/people.read"]
     let kAuthority = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
+    
+    let kAPIURI = "http://10.0.0.20:1337"
     
     // MARK: MSGraph Authentication Variables
     var accessToken = String()
@@ -106,7 +107,7 @@ class AuthViewController: UIViewController {
                 return
             }
             self.accessToken = result.accessToken
-            self.syncUserData()
+            self.fetchProfile()
         }
     }
     
@@ -135,19 +136,19 @@ class AuthViewController: UIViewController {
             
             self.accessToken = result.accessToken
             print("Refreshed Access token is \(self.accessToken)")
-            self.syncUserData()
+            self.fetchProfile()
         }
     }
     
     
     // Registers the User in the StepUP database or updates the access token
-    func syncUserData() {
+    func fetchProfile() {
         DispatchQueue.main.async{
-            self.statusLabel.text = "Retrieving Your Data"
+            self.statusLabel.text = "Syncing Stats"
         }
-        
-        let path = "" // Specify the Graph API endpoint
-        let url = URL(string: kGraphURI + path)
+
+        let path = "/me"
+        let url = URL(string: kAPIURI + path)
         var request = URLRequest(url: url!)
         
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
@@ -155,14 +156,14 @@ class AuthViewController: UIViewController {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Couldn't get graph result: \(error)")
+                print("Couldn't get API result: \(error)")
                 return
             }
             guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
                 print("Couldn't deserialize result JSON")
                 return
             }
-            print("Result from Graph: \(result))")
+            print("Result from API: \(result))")
             DispatchQueue.main.async{
                 self.statusLabel.text = "Ready!"
             }
