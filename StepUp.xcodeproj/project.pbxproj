@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */; };
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
 		D67FEFEE22DAA23B00DA34FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFEC22DAA21D00DA34FE /* Main.storyboard */; };
 		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
-		D67FEFF622DAA3EB00DA34FE /* MSALAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFF522DAA3EB00DA34FE /* MSALAuthService.swift */; };
 		D67FEFFF22DBAACE00DA34FE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFFE22DBAACE00DA34FE /* AuthViewController.swift */; };
 		EBD35786E7C20552CC63B31B /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */; };
 /* End PBXBuildFile section */
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
 		AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D64CF7D422DA9FC300890B2C /* StepUp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = StepUp.xcodeproj; sourceTree = "<group>"; };
+		D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicLTStd-Bold.otf"; sourceTree = "<group>"; };
 		D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StepUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		D67FEFE022DAA04A00DA34FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67FEFE222DAA04A00DA34FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,7 +27,6 @@
 		D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67FEFEC22DAA21D00DA34FE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D67FEFF522DAA3EB00DA34FE /* MSALAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALAuthService.swift; sourceTree = "<group>"; };
 		D67FEFFE22DBAACE00DA34FE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
 		FBA79E9D1E9A038700179A54 /* StepUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,17 +63,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D64CF7D522DA9FC300890B2C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		D64CF7D922DA9FE200890B2C /* StepUp */ = {
 			isa = PBXGroup;
 			children = (
-				D67FEFF722DAA48300DA34FE /* Services */,
+				D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */,
 				D67FEFEC22DAA21D00DA34FE /* Main.storyboard */,
 				D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */,
 				D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */,
@@ -87,18 +79,9 @@
 			path = StepUp;
 			sourceTree = "<group>";
 		};
-		D67FEFF722DAA48300DA34FE /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D67FEFF522DAA3EB00DA34FE /* MSALAuthService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		FBA79E941E9A038700179A54 = {
 			isa = PBXGroup;
 			children = (
-				D64CF7D422DA9FC300890B2C /* StepUp.xcodeproj */,
 				D64CF7D922DA9FE200890B2C /* StepUp */,
 				FBA79E9E1E9A038700179A54 /* Products */,
 				C864BFB36A9CE66547F41D83 /* Pods */,
@@ -171,12 +154,6 @@
 			mainGroup = FBA79E941E9A038700179A54;
 			productRefGroup = FBA79E9E1E9A038700179A54 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = D64CF7D522DA9FC300890B2C /* Products */;
-					ProjectRef = D64CF7D422DA9FC300890B2C /* StepUp.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FBA79E9C1E9A038700179A54 /* StepUp */,
@@ -192,6 +169,7 @@
 				D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */,
 				D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */,
 				D67FEFEE22DAA23B00DA34FE /* Main.storyboard in Resources */,
+				D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +221,6 @@
 			files = (
 				D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */,
 				D67FEFFF22DBAACE00DA34FE /* AuthViewController.swift in Sources */,
-				D67FEFF622DAA3EB00DA34FE /* MSALAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

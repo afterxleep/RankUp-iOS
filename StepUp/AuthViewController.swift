@@ -19,14 +19,17 @@ class AuthViewController: UIViewController {
                              "https://graph.microsoft.com/analytics.read",
                              "https://graph.microsoft.com/calendars.read",
                              "https://graph.microsoft.com/people.read"]
-    let kAuthority = "https://login.microsoftonline.com/0b3fc178-b730-4e8b-9843-e81259237b77"
+    let kAuthority = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
     
     // MARK: MSGraph Authentication Variables
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
     
+    @IBOutlet weak var statusLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        statusLabel.text = "Initializing"
         do {
             try initMSAL()
         } catch {
@@ -64,6 +67,9 @@ class AuthViewController: UIViewController {
     }
     
     func authenticateUser() {
+        
+        statusLabel.text = "Authenticating"
+        
         // Check to see if we have a current logged in account.
         // If we don't, then we need to sign someone in.
         guard let currentAccount = self.currentAccount() else {
@@ -84,8 +90,6 @@ class AuthViewController: UIViewController {
         }
     }
     
-    
-    
     // Token acquiring
     func acquireTokenInteractively() {
         
@@ -102,9 +106,7 @@ class AuthViewController: UIViewController {
                 return
             }
             self.accessToken = result.accessToken
-            
-            
-            self.retrieveUserData()
+            self.syncUserData()
         }
     }
     
@@ -132,15 +134,17 @@ class AuthViewController: UIViewController {
             }
             
             self.accessToken = result.accessToken
-            //print("Refreshed Access token is \(self.accessToken)")
-            self.retrieveUserData()
+            print("Refreshed Access token is \(self.accessToken)")
+            self.syncUserData()
         }
     }
     
     
-    
     // Registers the User in the StepUP database or updates the access token
-    func retrieveUserData() {
+    func syncUserData() {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Retrieving Your Data"
+        }
         
         let path = "" // Specify the Graph API endpoint
         let url = URL(string: kGraphURI + path)
@@ -159,7 +163,9 @@ class AuthViewController: UIViewController {
                 return
             }
             print("Result from Graph: \(result))")
+            DispatchQueue.main.async{
+                self.statusLabel.text = "Ready!"
+            }
             }.resume()
     }
-
 }
