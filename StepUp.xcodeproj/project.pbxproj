@@ -19,6 +19,10 @@
 		7AC6D99222EB3B22006F18CE /* SystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99122EB3B22006F18CE /* SystemUtils.swift */; };
 		7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99322EB53FC006F18CE /* LoggedInUserService.swift */; };
 		7AC6D99622EB540A006F18CE /* LoggedInUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99522EB540A006F18CE /* LoggedInUserRepository.swift */; };
+		7AC6D99A22ECA617006F18CE /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99922ECA617006F18CE /* Value.swift */; };
+		7AC6D99D22ECA6D1006F18CE /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99C22ECA6D1006F18CE /* Contact.swift */; };
+		7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */; };
+		7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */; };
 		D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */; };
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
@@ -42,6 +46,10 @@
 		7AC6D99122EB3B22006F18CE /* SystemUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUtils.swift; sourceTree = "<group>"; };
 		7AC6D99322EB53FC006F18CE /* LoggedInUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUserService.swift; sourceTree = "<group>"; };
 		7AC6D99522EB540A006F18CE /* LoggedInUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUserRepository.swift; sourceTree = "<group>"; };
+		7AC6D99922ECA617006F18CE /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		7AC6D99C22ECA6D1006F18CE /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyValuesService.swift; sourceTree = "<group>"; };
+		7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyValuesRepository.swift; sourceTree = "<group>"; };
 		AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicLTStd-Bold.otf"; sourceTree = "<group>"; };
 		D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StepUp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -72,11 +80,9 @@
 		7AC6D97922E8FE5A006F18CE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				7AC6D99B22ECA672006F18CE /* Repositories */,
 				7AC6D98422E90458006F18CE /* Utils */,
 				7AC6D97F22E90246006F18CE /* Models */,
-				7AC6D97A22E8FE9C006F18CE /* Area */,
-				7AC6D97B22E8FEA4006F18CE /* Location */,
-				7AC6D97C22E8FECF006F18CE /* LoggedInUser */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -114,6 +120,8 @@
 				7AC6D98022E90258006F18CE /* Area.swift */,
 				7AC6D98222E90284006F18CE /* Location.swift */,
 				7AC6D98D22EB3239006F18CE /* LoggedInUser.swift */,
+				7AC6D99922ECA617006F18CE /* Value.swift */,
+				7AC6D99C22ECA6D1006F18CE /* Contact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -126,6 +134,34 @@
 				7AC6D99122EB3B22006F18CE /* SystemUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		7AC6D99722ECA58C006F18CE /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		7AC6D99822ECA5A5006F18CE /* Values */ = {
+			isa = PBXGroup;
+			children = (
+				7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */,
+				7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */,
+			);
+			path = Values;
+			sourceTree = "<group>";
+		};
+		7AC6D99B22ECA672006F18CE /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7AC6D99722ECA58C006F18CE /* Feedback */,
+				7AC6D99822ECA5A5006F18CE /* Values */,
+				7AC6D97C22E8FECF006F18CE /* LoggedInUser */,
+				7AC6D97B22E8FEA4006F18CE /* Location */,
+				7AC6D97A22E8FE9C006F18CE /* Area */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		AED3371A3BA5BB965217412E /* Frameworks */ = {
@@ -304,8 +340,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
+				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,
+				7AC6D99A22ECA617006F18CE /* Value.swift in Sources */,
 				7AC6D98622E90468006F18CE /* RequestHelper.swift in Sources */,
+				7AC6D99D22ECA6D1006F18CE /* Contact.swift in Sources */,
+				7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */,
 				7AC6D99622EB540A006F18CE /* LoggedInUserRepository.swift in Sources */,
 				7AC6D99222EB3B22006F18CE /* SystemUtils.swift in Sources */,
 				7AC6D98822E90BEE006F18CE /* AreaRepository.swift in Sources */,

@@ -16,6 +16,7 @@ enum API: Parceable {
     case loggedInUser(SecureToken)
     case newLocalUser(SecureToken, HttpBody)
     case updateLocalUser(SecureToken, HttpBody)
+    case companyValues(SecureToken)
     
     //MARK: - constants
     
@@ -37,7 +38,7 @@ enum API: Parceable {
         var request = URLRequest(url: url)
         
         switch self {
-        case .area(let token), .location(let token), .loggedInUser(let token):
+        case .area(let token), .location(let token), .loggedInUser(let token), .companyValues(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
         case .newLocalUser(let token, let parameter), .updateLocalUser(let token, let parameter):
@@ -70,6 +71,8 @@ enum API: Parceable {
             return "/location"
         case .loggedInUser(_), .newLocalUser(_), .updateLocalUser(_):
             return "/me"
+        case .companyValues(_):
+            return "/value"
         }
     }
     
