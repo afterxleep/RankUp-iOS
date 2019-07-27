@@ -1,15 +1,16 @@
 //
-//  Area.swift
+//  Value.swift
 //  StepUp
 //
-//  Created by Juan combariza on 7/24/19.
+//  Created by Juan combariza on 7/27/19.
 //
 
 import Foundation
 
-struct Area: Codable {
+struct Value: Codable {
     let createdAt: Date
     let updatedAt: Date
     let id: String
     let name: String
+    let image: String
 }
