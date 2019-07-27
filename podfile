@@ -1,5 +1,7 @@
+platform :ios, '11.4'
+
 use_frameworks!
- 
+
 target 'StepUp' do
   pod 'MSAL', '~> 0.4.0'
 end

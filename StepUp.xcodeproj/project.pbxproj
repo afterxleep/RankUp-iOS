@@ -7,17 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B729CB722E8008A002EEA39 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CB622E8008A002EEA39 /* Authentication.storyboard */; };
+		9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CBF22E801A0002EEA39 /* MainViewController.swift */; };
+		9B729CC322E8029C002EEA39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CC222E8029C002EEA39 /* Constants.swift */; };
+		9B729CC622E803F1002EEA39 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CC522E803F1002EEA39 /* Feed.storyboard */; };
+		9B729CC922E806B3002EEA39 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CC822E806B3002EEA39 /* Onboarding.storyboard */; };
 		D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */; };
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
 		D67FEFEE22DAA23B00DA34FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFEC22DAA21D00DA34FE /* Main.storyboard */; };
 		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
-		D67FEFFF22DBAACE00DA34FE /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFFE22DBAACE00DA34FE /* AuthViewController.swift */; };
+		D67FEFFF22DBAACE00DA34FE /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFFE22DBAACE00DA34FE /* AuthenticationViewController.swift */; };
 		EBD35786E7C20552CC63B31B /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
+		9B729CB622E8008A002EEA39 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		9B729CBF22E801A0002EEA39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B729CC222E8029C002EEA39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B729CC522E803F1002EEA39 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		9B729CC822E806B3002EEA39 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TradeGothicLTStd-Bold.otf"; sourceTree = "<group>"; };
 		D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StepUp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -27,7 +37,7 @@
 		D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67FEFEC22DAA21D00DA34FE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D67FEFFE22DBAACE00DA34FE /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		D67FEFFE22DBAACE00DA34FE /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
 		FBA79E9D1E9A038700179A54 /* StepUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +55,131 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B729CB322E80045002EEA39 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CBC22E800F0002EEA39 /* UI */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9B729CB422E8005C002EEA39 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CBB22E800EA002EEA39 /* View Models */,
+				9B729CBA22E800E4002EEA39 /* UI */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		9B729CB522E80063002EEA39 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CB922E800D5002EEA39 /* View Models */,
+				9B729CB822E800CD002EEA39 /* UI */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9B729CB822E800CD002EEA39 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CC822E806B3002EEA39 /* Onboarding.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9B729CB922E800D5002EEA39 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		9B729CBA22E800E4002EEA39 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D67FEFFE22DBAACE00DA34FE /* AuthenticationViewController.swift */,
+				9B729CB622E8008A002EEA39 /* Authentication.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9B729CBB22E800EA002EEA39 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		9B729CBC22E800F0002EEA39 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D67FEFEC22DAA21D00DA34FE /* Main.storyboard */,
+				9B729CBF22E801A0002EEA39 /* MainViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9B729CBD22E80114002EEA39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D67FEFE222DAA04A00DA34FE /* Info.plist */,
+				D67FEFE322DAA04A00DA34FE /* StepUp.entitlements */,
+				D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B729CBE22E8012B002EEA39 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */,
+				D67FEFE022DAA04A00DA34FE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B729CC122E8020B002EEA39 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CC222E8029C002EEA39 /* Constants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9B729CC422E803DE002EEA39 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CCA22E80F9F002EEA39 /* View Models */,
+				9B729CCB22E80FA9002EEA39 /* Models */,
+				9B729CC722E803F6002EEA39 /* UI */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		9B729CC722E803F6002EEA39 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9B729CC522E803F1002EEA39 /* Feed.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9B729CCA22E80F9F002EEA39 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		9B729CCB22E80FA9002EEA39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AED3371A3BA5BB965217412E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,15 +201,15 @@
 		D64CF7D922DA9FE200890B2C /* StepUp */ = {
 			isa = PBXGroup;
 			children = (
-				D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */,
-				D67FEFEC22DAA21D00DA34FE /* Main.storyboard */,
 				D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */,
 				D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */,
-				D67FEFFE22DBAACE00DA34FE /* AuthViewController.swift */,
-				D67FEFE022DAA04A00DA34FE /* Assets.xcassets */,
-				D67FEFE222DAA04A00DA34FE /* Info.plist */,
-				D67FEFE322DAA04A00DA34FE /* StepUp.entitlements */,
-				D67FEFDF22DAA04900DA34FE /* StepUp-Bridging-Header.h */,
+				9B729CB422E8005C002EEA39 /* Authentication */,
+				9B729CC122E8020B002EEA39 /* Common */,
+				9B729CC422E803DE002EEA39 /* Feed */,
+				9B729CB322E80045002EEA39 /* Main */,
+				9B729CB522E80063002EEA39 /* Onboarding */,
+				9B729CBE22E8012B002EEA39 /* Resources */,
+				9B729CBD22E80114002EEA39 /* Supporting Files */,
 			);
 			path = StepUp;
 			sourceTree = "<group>";
@@ -126,14 +261,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					FBA79E9C1E9A038700179A54 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JM9222EF99;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -144,10 +278,9 @@
 			};
 			buildConfigurationList = FBA79E981E9A038700179A54 /* Build configuration list for PBXProject "StepUp" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -166,10 +299,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B729CB722E8008A002EEA39 /* Authentication.storyboard in Resources */,
+				9B729CC622E803F1002EEA39 /* Feed.storyboard in Resources */,
 				D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */,
 				D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */,
 				D67FEFEE22DAA23B00DA34FE /* Main.storyboard in Resources */,
 				D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */,
+				9B729CC922E806B3002EEA39 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +318,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -191,7 +327,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA99DF8CB4EFF07F56D45BE6 /* [CP] Check Pods Manifest.lock */ = {
@@ -219,8 +355,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */,
 				D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */,
-				D67FEFFF22DBAACE00DA34FE /* AuthViewController.swift in Sources */,
+				D67FEFFF22DBAACE00DA34FE /* AuthenticationViewController.swift in Sources */,
+				9B729CC322E8029C002EEA39 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -291,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -347,14 +487,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
-				DEVELOPMENT_TEAM = JM9222EF99;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/StepUp/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endava.step-up";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "StepUp/StepUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -369,14 +511,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
-				DEVELOPMENT_TEAM = JM9222EF99;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/StepUp/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.endava.step-up";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "StepUp/StepUp-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;

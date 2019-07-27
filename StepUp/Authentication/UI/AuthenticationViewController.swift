@@ -1,15 +1,14 @@
 //
-//  AuthViewController.swift
+//  AuthenticationViewController.swift
 //  StepUp
 //
 //  Created by Daniel Bernal on 7/14/19.
 //
 
-import UIKit
 import MSAL
 
-class AuthViewController: UIViewController {
-
+final class AuthenticationViewController: UIViewController {
+    
     // MARK: MSGraph Authentication Settings
     let kClientID = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
     
@@ -36,8 +35,6 @@ class AuthViewController: UIViewController {
         } catch {
             print("Could not initialize MSAL")
         }
-        
-
     }
     
     // Inits MSAL
@@ -146,7 +143,7 @@ class AuthViewController: UIViewController {
         DispatchQueue.main.async{
             self.statusLabel.text = "Syncing Stats"
         }
-
+        
         let path = "/me"
         let url = URL(string: kAPIURI + path)
         var request = URLRequest(url: url!)
@@ -169,4 +166,5 @@ class AuthViewController: UIViewController {
             }
             }.resume()
     }
+    
 }
