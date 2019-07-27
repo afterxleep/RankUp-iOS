@@ -1,5 +1,5 @@
 //
-//  CompanyValuesRepository.swift
+//  FeedbackRepository.swift
 //  StepUp
 //
 //  Created by Juan combariza on 7/27/19.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct CompanyValuesRepository: CompanyValuesService {
-    func retrieveCompanyValues(_ request: URLRequest?, completion: @escaping RetrieveCompanyValuesCompletion) {
+struct FeedbackRepository: FeedbackService {
+    func retrieveFeedbacks(_ request: URLRequest?, completion: @escaping RetrieveFeedbackCompletion) {
         guard let request = request else {
             completion(.failure(.unableToMakeRequest))
             return
@@ -19,7 +19,7 @@ struct CompanyValuesRepository: CompanyValuesService {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let data):
-                guard let model = API.parser(from: data, to: [Value].self) else {
+                guard let model = API.parser(from: data, to: [Feedback].self) else {
                     completion(.failure(.invalidResponse))
                     return
                 }

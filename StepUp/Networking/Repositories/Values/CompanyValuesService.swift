@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias RetrieveCompanyValuesCompletion = (Result<Value, RequestError>) -> Void
+typealias RetrieveCompanyValuesCompletion = (Result<[Value], RequestError>) -> Void
 
 protocol CompanyValuesService {
     func retrieveCompanyValues(_ request: URLRequest?, completion: @escaping RetrieveCompanyValuesCompletion)

@@ -13,6 +13,5 @@ struct Contact: Codable {
     let name: String
     let jobTitle: String
     let email: String
-    let relevance: Int
     let image: String
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct LoggedInUserRepository: LoggedInUserService {
-
+    
     //MARK: - Logged In User request
     
     func retrieveLoggedInUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion) {
@@ -25,6 +25,31 @@ struct LoggedInUserRepository: LoggedInUserService {
     
     func updateLocalUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion) {
         commonRequest(request, completion: completion)
+    }
+    
+    //MARK: - Get relevant contacts request
+    
+    func retrieveRelevantContacts(_ request: URLRequest?, completion: @escaping RetrieveRelevantContactsCompletion) {
+        guard let request = request else {
+            completion(.failure(.unableToMakeRequest))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+            switch BasicRequest.handleBasicResponse(with: data, response: response, error: error) {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let data):
+                guard let model = API.parser(from: data, to: [Contact].self) else {
+                    completion(.failure(.invalidResponse))
+                    return
+                }
+                
+                completion(.success(model))
+            }
+        })
+        
+        task.resume()
     }
     
     //MARK: - auxiliary methods
