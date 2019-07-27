@@ -9,6 +9,10 @@ import Foundation
 
 struct K {
     
+    struct Flags {
+        static let firstLaunch = "firstLaunch"
+    }
+    
     struct Storyboards {
         static let onboarding = "Onboarding"
         static let authentication = "Authentication"

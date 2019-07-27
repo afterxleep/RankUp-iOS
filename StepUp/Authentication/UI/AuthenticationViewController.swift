@@ -145,11 +145,59 @@ final class AuthenticationViewController: UIViewController {
         }
         
         let path = "/me"
-        let url = URL(string: kAPIURI + path)
+        let url = URL(string:
+            kAPIURI + path)
         var request = URLRequest(url: url!)
         
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
+        
+        AreaRepository().retrieveAreaList(API.area(self.accessToken).request) { (result) in
+            switch result {
+            case .success(let areas):
+                print(areas)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        LocationRepository().retrieveLocationList(API.location(self.accessToken).request) { (result) in
+            switch result {
+            case .success(let locations):
+                print(locations)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        LoggedInUserRepository().retrieveLoggedInUser(API.loggedInUser(self.accessToken).request) { (result) in
+            switch result {
+            case .success(let loggedInUser):
+                let body = ["location": loggedInUser.location.id,
+                            "area": loggedInUser.area.id]
+                
+                LoggedInUserRepository().createNewLocalUser(API.newLocalUser(self.accessToken, body).request, completion: { (result) in
+                    switch result {
+                    case .success(let createdLoggedInUser):
+                        print("\(createdLoggedInUser)")
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+                
+                LoggedInUserRepository().updateLocalUser(API.updateLocalUser(self.accessToken, body).request, completion: { (result) in
+                    switch result {
+                    case .success(let updatedLoggedInUser):
+                        print("\(updatedLoggedInUser)")
+                    case .failure(let error):
+                        print(error)
+                    }
+                })
+
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

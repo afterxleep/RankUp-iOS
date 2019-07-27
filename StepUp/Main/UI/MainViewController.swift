@@ -22,9 +22,8 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NotificationCenter.default.addObserver(self, selector: #selector(routeToTrips), name: K.Notifications.onboardingDidFinishNotification, object: nil)
         
-        if UserDefaults.standard.bool(forKey: K.firstLaunchKey) {
+        if UserDefaults.standard.bool(forKey: K.Flags.firstLaunch) {
             route(to: .defaultNavigation)
         } else {
             route(to: .firstLaunch)
