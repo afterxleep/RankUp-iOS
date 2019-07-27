@@ -9,6 +9,7 @@ import Foundation
 
 typealias SecureToken = String
 typealias HttpBody = [String: String]
+typealias UrlParameters = [String: String]
 
 enum API: Parceable {
     case area(SecureToken)
@@ -32,8 +33,8 @@ enum API: Parceable {
     
     //MARK: - get request
     
-    var request: URLRequest? {
-        guard let url = createUrl else {
+    func request(parameters: UrlParameters? = nil) -> URLRequest? {
+        guard let url = createUrl(with: parameters) else {
             return nil
         }
         
@@ -91,16 +92,27 @@ enum API: Parceable {
         }
     }
     
-    private var createUrl: URL? {
+
+    
+    //MARK: - Auxiliary methods
+    
+    private func createUrl(with parameters: UrlParameters?) -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = API.scheme
         urlComponents.host = API.host
         urlComponents.path = endPoint
+        urlComponents.queryItems = queryItems(dictionary: parameters)
         
         return urlComponents.url
     }
     
-    //MARK: - Auxiliary methods
+    private func queryItems(dictionary: UrlParameters?) -> [URLQueryItem]? {
+        guard let dictionary = dictionary else { return nil }
+        
+        return dictionary.map {
+            URLQueryItem(name: $0.0, value: $0.1)
+        }
+    }
     
     private func createHeader(token: String) -> [String: String] {
         return [API.authorizationKey: String(format: API.authorizationValeFormat, token)]

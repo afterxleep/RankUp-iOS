@@ -23,7 +23,7 @@
 		7AC6D99D22ECA6D1006F18CE /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99C22ECA6D1006F18CE /* Contact.swift */; };
 		7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */; };
 		7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */; };
-		7AC6D9A322ECABC3006F18CE /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A222ECABC3006F18CE /* Feedback.swift */; };
+		7AC6D9A322ECABC3006F18CE /* FeedbackFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A222ECABC3006F18CE /* FeedbackFeed.swift */; };
 		7AC6D9A522ECAC6B006F18CE /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A422ECAC6B006F18CE /* FeedbackService.swift */; };
 		7AC6D9A722ECACF8006F18CE /* FeedbackRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */; };
 		D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */; };
@@ -53,7 +53,7 @@
 		7AC6D99C22ECA6D1006F18CE /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyValuesService.swift; sourceTree = "<group>"; };
 		7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyValuesRepository.swift; sourceTree = "<group>"; };
-		7AC6D9A222ECABC3006F18CE /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		7AC6D9A222ECABC3006F18CE /* FeedbackFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackFeed.swift; sourceTree = "<group>"; };
 		7AC6D9A422ECAC6B006F18CE /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
 		7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRepository.swift; sourceTree = "<group>"; };
 		AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 				7AC6D98D22EB3239006F18CE /* LoggedInUser.swift */,
 				7AC6D99922ECA617006F18CE /* Value.swift */,
 				7AC6D99C22ECA6D1006F18CE /* Contact.swift */,
-				7AC6D9A222ECABC3006F18CE /* Feedback.swift */,
+				7AC6D9A222ECABC3006F18CE /* FeedbackFeed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */,
 				7AC6D98322E90284006F18CE /* Location.swift in Sources */,
 				7AC6D98122E90258006F18CE /* Area.swift in Sources */,
-				7AC6D9A322ECABC3006F18CE /* Feedback.swift in Sources */,
+				7AC6D9A322ECABC3006F18CE /* FeedbackFeed.swift in Sources */,
 				D67FEFFF22DBAACE00DA34FE /* AuthViewController.swift in Sources */,
 				7AC6D98E22EB3239006F18CE /* LoggedInUser.swift in Sources */,
 			);
