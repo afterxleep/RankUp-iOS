@@ -9,6 +9,7 @@ import Foundation
 
 typealias SecureToken = String
 typealias HttpBody = [String: String]
+typealias UrlParameters = [String: String]
 
 enum API: Parceable {
     case area(SecureToken)
@@ -16,6 +17,9 @@ enum API: Parceable {
     case loggedInUser(SecureToken)
     case newLocalUser(SecureToken, HttpBody)
     case updateLocalUser(SecureToken, HttpBody)
+    case companyValues(SecureToken)
+    case contacts(SecureToken)
+    case feedback(SecureToken)
     
     //MARK: - constants
     
@@ -29,19 +33,28 @@ enum API: Parceable {
     
     //MARK: - get request
     
-    var request: URLRequest? {
-        guard let url = createUrl else {
+    func request(parameters: UrlParameters? = nil) -> URLRequest? {
+        guard let url = createUrl(with: parameters) else {
             return nil
         }
         
         var request = URLRequest(url: url)
         
         switch self {
-        case .area(let token), .location(let token), .loggedInUser(let token):
+        case .area(let token),
+             .location(let token),
+             .loggedInUser(let token),
+             .companyValues(let token),
+             .contacts(let token),
+             .feedback(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-        case .newLocalUser(let token, let parameter), .updateLocalUser(let token, let parameter):
+        case .newLocalUser(let token, let parameter):
             request.httpMethod = HTTPMethod.post.rawValue
+            request.allHTTPHeaderFields = createHeader(token: token)
+            request.httpBody = createBody(parameters: parameter)
+        case .updateLocalUser(let token, let parameter):
+            request.httpMethod = HTTPMethod.put.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
             request.httpBody = createBody(parameters: parameter)
         }
@@ -70,19 +83,36 @@ enum API: Parceable {
             return "/location"
         case .loggedInUser(_), .newLocalUser(_), .updateLocalUser(_):
             return "/me"
+        case .companyValues(_):
+            return "/value"
+        case .contacts(_):
+            return "/people/relevant-contacts"
+        case .feedback(_):
+            return "/feedback"
         }
     }
     
-    private var createUrl: URL? {
+
+    
+    //MARK: - Auxiliary methods
+    
+    private func createUrl(with parameters: UrlParameters?) -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = API.scheme
         urlComponents.host = API.host
         urlComponents.path = endPoint
+        urlComponents.queryItems = queryItems(dictionary: parameters)
         
         return urlComponents.url
     }
     
-    //MARK: - Auxiliary methods
+    private func queryItems(dictionary: UrlParameters?) -> [URLQueryItem]? {
+        guard let dictionary = dictionary else { return nil }
+        
+        return dictionary.map {
+            URLQueryItem(name: $0.0, value: $0.1)
+        }
+    }
     
     private func createHeader(token: String) -> [String: String] {
         return [API.authorizationKey: String(format: API.authorizationValeFormat, token)]

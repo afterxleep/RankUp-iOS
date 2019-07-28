@@ -152,7 +152,7 @@ final class AuthenticationViewController: UIViewController {
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
         
-        AreaRepository().retrieveAreaList(API.area(self.accessToken).request) { (result) in
+        AreaRepository().retrieveAreaList(API.area(self.accessToken).request()) { (result) in
             switch result {
             case .success(let areas):
                 print(areas)
@@ -161,7 +161,7 @@ final class AuthenticationViewController: UIViewController {
             }
         }
         
-        LocationRepository().retrieveLocationList(API.location(self.accessToken).request) { (result) in
+        LocationRepository().retrieveLocationList(API.location(self.accessToken).request()) { (result) in
             switch result {
             case .success(let locations):
                 print(locations)
@@ -170,13 +170,13 @@ final class AuthenticationViewController: UIViewController {
             }
         }
         
-        LoggedInUserRepository().retrieveLoggedInUser(API.loggedInUser(self.accessToken).request) { (result) in
+        LoggedInUserRepository().retrieveLoggedInUser(API.loggedInUser(self.accessToken).request()) { (result) in
             switch result {
             case .success(let loggedInUser):
                 let body = ["location": loggedInUser.location.id,
                             "area": loggedInUser.area.id]
                 
-                LoggedInUserRepository().createNewLocalUser(API.newLocalUser(self.accessToken, body).request, completion: { (result) in
+                LoggedInUserRepository().createNewLocalUser(API.newLocalUser(self.accessToken, body).request(), completion: { (result) in
                     switch result {
                     case .success(let createdLoggedInUser):
                         print("\(createdLoggedInUser)")
@@ -185,7 +185,7 @@ final class AuthenticationViewController: UIViewController {
                     }
                 })
                 
-                LoggedInUserRepository().updateLocalUser(API.updateLocalUser(self.accessToken, body).request, completion: { (result) in
+                LoggedInUserRepository().updateLocalUser(API.updateLocalUser(self.accessToken, body).request(), completion: { (result) in
                     switch result {
                     case .success(let updatedLoggedInUser):
                         print("\(updatedLoggedInUser)")
@@ -194,6 +194,23 @@ final class AuthenticationViewController: UIViewController {
                     }
                 })
 
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        let params = ["from": "1563757462558",
+                      "to": "1663757462558",
+                      "page":"1",
+                      "value":"12345678",
+                      "user": "5d37ee0b68f99c7a7d5779f6",
+                      "private": "true",
+                      "pinned":"false"]
+        
+        FeedbackRepository().retrieveFeedbacks(API.feedback(self.accessToken).request(parameters: params)) { (result) in
+            switch result {
+            case .success(let feedback):
+                print("\(feedback)")
             case .failure(let error):
                 print(error)
             }
