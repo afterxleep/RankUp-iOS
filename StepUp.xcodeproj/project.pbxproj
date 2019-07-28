@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7931B53E958A60F1BC86C9CC /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C92E92931B9B9B9C64DA2 /* Pods_StepUp.framework */; };
 		7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D97D22E8FEFC006F18CE /* AreaService.swift */; };
 		7AC6D98122E90258006F18CE /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98022E90258006F18CE /* Area.swift */; };
 		7AC6D98322E90284006F18CE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98222E90284006F18CE /* Location.swift */; };
@@ -19,12 +20,6 @@
 		7AC6D99222EB3B22006F18CE /* SystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99122EB3B22006F18CE /* SystemUtils.swift */; };
 		7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99322EB53FC006F18CE /* LoggedInUserService.swift */; };
 		7AC6D99622EB540A006F18CE /* LoggedInUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99522EB540A006F18CE /* LoggedInUserRepository.swift */; };
-		9B55848222EBD72C0020D5DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B55848122EBD72C0020D5DB /* Main.storyboard */; };
-		9B729CB722E8008A002EEA39 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CB622E8008A002EEA39 /* Authentication.storyboard */; };
-		9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CBF22E801A0002EEA39 /* MainViewController.swift */; };
-		9B729CC322E8029C002EEA39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CC222E8029C002EEA39 /* Constants.swift */; };
-		9B729CC622E803F1002EEA39 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CC522E803F1002EEA39 /* Feed.storyboard */; };
-		9B729CC922E806B3002EEA39 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CC822E806B3002EEA39 /* Onboarding.storyboard */; };
 		7AC6D99A22ECA617006F18CE /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99922ECA617006F18CE /* Value.swift */; };
 		7AC6D99D22ECA6D1006F18CE /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99C22ECA6D1006F18CE /* Contact.swift */; };
 		7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */; };
@@ -32,16 +27,22 @@
 		7AC6D9A322ECABC3006F18CE /* FeedbackFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A222ECABC3006F18CE /* FeedbackFeed.swift */; };
 		7AC6D9A522ECAC6B006F18CE /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A422ECAC6B006F18CE /* FeedbackService.swift */; };
 		7AC6D9A722ECACF8006F18CE /* FeedbackRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */; };
-		D6771C2122DC2B3B009A267E /* TradeGothicLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6771C2022DC2B3B009A267E /* TradeGothicLTStd-Bold.otf */; };
+		9B47E06222EDCB6700353A92 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B47E06122EDCB6700353A92 /* AuthenticationViewController.swift */; };
+		9B55848222EBD72C0020D5DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B55848122EBD72C0020D5DB /* Main.storyboard */; };
+		9B729CB722E8008A002EEA39 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CB622E8008A002EEA39 /* Authentication.storyboard */; };
+		9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CBF22E801A0002EEA39 /* MainViewController.swift */; };
+		9B729CC322E8029C002EEA39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CC222E8029C002EEA39 /* Constants.swift */; };
+		9B729CC622E803F1002EEA39 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CC522E803F1002EEA39 /* Feed.storyboard */; };
+		9B729CC922E806B3002EEA39 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CC822E806B3002EEA39 /* Onboarding.storyboard */; };
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
 		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
-		D67FEFFF22DBAACE00DA34FE /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFFE22DBAACE00DA34FE /* AuthenticationViewController.swift */; };
-		EBD35786E7C20552CC63B31B /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
+		02ACF32EAA9EFB961A57980C /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
+		15E59EB3FD54B8D5E0B88180 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
+		700C92E92931B9B9B9C64DA2 /* Pods_StepUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AC6D97D22E8FEFC006F18CE /* AreaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaService.swift; sourceTree = "<group>"; };
 		7AC6D98022E90258006F18CE /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		7AC6D98222E90284006F18CE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -54,12 +55,6 @@
 		7AC6D99122EB3B22006F18CE /* SystemUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUtils.swift; sourceTree = "<group>"; };
 		7AC6D99322EB53FC006F18CE /* LoggedInUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUserService.swift; sourceTree = "<group>"; };
 		7AC6D99522EB540A006F18CE /* LoggedInUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUserRepository.swift; sourceTree = "<group>"; };
-		9B55848122EBD72C0020D5DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		9B729CB622E8008A002EEA39 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
-		9B729CBF22E801A0002EEA39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9B729CC222E8029C002EEA39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9B729CC522E803F1002EEA39 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
-		9B729CC822E806B3002EEA39 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		7AC6D99922ECA617006F18CE /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
 		7AC6D99C22ECA6D1006F18CE /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyValuesService.swift; sourceTree = "<group>"; };
@@ -67,16 +62,19 @@
 		7AC6D9A222ECABC3006F18CE /* FeedbackFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackFeed.swift; sourceTree = "<group>"; };
 		7AC6D9A422ECAC6B006F18CE /* FeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
 		7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRepository.swift; sourceTree = "<group>"; };
-		AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MSALiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B47E06122EDCB6700353A92 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		9B55848122EBD72C0020D5DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9B729CB622E8008A002EEA39 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		9B729CBF22E801A0002EEA39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B729CC222E8029C002EEA39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9B729CC522E803F1002EEA39 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		9B729CC822E806B3002EEA39 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D67FEFE022DAA04A00DA34FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67FEFE222DAA04A00DA34FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D67FEFE322DAA04A00DA34FE /* StepUp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = StepUp.entitlements; sourceTree = "<group>"; };
 		D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D67FEFFE22DBAACE00DA34FE /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
-		F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
 		FBA79E9D1E9A038700179A54 /* StepUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,13 +82,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBD35786E7C20552CC63B31B /* Pods_StepUp.framework in Frameworks */,
+				7931B53E958A60F1BC86C9CC /* Pods_StepUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62F6BFE68C4D8E74F2A6D407 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				700C92E92931B9B9B9C64DA2 /* Pods_StepUp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7AC6D97922E8FE5A006F18CE /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +157,45 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		7AC6D99722ECA58C006F18CE /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				7AC6D9A422ECAC6B006F18CE /* FeedbackService.swift */,
+				7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		7AC6D99822ECA5A5006F18CE /* Values */ = {
+			isa = PBXGroup;
+			children = (
+				7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */,
+				7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */,
+			);
+			path = Values;
+			sourceTree = "<group>";
+		};
+		7AC6D99B22ECA672006F18CE /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7AC6D99722ECA58C006F18CE /* Feedback */,
+				7AC6D99822ECA5A5006F18CE /* Values */,
+				7AC6D97C22E8FECF006F18CE /* LoggedInUser */,
+				7AC6D97B22E8FEA4006F18CE /* Location */,
+				7AC6D97A22E8FE9C006F18CE /* Area */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8AE7AA47BBE7FF4EBFA823D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02ACF32EAA9EFB961A57980C /* Pods-StepUp.debug.xcconfig */,
+				15E59EB3FD54B8D5E0B88180 /* Pods-StepUp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9B729CB322E80045002EEA39 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +240,7 @@
 		9B729CBA22E800E4002EEA39 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D67FEFFE22DBAACE00DA34FE /* AuthenticationViewController.swift */,
+				9B47E06122EDCB6700353A92 /* AuthenticationViewController.swift */,
 				9B729CB622E8008A002EEA39 /* Authentication.storyboard */,
 			);
 			path = UI;
@@ -274,54 +319,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		7AC6D99722ECA58C006F18CE /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				7AC6D9A422ECAC6B006F18CE /* FeedbackService.swift */,
-				7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */,
-			);
-			path = Feedback;
-			sourceTree = "<group>";
-		};
-		7AC6D99822ECA5A5006F18CE /* Values */ = {
-			isa = PBXGroup;
-			children = (
-				7AC6D99E22ECA8EE006F18CE /* CompanyValuesService.swift */,
-				7AC6D9A022ECA94A006F18CE /* CompanyValuesRepository.swift */,
-			);
-			path = Values;
-			sourceTree = "<group>";
-		};
-		7AC6D99B22ECA672006F18CE /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				7AC6D99722ECA58C006F18CE /* Feedback */,
-				7AC6D99822ECA5A5006F18CE /* Values */,
-				7AC6D97C22E8FECF006F18CE /* LoggedInUser */,
-				7AC6D97B22E8FEA4006F18CE /* Location */,
-				7AC6D97A22E8FE9C006F18CE /* Area */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		AED3371A3BA5BB965217412E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AD5263E088346F01270DB01B /* Pods_MSALiOS.framework */,
-				FE7FB2DFA40041F05F4309BD /* Pods_StepUp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C864BFB36A9CE66547F41D83 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */,
-				237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		D64CF7D922DA9FE200890B2C /* StepUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,8 +341,8 @@
 			children = (
 				D64CF7D922DA9FE200890B2C /* StepUp */,
 				FBA79E9E1E9A038700179A54 /* Products */,
-				C864BFB36A9CE66547F41D83 /* Pods */,
-				AED3371A3BA5BB965217412E /* Frameworks */,
+				8AE7AA47BBE7FF4EBFA823D1 /* Pods */,
+				62F6BFE68C4D8E74F2A6D407 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -364,11 +361,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBA79EC51E9A038700179A54 /* Build configuration list for PBXNativeTarget "StepUp" */;
 			buildPhases = (
-				CA99DF8CB4EFF07F56D45BE6 /* [CP] Check Pods Manifest.lock */,
+				8636D33AB5D6A11893985E7B /* [CP] Check Pods Manifest.lock */,
 				FBA79E991E9A038700179A54 /* Sources */,
 				FBA79E9A1E9A038700179A54 /* Frameworks */,
 				FBA79E9B1E9A038700179A54 /* Resources */,
-				62FF8D48DDB503F027F22D2C /* [CP] Embed Pods Frameworks */,
+				2954AF6A424A024C6901D6A3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -436,16 +433,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		62FF8D48DDB503F027F22D2C /* [CP] Embed Pods Frameworks */ = {
+		2954AF6A424A024C6901D6A3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSAL.framework",
 			);
@@ -454,16 +455,20 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CA99DF8CB4EFF07F56D45BE6 /* [CP] Check Pods Manifest.lock */ = {
+		8636D33AB5D6A11893985E7B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StepUp-checkManifestLockResult.txt",
 			);
@@ -480,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */,
+				9B47E06222EDCB6700353A92 /* AuthenticationViewController.swift in Sources */,
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,
@@ -495,14 +501,11 @@
 				7AC6D98A22E92912006F18CE /* LocationService.swift in Sources */,
 				7AC6D98C22E92975006F18CE /* LocationRepository.swift in Sources */,
 				D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */,
-				D67FEFFF22DBAACE00DA34FE /* AuthenticationViewController.swift in Sources */,
 				9B729CC322E8029C002EEA39 /* Constants.swift in Sources */,
 				7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */,
 				7AC6D98322E90284006F18CE /* Location.swift in Sources */,
 				7AC6D98122E90258006F18CE /* Area.swift in Sources */,
-				D67FEFFF22DBAACE00DA34FE /* AuthenticationViewController.swift in Sources */,
 				7AC6D9A322ECABC3006F18CE /* FeedbackFeed.swift in Sources */,
-				D67FEFFF22DBAACE00DA34FE /* AuthViewController.swift in Sources */,
 				7AC6D98E22EB3239006F18CE /* LoggedInUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,11 +630,11 @@
 		};
 		FBA79EC61E9A038700179A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F92928B071A3D15484033FE0 /* Pods-StepUp.debug.xcconfig */;
+			baseConfigurationReference = 02ACF32EAA9EFB961A57980C /* Pods-StepUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "StepUp/Supporting Files/StepUp.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -650,11 +653,11 @@
 		};
 		FBA79EC71E9A038700179A54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 237772D721DA9D8C4A44BEB2 /* Pods-StepUp.release.xcconfig */;
+			baseConfigurationReference = 15E59EB3FD54B8D5E0B88180 /* Pods-StepUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = StepUp/StepUp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "StepUp/Supporting Files/StepUp.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
