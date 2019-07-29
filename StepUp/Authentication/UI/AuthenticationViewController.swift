@@ -19,13 +19,13 @@ final class AuthenticationViewController: UIViewController {
                              "https://graph.microsoft.com/people.read"]
     let kAuthority = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
     
-    let kAPIURI = "http://10.0.0.20:1337"
-    
     // MARK: MSGraph Authentication Variables
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
     
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak private var statusLabel: UILabel!
+    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,12 @@ final class AuthenticationViewController: UIViewController {
             try initMSAL()
         } catch {
             print("Could not initialize MSAL")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SignupViewController {
+            destination.viewModel.accessToken = accessToken
         }
     }
     
@@ -65,7 +71,6 @@ final class AuthenticationViewController: UIViewController {
     }
     
     func authenticateUser() {
-        
         statusLabel.text = "Authenticating"
         
         // Check to see if we have a current logged in account.
@@ -90,7 +95,6 @@ final class AuthenticationViewController: UIViewController {
     
     // Token acquiring
     func acquireTokenInteractively() {
-        
         guard let applicationContext = self.applicationContext else { return }
         let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
         applicationContext.acquireToken(with: parameters) { (result, error) in
@@ -104,7 +108,8 @@ final class AuthenticationViewController: UIViewController {
                 return
             }
             self.accessToken = result.accessToken
-            self.fetchProfile()
+            
+            self.routeToSignupView()
         }
     }
     
@@ -133,103 +138,15 @@ final class AuthenticationViewController: UIViewController {
             
             self.accessToken = result.accessToken
             print("Refreshed Access token is \(self.accessToken)")
-            self.fetchProfile()
+            
+            self.routeToSignupView()
         }
     }
     
-    
-    // Registers the User in the StepUP database or updates the access token
-    func fetchProfile() {
-        DispatchQueue.main.async{
-            self.statusLabel.text = "Syncing Stats"
+    private func routeToSignupView() {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: K.Segues.registrationSegue, sender: nil)
         }
-        
-        let path = "/me"
-        let url = URL(string:
-            kAPIURI + path)
-        var request = URLRequest(url: url!)
-        
-        // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-        
-        AreaRepository().retrieveAreaList(API.area(self.accessToken).request()) { (result) in
-            switch result {
-            case .success(let areas):
-                print(areas)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        LocationRepository().retrieveLocationList(API.location(self.accessToken).request()) { (result) in
-            switch result {
-            case .success(let locations):
-                print(locations)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        LoggedInUserRepository().retrieveLoggedInUser(API.loggedInUser(self.accessToken).request()) { (result) in
-            switch result {
-            case .success(let loggedInUser):
-                let body = ["location": loggedInUser.location.id,
-                            "area": loggedInUser.area.id]
-                
-                LoggedInUserRepository().createNewLocalUser(API.newLocalUser(self.accessToken, body).request(), completion: { (result) in
-                    switch result {
-                    case .success(let createdLoggedInUser):
-                        print("\(createdLoggedInUser)")
-                    case .failure(let error):
-                        print(error)
-                    }
-                })
-                
-                LoggedInUserRepository().updateLocalUser(API.updateLocalUser(self.accessToken, body).request(), completion: { (result) in
-                    switch result {
-                    case .success(let updatedLoggedInUser):
-                        print("\(updatedLoggedInUser)")
-                    case .failure(let error):
-                        print(error)
-                    }
-                })
-
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        let params = ["from": "1563757462558",
-                      "to": "1663757462558",
-                      "page":"1",
-                      "value":"12345678",
-                      "user": "5d37ee0b68f99c7a7d5779f6",
-                      "private": "true",
-                      "pinned":"false"]
-        
-        FeedbackRepository().retrieveFeedbacks(API.feedback(self.accessToken).request(parameters: params)) { (result) in
-            switch result {
-            case .success(let feedback):
-                print("\(feedback)")
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Couldn't get API result: \(error)")
-                return
-            }
-            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                print("Couldn't deserialize result JSON")
-                return
-            }
-            print("Result from API: \(result))")
-            DispatchQueue.main.async{
-                self.statusLabel.text = "Ready!"
-            }
-            }.resume()
     }
     
 }
