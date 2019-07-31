@@ -9,25 +9,19 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
-    private enum ApplicationState {
-        case firstLaunch
-        case defaultNavigation
-    }
-    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var containerView: UIView!
+    
+    // MARK: - Stored Properties
+    
+    var viewModel: MainViewModel? = MainViewModel()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UserDefaults.standard.bool(forKey: K.Flags.firstLaunch) {
-            route(to: .defaultNavigation)
-        } else {
-            route(to: .firstLaunch)
-        }
+        loadInitialController()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -36,8 +30,8 @@ final class MainViewController: UIViewController {
     
     // MARK: - Route
     
-    private func route(to state: ApplicationState) {
-        let storyboardName = state == .defaultNavigation ? K.Storyboards.feed : K.Storyboards.authentication
+    private func loadInitialController() {
+        guard let storyboardName = viewModel?.initialStoryboard else { return }
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         guard let controller = storyboard.instantiateInitialViewController() else { return }
         addChildViewController(viewController: controller)
@@ -61,12 +55,6 @@ final class MainViewController: UIViewController {
         viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
         viewController.removeFromParent()
-    }
-    
-    @objc private func routeToTrips() {
-        guard let childVC = children.first else { return }
-        removeChildViewController(viewController: childVC)
-        route(to: .defaultNavigation)
     }
     
 }

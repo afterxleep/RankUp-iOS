@@ -38,6 +38,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.2235071133" green="0.52108454810000004" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="0Ie-MH-NXr" kind="presentation" identifier="feedSegue" id="DjT-ID-2yu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,6 +74,14 @@
             </objects>
             <point key="canvasLocation" x="1183" y="-220"/>
         </scene>
+        <!--Feed-->
+        <scene sceneID="jzh-TT-1qp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feed" id="0Ie-MH-NXr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sFK-xj-Hmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2029" y="-511"/>
+        </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="mM4-Ve-ewH">
             <objects>
@@ -79,33 +90,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qVN-g1-uSZ">
-                                <rect key="frame" x="147" y="358" width="120" height="180"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="qVN-g1-uSZ">
+                                <rect key="frame" x="147" y="244" width="120" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="46x-yt-oC4"/>
                                     <constraint firstAttribute="width" constant="120" id="VcX-ku-oVS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOM-HZ-Hll">
-                                <rect key="frame" x="181.5" y="580" width="51" height="24"/>
+                                <rect key="frame" x="60" y="466" width="294" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.2235071133" green="0.52108454810000004" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35H-Ci-zWH">
-                                <rect key="frame" x="187.5" y="616" width="39.5" height="19"/>
+                                <rect key="frame" x="60" y="502" width="294" height="19"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="35H-Ci-zWH" firstAttribute="trailing" secondItem="LOM-HZ-Hll" secondAttribute="trailing" id="019-CO-46J"/>
+                            <constraint firstItem="LOM-HZ-Hll" firstAttribute="leading" secondItem="tAq-Cc-QdY" secondAttribute="leadingMargin" constant="40" id="0hp-61-Nwm"/>
                             <constraint firstItem="35H-Ci-zWH" firstAttribute="top" secondItem="LOM-HZ-Hll" secondAttribute="bottom" constant="12" id="26h-QZ-2KL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LOM-HZ-Hll" secondAttribute="trailing" constant="40" id="Afp-XR-1Eu"/>
                             <constraint firstItem="qVN-g1-uSZ" firstAttribute="centerX" secondItem="tAq-Cc-QdY" secondAttribute="centerX" id="CzU-SA-Tmh"/>
-                            <constraint firstItem="35H-Ci-zWH" firstAttribute="centerX" secondItem="LOM-HZ-Hll" secondAttribute="centerX" id="Eao-Uw-5WC"/>
-                            <constraint firstItem="LOM-HZ-Hll" firstAttribute="centerX" secondItem="qVN-g1-uSZ" secondAttribute="centerX" id="Xi2-08-p8Q"/>
+                            <constraint firstItem="35H-Ci-zWH" firstAttribute="leading" secondItem="LOM-HZ-Hll" secondAttribute="leading" id="T6d-hH-izI"/>
+                            <constraint firstItem="qVN-g1-uSZ" firstAttribute="top" secondItem="req-or-gR8" secondAttribute="top" constant="200" id="aUq-FE-DsT"/>
                             <constraint firstItem="LOM-HZ-Hll" firstAttribute="top" secondItem="qVN-g1-uSZ" secondAttribute="bottom" constant="42" id="oOs-Cx-lUR"/>
-                            <constraint firstItem="qVN-g1-uSZ" firstAttribute="centerY" secondItem="tAq-Cc-QdY" secondAttribute="centerY" id="tkH-MS-Pgw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="req-or-gR8"/>
                     </view>
@@ -120,4 +133,7 @@
             <point key="canvasLocation" x="2030" y="-930"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="onboarding1" width="256" height="256"/>
+    </resources>
 </document>

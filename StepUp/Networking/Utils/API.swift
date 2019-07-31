@@ -110,7 +110,7 @@ enum API: Parceable {
         guard let dictionary = dictionary else { return nil }
         
         return dictionary.map {
-            URLQueryItem(name: $0.0, value: $0.1)
+            URLQueryItem(name: $0.key, value: $0.value)
         }
     }
     
