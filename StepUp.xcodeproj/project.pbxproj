@@ -11,6 +11,8 @@
 		7A77E6D522F092F700741749 /* RankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D422F092F700741749 /* RankService.swift */; };
 		7A77E6D722F0930100741749 /* RankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D622F0930100741749 /* RankRepository.swift */; };
 		7A77E6D922F0ABEA00741749 /* NonRegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D822F0ABEA00741749 /* NonRegisterUser.swift */; };
+		7A77E6DC22F2467300741749 /* MSALService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DB22F2467300741749 /* MSALService.swift */; };
+		7A77E6DE22F2468000741749 /* MSALRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DD22F2468000741749 /* MSALRepository.swift */; };
 		7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D97D22E8FEFC006F18CE /* AreaService.swift */; };
 		7AC6D98122E90258006F18CE /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98022E90258006F18CE /* Area.swift */; };
 		7AC6D98322E90284006F18CE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98222E90284006F18CE /* Location.swift */; };
@@ -47,6 +49,8 @@
 		7A77E6D422F092F700741749 /* RankService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankService.swift; sourceTree = "<group>"; };
 		7A77E6D622F0930100741749 /* RankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankRepository.swift; sourceTree = "<group>"; };
 		7A77E6D822F0ABEA00741749 /* NonRegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonRegisterUser.swift; sourceTree = "<group>"; };
+		7A77E6DB22F2467300741749 /* MSALService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALService.swift; sourceTree = "<group>"; };
+		7A77E6DD22F2468000741749 /* MSALRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALRepository.swift; sourceTree = "<group>"; };
 		7AC6D97D22E8FEFC006F18CE /* AreaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaService.swift; sourceTree = "<group>"; };
 		7AC6D98022E90258006F18CE /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		7AC6D98222E90284006F18CE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 				7A77E6D622F0930100741749 /* RankRepository.swift */,
 			);
 			path = Rank;
+			sourceTree = "<group>";
+		};
+		7A77E6DA22F2462C00741749 /* MSAL */ = {
+			isa = PBXGroup;
+			children = (
+				7A77E6DB22F2467300741749 /* MSALService.swift */,
+				7A77E6DD22F2468000741749 /* MSALRepository.swift */,
+			);
+			path = MSAL;
 			sourceTree = "<group>";
 		};
 		7AC6D97922E8FE5A006F18CE /* Networking */ = {
@@ -182,6 +195,7 @@
 		7AC6D99B22ECA672006F18CE /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				7A77E6DA22F2462C00741749 /* MSAL */,
 				7A77E6D322F092EA00741749 /* Rank */,
 				7AC6D99722ECA58C006F18CE /* Feedback */,
 				7AC6D99822ECA5A5006F18CE /* Values */,
@@ -374,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A77E6DC22F2467300741749 /* MSALService.swift in Sources */,
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
 				7A77E6D222F0927C00741749 /* Rank.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
@@ -381,6 +396,7 @@
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,
 				7AC6D99A22ECA617006F18CE /* Value.swift in Sources */,
 				7AC6D98622E90468006F18CE /* RequestHelper.swift in Sources */,
+				7A77E6DE22F2468000741749 /* MSALRepository.swift in Sources */,
 				7AC6D99D22ECA6D1006F18CE /* Contact.swift in Sources */,
 				7AC6D9A522ECAC6B006F18CE /* FeedbackService.swift in Sources */,
 				7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */,

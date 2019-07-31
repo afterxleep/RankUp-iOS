@@ -95,8 +95,7 @@ class AuthViewController: UIViewController {
     func acquireTokenInteractively() {
         
         guard let applicationContext = self.applicationContext else { return }
-        let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
-        applicationContext.acquireToken(with: parameters) { (result, error) in
+        applicationContext.acquireToken(forScopes: kScopes, loginHint: nil, promptType: .consent, extraQueryParameters: ["domain_hint": "endava.com"]) { (result, error) in
             if let error = error {
                 print("Could not acquire token: \(error)")
                 return
