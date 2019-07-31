@@ -177,17 +177,8 @@ class AuthViewController: UIViewController {
             switch result {
             case .success(let loggedInUser, let nonRegisterUser):
                 if let nonRegisterUser = nonRegisterUser {
-                    let body = ["location": "5d34ff91fca3b9104a74c2b0",
-                                "area": "5d350b963d25dc15994fdf8e"]
-                    
-                    LoggedInUserRepository().registerUser(API.registerUser(self.accessToken, body).request(), completion: { (result) in
-                        switch result {
-                        case .success(let createdLoggedInUser):
-                            print("\(createdLoggedInUser)")
-                        case .failure(let error):
-                            print(error)
-                        }
-                    })
+                    print("\(nonRegisterUser)")
+                    self.registerUser(token: self.accessToken)
                 } else {
                     print("\(loggedInUser)")
                 }
@@ -204,7 +195,7 @@ class AuthViewController: UIViewController {
                       "private": "true",
                       "pinned":"false"]
         
-        FeedbackRepository().retrieveFeedbacks(API.feedback(self.accessToken).request()) { (result) in
+        FeedbackRepository().retrieveFeedbacks(API.feedback(self.accessToken).request(parameters: params)) { (result) in
             switch result {
             case .success(let feedback):
                 print("\(feedback)")
@@ -241,5 +232,19 @@ class AuthViewController: UIViewController {
                 self.statusLabel.text = "Ready!"
             }
             }.resume()
+    }
+    
+    private func registerUser(token: String) {
+        let body = ["location": "5d34ff91fca3b9104a74c2b0",
+                    "area": "5d350b963d25dc15994fdf8e"]
+        
+        LoggedInUserRepository().registerUser(API.registerUser(token, body).request(), completion: { (result) in
+            switch result {
+            case .success(let createdLoggedInUser):
+                print("\(createdLoggedInUser)")
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 }

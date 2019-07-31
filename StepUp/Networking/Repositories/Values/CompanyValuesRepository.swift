@@ -8,6 +8,9 @@
 import Foundation
 
 struct CompanyValuesRepository: CompanyValuesService {
+    
+    //MARK: - Values request
+    
     func retrieveCompanyValues(_ request: URLRequest?, completion: @escaping RetrieveCompanyValuesCompletion) {
         guard let request = request else {
             completion(.failure(.unableToMakeRequest))

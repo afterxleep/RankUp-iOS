@@ -20,6 +20,7 @@ enum API: Parseable {
     case companyValues(SecureToken)
     case contacts(SecureToken)
     case feedback(SecureToken)
+    case createFeedback(SecureToken, HttpBody)
     case rank(SecureToken)
     
     //MARK: - constants
@@ -53,14 +54,14 @@ enum API: Parseable {
              .rank(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-        case .registerUser(let token, let parameter):
+        case .registerUser(let token, let body), .createFeedback(let token, let body):
             request.httpMethod = HTTPMethod.post.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-            request.httpBody = createBody(parameters: parameter)
-        case .updateLocalUser(let token, let parameter):
+            request.httpBody = createBody(parameters: body)
+        case .updateLocalUser(let token, let body):
             request.httpMethod = HTTPMethod.put.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-            request.httpBody = createBody(parameters: parameter)
+            request.httpBody = createBody(parameters: body)
         }
         
         return request
@@ -91,7 +92,7 @@ enum API: Parseable {
             return "/value"
         case .contacts(_):
             return "/people/relevant-contacts"
-        case .feedback(_):
+        case .feedback(_), .createFeedback(_):
             return "/feedback"
         case .rank(_):
             return "/ranking"

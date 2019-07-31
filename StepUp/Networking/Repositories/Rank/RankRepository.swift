@@ -8,6 +8,9 @@
 import Foundation
 
 struct RankRepository: RankService {
+    
+    //MARK: - Rank request
+    
     func retrieveRanks(_ request: URLRequest?, completion: @escaping RetrieveRanksCompletion) {
         guard let request = request else {
             completion(.failure(.unableToMakeRequest))
