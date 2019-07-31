@@ -173,30 +173,24 @@ class AuthViewController: UIViewController {
             }
         }
         
-        LoggedInUserRepository().retrieveLoggedInUser(API.loggedInUser(self.accessToken).request()) { (result) in
+        LoggedInUserRepository().retrieveUserInformation(API.loggedInUser(self.accessToken).request()) { (result) in
             switch result {
-            case .success(let loggedInUser):
-                let body = ["location": loggedInUser.location.id,
-                            "area": loggedInUser.area.id]
-                
-                LoggedInUserRepository().createNewLocalUser(API.newLocalUser(self.accessToken, body).request(), completion: { (result) in
-                    switch result {
-                    case .success(let createdLoggedInUser):
-                        print("\(createdLoggedInUser)")
-                    case .failure(let error):
-                        print(error)
-                    }
-                })
-                
-                LoggedInUserRepository().updateLocalUser(API.updateLocalUser(self.accessToken, body).request(), completion: { (result) in
-                    switch result {
-                    case .success(let updatedLoggedInUser):
-                        print("\(updatedLoggedInUser)")
-                    case .failure(let error):
-                        print(error)
-                    }
-                })
-
+            case .success(let loggedInUser, let nonRegisterUser):
+                if let nonRegisterUser = nonRegisterUser {
+                    let body = ["location": "5d34ff91fca3b9104a74c2b0",
+                                "area": "5d350b963d25dc15994fdf8e"]
+                    
+                    LoggedInUserRepository().registerUser(API.registerUser(self.accessToken, body).request(), completion: { (result) in
+                        switch result {
+                        case .success(let createdLoggedInUser):
+                            print("\(createdLoggedInUser)")
+                        case .failure(let error):
+                            print(error)
+                        }
+                    })
+                } else {
+                    print("\(loggedInUser)")
+                }
             case .failure(let error):
                 print(error)
             }
@@ -210,10 +204,24 @@ class AuthViewController: UIViewController {
                       "private": "true",
                       "pinned":"false"]
         
-        FeedbackRepository().retrieveFeedbacks(API.feedback(self.accessToken).request(parameters: params)) { (result) in
+        FeedbackRepository().retrieveFeedbacks(API.feedback(self.accessToken).request()) { (result) in
             switch result {
             case .success(let feedback):
                 print("\(feedback)")
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        let rankFilter = ["page": "1",
+                          "value": "Open",
+                          "location": "Bogotá",
+                          "area": "Development"]
+        
+        RankRepository().retrieveRanks(API.rank(self.accessToken).request(parameters: rankFilter)) { (result) in
+            switch result {
+            case .success(let ranks):
+                print("\(ranks)")
             case .failure(let error):
                 print(error)
             }

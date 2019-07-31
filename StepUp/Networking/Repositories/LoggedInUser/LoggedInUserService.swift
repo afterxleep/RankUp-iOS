@@ -9,10 +9,20 @@ import Foundation
 
 typealias RetrieveLoggedInUserCompletion = (Result<LoggedInUser, RequestError>) -> Void
 typealias RetrieveRelevantContactsCompletion = (Result<[Contact], RequestError>) -> Void
+typealias UserInformation = (LoggedInUser?,NonResgisterUser?)
+typealias RetrieveUserInformationCompletion = (Result<UserInformation, LoggedInUserRequestError>) -> Void
+
+enum LoggedInUserRequestError: Error {
+    case unableToMakeRequest
+    case requestFailed
+    case invalidResponse
+    case emptyResponse
+    case nonRegisterUser(Data)
+}
 
 protocol LoggedInUserService {
-    func retrieveLoggedInUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion)
-    func createNewLocalUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion)
-    func updateLocalUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion)
+    func retrieveUserInformation(_ request: URLRequest?, completion: @escaping RetrieveUserInformationCompletion)
+    func registerUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion)
+    func updateUser(_ request: URLRequest?, completion: @escaping RetrieveLoggedInUserCompletion)
     func retrieveRelevantContacts(_ request: URLRequest?, completion: @escaping RetrieveRelevantContactsCompletion)
 }

@@ -34,8 +34,8 @@ struct BasicRequest {
         guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
             return .failure(.requestFailed)
         }
-        
-        guard statusCode >= 100 && statusCode < 400 else {
+
+        guard (200...299).contains(statusCode) else {
             return .failure(.requestFailed)
         }
         
