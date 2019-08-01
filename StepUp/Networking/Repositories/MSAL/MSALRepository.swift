@@ -8,36 +8,74 @@
 import Foundation
 import MSAL
 
-final class MSALRepository {
+final class MSALRepository: MSALService {
+
+    // MARK: Constants
     
-    // MARK: MSGraph Authentication Settings
+    private let kClientID               = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
+    private let kScopes: [String]       = ["https://graph.microsoft.com/user.read",
+                                           "https://graph.microsoft.com/analytics.read",
+                                           "https://graph.microsoft.com/calendars.read",
+                                           "https://graph.microsoft.com/people.read"]
+    private let kAuthority              = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
+    private let domainHintKey           = "domain_hint"
+    private let domainHintValue         = "endava.com"
     
-    private let kClientID = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
-    private let kScopes: [String] = ["https://graph.microsoft.com/user.read",
-                             "https://graph.microsoft.com/analytics.read",
-                             "https://graph.microsoft.com/calendars.read",
-                             "https://graph.microsoft.com/people.read"]
-    private let kAuthority = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
+    // MARK: Variables
     
-    // MARK: MSGraph Authentication Variables
+    private var applicationContext : MSALPublicClientApplication?
+    weak var delegate: MSALDelegate?
     
-    var accessToken: String?
-    var applicationContext : MSALPublicClientApplication?
+    // MARK: - get token
     
-    // MARK: - Initialazer
-    
-    init() {
+    func retrieveSecurityToken(completion: @escaping RetrieveTokenCompletion) {
+        delegate?.initializing(self)
         do {
-            try self.initMSAL()
+            try self.initMSAL(completion: completion)
         } catch {
-            print("Could not initialize MSAL")
+            completion(.failure(.unableToInitializeMSAL))
         }
     }
     
-    // MARK: - Authenticate user
+    func logOutUser() {
+        guard let applicationContext = self.applicationContext else { return }
+        guard let account = self.currentAccount() else { return }
+        do {
+            try applicationContext.remove(account)
+        } catch let error as NSError {
+            print("Received error signing account out: \(error)")
+        }
+    }
     
-    func currentAccount() -> MSALAccount? {
+    // MARK: - Auxiliary methods
+    
+    private func initMSAL(completion: @escaping RetrieveTokenCompletion) throws {
+        guard let authorityURL = URL(string: kAuthority) else {
+            completion(.failure(.unableToCreateAuthorityURL))
+            return
+        }
+        
+        let authority = try MSALAADAuthority(url: authorityURL)
+        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
+        applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
+        
+        authenticateUser(completion: completion)
+    }
+    
+    private func authenticateUser(completion: @escaping RetrieveTokenCompletion) {
+        delegate?.authenticating(self)
+        
+        guard let currentAccount = currentAccount() else {
+            acquireTokenInteractively(completion: completion)
+            return
+        }
+        
+        acquireTokenSilently(currentAccount, completion: completion)
+    }
+    
+    private func currentAccount() -> MSALAccount? {
         guard let applicationContext = self.applicationContext else { return nil }
+        
         do {
             let cachedAccounts = try applicationContext.allAccounts()
             if !cachedAccounts.isEmpty {
@@ -46,87 +84,55 @@ final class MSALRepository {
         } catch let error as NSError {
             print("No accounts stored in cache: \(error)")
         }
+        
         return nil
     }
     
-    func authenticateUser() {
-        guard let currentAccount = currentAccount() else {
-            acquireTokenInteractively()
-            return
-        }
-        
-        acquireTokenSilently(currentAccount)
-    }
-    
-    func logOutUser() {
-        guard let applicationContext = self.applicationContext else { return }
-        guard let account = self.currentAccount() else { return }
-        do {
-            try applicationContext.remove(account)
-            self.accessToken = ""
-        } catch let error as NSError {
-            print("Received error signing account out: \(error)")
-        }
-    }
-    
-    // MARK: - Auxiliary methods
-    
-    private func initMSAL() throws {
-        guard let authorityURL = URL(string: kAuthority) else {
-            print("Unable to create authority URL")
-            return
-        }
-        
-        let authority = try MSALAADAuthority(url: authorityURL)
-        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
-        applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-    }
-    
-    private func acquireTokenInteractively() {
-        
+    private func acquireTokenInteractively(completion: @escaping RetrieveTokenCompletion) {
         guard let applicationContext = self.applicationContext else { return }
         
-        let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
-        applicationContext.acquireToken(with: parameters) { (result, error) in
-            if let error = error {
-                print("Could not acquire token: \(error)")
-                return
-            }
-            
-            guard let result = result else {
-                print("Could not acquire token: No result returned")
-                return
-            }
-            
-            self.accessToken = result.accessToken
+        applicationContext.acquireToken(forScopes: kScopes,
+                                        loginHint: nil,
+                                        promptType: .consent,
+                                        extraQueryParameters: [domainHintKey: domainHintValue]) { [weak self] (result, error) in
+                                            guard let strongSelf = self else { return }
+                                            
+                                            if  error != nil {
+                                                completion(.failure(.unableToAcquireToken))
+                                                return
+                                            }
+                                            
+                                            guard let result = result else {
+                                                completion(.failure(.unableToAcquireToken))
+                                                return
+                                            }
+                                            
+                                            strongSelf.delegate?.accessTokenDidAcquired(strongSelf)
+                                            completion(.success(result.accessToken))
         }
     }
     
-    private func acquireTokenSilently(_ account : MSALAccount!) {
+    private func acquireTokenSilently(_ account : MSALAccount!, completion: @escaping RetrieveTokenCompletion) {
         guard let applicationContext = self.applicationContext else { return }
         
         let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
         print(parameters)
-        applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
-            if let error = error {
-                let nsError = error as NSError
-                if (nsError.domain == MSALErrorDomain) {
-                    if (nsError.code == MSALError.interactionRequired.rawValue) {
-                        DispatchQueue.main.async {
-                            self.acquireTokenInteractively()
-                        }
-                        return
-                    }
-                }
-                print("Could not acquire token silently: \(error)")
-                return
-            }
-            guard let result = result else {
-                print("Could not acquire token: No result returned")
+        applicationContext.acquireTokenSilent(with: parameters) { [weak self] (result, error) in
+            guard let strongSelf = self else { return }
+            
+            if let error = error as NSError?, error.domain == MSALErrorDomain, error.code == MSALError.interactionRequired.rawValue {
+                strongSelf.acquireTokenInteractively(completion: completion)
+                
                 return
             }
             
-            self.accessToken = result.accessToken
+            guard let result = result else {
+                completion(.failure(.unableToAcquireToken))
+                return
+            }
+            
+            strongSelf.delegate?.accessTokenDidAcquired(strongSelf)
+            completion(.success(result.accessToken))
         }
     }
 }
