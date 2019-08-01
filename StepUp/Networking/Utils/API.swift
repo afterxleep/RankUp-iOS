@@ -16,7 +16,7 @@ enum API: Parseable {
     case location(SecureToken)
     case loggedInUser(SecureToken)
     case registerUser(SecureToken, HttpBody)
-    case updateLocalUser(SecureToken, HttpBody)
+    case updateUser(SecureToken, HttpBody)
     case companyValues(SecureToken)
     case contacts(SecureToken)
     case feedback(SecureToken)
@@ -58,7 +58,7 @@ enum API: Parseable {
             request.httpMethod = HTTPMethod.post.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
             request.httpBody = createBody(parameters: body)
-        case .updateLocalUser(let token, let body):
+        case .updateUser(let token, let body):
             request.httpMethod = HTTPMethod.put.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
             request.httpBody = createBody(parameters: body)
@@ -86,7 +86,7 @@ enum API: Parseable {
             return "/area"
         case .location(_):
             return "/location"
-        case .loggedInUser(_), .updateLocalUser(_), .registerUser(_):
+        case .loggedInUser(_), .updateUser(_), .registerUser(_):
             return "/me"
         case .companyValues(_):
             return "/value"

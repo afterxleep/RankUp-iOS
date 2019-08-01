@@ -12,17 +12,17 @@ class AuthViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     
-    lazy var repository: MSALRepository = {
-        let repository = MSALRepository()
-        repository.delegate = self
+    lazy var commonApi: APIClientService = {
+        let api = APIClientRepository()
+        api.msalDelegate = self
         
-        return repository
+        return api
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        repository.retrieveSecurityToken { (result) in
+        commonApi.securityToken { (result) in
             switch result {
             case .success(let token):
                 self.fetchProfile(token: token)
