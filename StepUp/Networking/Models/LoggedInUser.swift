@@ -21,11 +21,11 @@ struct LoggedInUser: Codable {
     let area: Area
     let rank: Int
     let score: Int
-    let valueScore: ValuePoints
+    let valuePoints: ValuePoints
     let role: String
-//    let points: Int
-//    let bonuses: Int
-//    let deductions: Int
+    let points: Int
+    let bonuses: Int
+    let deductions: Int
 //    let feedbacksReceived: Int
 //    let feedbacksgiven: Int
 //    let lastFeedbackReceived: Int
@@ -33,7 +33,7 @@ struct LoggedInUser: Codable {
 }
 
 struct ValuePoints: Codable {
-    let average: Int
+//    let average: Int
     let thoughtful: Int
     let open: Int
     let adaptable: Int

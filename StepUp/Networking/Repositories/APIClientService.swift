@@ -16,6 +16,4 @@ protocol APIClientService: AnyObject {
     func relevantContacts(completion: @escaping RetrieveRelevantContactsCompletion)
     
     func rankings(page: String, value: String, location: String, area: String, completion: @escaping RetrieveRanksCompletion)
-    
-    func securityToken(completion: @escaping RetrieveTokenCompletion)
 }

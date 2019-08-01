@@ -29,45 +29,125 @@ class APIClientRepository: APIClientService {
     }
 
     func allCompanyAreas(completion: @escaping RetrieveAreaCompletion) {
-        area.retrieveAreaList(API.area("token").request(), completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                strongSelf.area.retrieveAreaList(API.area(token).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     func allCompanyLocations(completion: @escaping RetrieveLocationCompletion) {
-        location.retrieveLocationList(API.location("token").request(), completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                strongSelf.location.retrieveLocationList(API.location(token).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     func userInformation(completion: @escaping RetrieveUserInformationCompletion) {
-        loggedInUser.retrieveUserInformation(API.loggedInUser("token").request(), completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                strongSelf.loggedInUser.retrieveUserInformation(API.loggedInUser(token).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     func registerUser(location: String, area: String, completion: @escaping RetrieveLoggedInUserCompletion) {
-        let body = [locationKey: location,
-                    areaKey: area]
-        
-        loggedInUser.registerUser(API.registerUser("token", body).request(), completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                let body = [strongSelf.locationKey: location,
+                            strongSelf.areaKey: area]
+                
+                strongSelf.loggedInUser.registerUser(API.registerUser(token, body).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     func updateUser(location: String, area: String, completion: @escaping RetrieveLoggedInUserCompletion) {
-        let body = [locationKey: location,
-                    areaKey: area]
-        
-        loggedInUser.updateUser(API.updateUser("token", body).request(), completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                let body = [strongSelf.locationKey: location,
+                            strongSelf.areaKey: area]
+                
+                strongSelf.loggedInUser.updateUser(API.updateUser(token, body).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     func relevantContacts(completion: @escaping RetrieveRelevantContactsCompletion) {
-        loggedInUser.retrieveRelevantContacts(API.contacts("token").request(), completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                strongSelf.loggedInUser.retrieveRelevantContacts(API.contacts(token).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     func rankings(page: String, value: String, location: String, area: String, completion: @escaping RetrieveRanksCompletion) {
-        let filter = [pageKey: page,
-                      valueKey: value,
-                      locationKey: location,
-                      areaKey: area]
-        
-        rank.retrieveRanks(API.rank("token").request(parameters: filter), completion: completion)
-    }
-    
-    func securityToken(completion: @escaping RetrieveTokenCompletion) {
-        msal.retrieveSecurityToken(completion: completion)
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                let filter = [strongSelf.pageKey: page,
+                              strongSelf.valueKey: value,
+                              strongSelf.locationKey: location,
+                              strongSelf.areaKey: area]
+                
+                strongSelf.rank.retrieveRanks(API.rank(token).request(parameters: filter), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
 }

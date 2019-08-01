@@ -14,4 +14,6 @@ struct Contact: Codable {
     let jobTitle: String
     let email: String
     let image: String
+    let rank: Int
+    let score: Int
 }

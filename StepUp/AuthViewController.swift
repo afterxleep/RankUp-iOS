@@ -22,20 +22,13 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        commonApi.securityToken { (result) in
-            switch result {
-            case .success(let token):
-                self.fetchProfile(token: token)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchProfile()
     }
     
     // Registers the User in the StepUP database or updates the access token
-    func fetchProfile(token: String) {
+    func fetchProfile() {
         
-        AreaRepository().retrieveAreaList(API.area(token).request()) { (result) in
+        commonApi.allCompanyAreas { (result) in
             switch result {
             case .success(let areas):
                 print(areas)
@@ -44,7 +37,7 @@ class AuthViewController: UIViewController {
             }
         }
         
-        LocationRepository().retrieveLocationList(API.location(token).request()) { (result) in
+        commonApi.allCompanyLocations { (result) in
             switch result {
             case .success(let locations):
                 print(locations)
@@ -53,12 +46,12 @@ class AuthViewController: UIViewController {
             }
         }
         
-        LoggedInUserRepository().retrieveUserInformation(API.loggedInUser(token).request()) { (result) in
+        commonApi.userInformation { (result) in
             switch result {
             case .success(let loggedInUser, let nonRegisterUser):
                 if let nonRegisterUser = nonRegisterUser {
                     print("\(nonRegisterUser)")
-                    self.registerUser(token: token)
+                    self.registerUser()
                 } else {
                     print("\(loggedInUser)")
                 }
@@ -66,51 +59,29 @@ class AuthViewController: UIViewController {
                 print(error)
             }
         }
-        
-        let params = ["from": "1563757462558",
-                      "to": "1663757462558",
-                      "page":"1",
-                      "value":"12345678",
-                      "user": "5d37ee0b68f99c7a7d5779f6",
-                      "private": "true",
-                      "pinned":"false"]
-        
-        FeedbackRepository().retrieveFeedbacks(API.feedback(token).request(parameters: params)) { (result) in
-            switch result {
-            case .success(let feedback):
-                print("\(feedback)")
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        let rankFilter = ["page": "1",
-                          "value": "Open",
-                          "location": "Bogotá",
-                          "area": "Development"]
-        
-        RankRepository().retrieveRanks(API.rank(token).request(parameters: rankFilter)) { (result) in
-            switch result {
-            case .success(let ranks):
-                print("\(ranks)")
-            case .failure(let error):
-                print(error)
-            }
+
+        commonApi.rankings(page: "1",
+                           value: "Open",
+                           location: "5d34ff91fca3b9104a74c2b0",
+                           area: "5d350b963d25dc15994fdf8e") { (result) in
+                            switch result {
+                            case .success(let ranks):
+                                print("\(ranks)")
+                            case .failure(let error):
+                                print(error)
+                            }
         }
     }
     
-    private func registerUser(token: String) {
-        let body = ["location": "5d34ff91fca3b9104a74c2b0",
-                    "area": "5d350b963d25dc15994fdf8e"]
-        
-        LoggedInUserRepository().registerUser(API.registerUser(token, body).request(), completion: { (result) in
+    private func registerUser() {
+        commonApi.registerUser(location: "5d34ff91fca3b9104a74c2b0", area: "5d350b963d25dc15994fdf8e") { (result) in
             switch result {
             case .success(let createdLoggedInUser):
                 print("\(createdLoggedInUser)")
             case .failure(let error):
                 print(error)
             }
-        })
+        }
     }
 }
 
