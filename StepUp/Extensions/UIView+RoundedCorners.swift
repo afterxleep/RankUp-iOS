@@ -14,10 +14,6 @@ extension UIView {
         
         maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
         layer.mask = maskLayer
-        
-        if shadow {
-            applyShadow(maskLayer: maskLayer)
-        }
     }
     
     private func applyShadow(maskLayer: CAShapeLayer) {

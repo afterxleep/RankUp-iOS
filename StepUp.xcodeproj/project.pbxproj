@@ -39,6 +39,7 @@
 		9B55848222EBD72C0020D5DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B55848122EBD72C0020D5DB /* Main.storyboard */; };
 		9B60744222EE29C20060E13D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60744122EE29C20060E13D /* SignupViewController.swift */; };
 		9B60744422EE4BF60060E13D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60744322EE4BF60060E13D /* SignupViewModel.swift */; };
+		9B63BBC422F1FD6B004BE699 /* FieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63BBC322F1FD6B004BE699 /* FieldText.swift */; };
 		9B729CB722E8008A002EEA39 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CB622E8008A002EEA39 /* Authentication.storyboard */; };
 		9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CBF22E801A0002EEA39 /* MainViewController.swift */; };
 		9B729CC322E8029C002EEA39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CC222E8029C002EEA39 /* Constants.swift */; };
@@ -90,6 +91,7 @@
 		9B55848122EBD72C0020D5DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9B60744122EE29C20060E13D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		9B60744322EE4BF60060E13D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		9B63BBC322F1FD6B004BE699 /* FieldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldText.swift; sourceTree = "<group>"; };
 		9B729CB622E8008A002EEA39 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		9B729CBF22E801A0002EEA39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B729CC222E8029C002EEA39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				9B729CC222E8029C002EEA39 /* Constants.swift */,
+				9B63BBC322F1FD6B004BE699 /* FieldText.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				9B60744422EE4BF60060E13D /* SignupViewModel.swift in Sources */,
 				9B60744222EE29C20060E13D /* SignupViewController.swift in Sources */,
 				7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */,
+				9B63BBC422F1FD6B004BE699 /* FieldText.swift in Sources */,
 				7AC6D99622EB540A006F18CE /* LoggedInUserRepository.swift in Sources */,
 				9B47E06F22EE05BB00353A92 /* OnboardingContainerViewController.swift in Sources */,
 				9B47E06722EDFA6000353A92 /* AuthenticationViewModel.swift in Sources */,

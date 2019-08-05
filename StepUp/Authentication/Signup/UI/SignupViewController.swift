@@ -56,19 +56,23 @@ final class SignupViewController: UIViewController {
     private func configurePickers() {
         locationTextField.inputView = locationPicker
         disciplineTextField.inputView = disciplinePicker
+        
+        locationTextField.rightView = UIImageView(image: UIImage(named: "smallTriangleDown"))
+        locationTextField.rightViewMode = .always
     }
     
     private func setupUI() {
         header.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 52)
         
         let attributedTitle = NSMutableAttributedString(string: "Welcome to ", attributes: [.foregroundColor : UIColor.white,
-                                                                                            .font: UIFont.systemFont(ofSize: 39)])
+                                                                                            .font: UIFont.systemFont(ofSize: 39, weight: .black),
+                                                                                            .kern: 0.5])
         let appNameString = NSAttributedString(string: "Rankme", attributes: [.foregroundColor : UIColor.aquaBlue,
-                                                                              .font: UIFont.systemFont(ofSize: 39)])
+                                                                              .font: UIFont.systemFont(ofSize: 39, weight: .semibold)])
         attributedTitle.append(appNameString)
         headerTitle.attributedText = attributedTitle
         
-        formContainer.roundCorners(corners: [.topLeft, .topRight], radius: 52, shadow: true)
+        formContainer.roundCorners(corners: [.topLeft, .topRight], radius: 52)
     }
     
     // MARK: - Actions

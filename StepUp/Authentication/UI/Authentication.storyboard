@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4TO-7c-To3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4TO-7c-To3">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,11 +81,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gng-ab-Yzv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCv-qZ-Mo8">
-                                        <rect key="frame" x="40" y="79.5" width="334" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="40" y="111" width="334" height="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -98,14 +98,8 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-4g-dbf">
-                                <rect key="frame" x="0.0" y="249" width="414" height="647"/>
+                                <rect key="frame" x="0.0" y="312" width="414" height="584"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJM-sj-SMB">
-                                        <rect key="frame" x="40" y="56" width="334" height="21"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="0.10588235294117647" green="0.15686274509803921" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owu-3f-zJY">
                                         <rect key="frame" x="40" y="77" width="334" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -144,7 +138,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="0FR-RE-Kdr"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="START">
                                             <color key="titleColor" red="0.60784313725490191" green="0.70588235294117641" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -152,6 +146,12 @@
                                             <action selector="didTapStartButton:" destination="Xy6-rs-XqD" eventType="touchUpInside" id="cJV-7j-Ajv"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJM-sj-SMB">
+                                        <rect key="frame" x="40" y="56" width="334" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.10588235294117647" green="0.15686274509803921" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -172,7 +172,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userFemaleBlack" translatesAutoresizingMaskIntoConstraints="NO" id="JwK-cx-blO">
-                                <rect key="frame" x="163" y="209" width="88" height="88"/>
+                                <rect key="frame" x="163" y="272" width="88" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="5da-7X-sXc"/>
                                     <constraint firstAttribute="height" constant="88" id="7En-Ee-okb"/>
@@ -189,7 +189,7 @@
                             <constraint firstAttribute="bottom" secondItem="Cpw-4g-dbf" secondAttribute="bottom" id="JNs-9y-ZD2"/>
                             <constraint firstItem="Cpw-4g-dbf" firstAttribute="top" secondItem="JwK-cx-blO" secondAttribute="bottom" constant="-48" id="Neu-qg-UV4"/>
                             <constraint firstItem="OJM-sj-SMB" firstAttribute="top" secondItem="JwK-cx-blO" secondAttribute="bottom" constant="8" id="RFD-Zy-IR7"/>
-                            <constraint firstItem="gng-ab-Yzv" firstAttribute="height" secondItem="mXA-CO-429" secondAttribute="height" multiplier="0.2" id="U2S-P7-hPV"/>
+                            <constraint firstItem="gng-ab-Yzv" firstAttribute="height" secondItem="mXA-CO-429" secondAttribute="height" multiplier="0.27" id="U2S-P7-hPV"/>
                             <constraint firstItem="Cpw-4g-dbf" firstAttribute="top" secondItem="gng-ab-Yzv" secondAttribute="bottom" constant="70" id="YAs-ur-I9H"/>
                             <constraint firstItem="JwK-cx-blO" firstAttribute="centerX" secondItem="xAR-DU-dtq" secondAttribute="centerX" id="yNl-BP-VKv"/>
                         </constraints>
