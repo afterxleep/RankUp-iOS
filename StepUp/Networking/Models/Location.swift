@@ -8,14 +8,14 @@
 import Foundation
 
 struct Location: Codable {
-    let createdAt: Date
-    let updatedAt: Date
-    let id: String
-    let name: String
-    let geolocation: Geolocation
+    var createdAt: Date?
+    var updatedAt: Date?
+    var id: String?
+    var name: String?
+    var geolocation: Geolocation?
 }
 
 struct Geolocation: Codable {
-    let type: String
-    let coordinates: [Double]
+    var type: String?
+    var coordinates: [Double]?
 }

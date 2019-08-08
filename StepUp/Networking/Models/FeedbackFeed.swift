@@ -8,26 +8,26 @@
 import Foundation
 
 struct FeedbackFeed: Codable {
-    let totalRecords: Int
-    let skip: Int
-    let limit: Int
-    let feedback: [Feedback]
+    var totalRecords: Int?
+    var skip: Int?
+    var limit: Int?
+    var feedback: [Feedback]?
 }
 
 struct Feedback: Codable {
-    let createdAt: Date
-    let updatedAt: Date
-    let sortIndex: Int
-    let id: String
-    let from: Contact
-    let to: Contact
-    let value: Value
-    let comment: String
-    let isPublic: Bool
-    let isPinned: Bool
-    let likes: Int
-    let isLikedByUser: Bool
-    let flags: Int
-    let isFlaggedByUser: Bool
-    let isPositive: Bool
+    var createdAt: Date?
+    var updatedAt: Date?
+    var sortIndex: Int?
+    var id: String?
+    var from: Contact?
+    var to: Contact?
+    var value: Value?
+    var comment: String?
+    var isPublic: Bool?
+    var isPinned: Bool?
+    var likes: Int?
+    var isLikedByUser: Bool?
+    var flags: Int?
+    var isFlaggedByUser: Bool?
+    var isPositive: Bool?
 }

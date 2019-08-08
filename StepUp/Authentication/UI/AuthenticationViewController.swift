@@ -12,7 +12,7 @@ final class AuthenticationViewController: UIViewController {
     @IBOutlet weak private var statusLabel: UILabel!
     
     lazy private var viewModel: AuthenticationViewModel? = {
-        let apiClient = APIClientRepository()
+        let apiClient = APIClient()
         apiClient.msalDelegate = self
         
         return AuthenticationViewModel(apiClient: apiClient)
@@ -20,8 +20,8 @@ final class AuthenticationViewController: UIViewController {
     
     // MARK: - Computed Properties
     
-    lazy var commonApi: APIClientService = {
-        let api = APIClientRepository()
+    lazy var commonApi: APIClientFacade = {
+        let api = APIClient()
         api.msalDelegate = self
         
         return api

@@ -17,11 +17,11 @@ final class AuthenticationViewModel {
     
     // MARK: - Initializers
     
-    private let apiClient: APIClientService
+    private let apiClient: APIClientFacade
     var userModel: LoggedInUser?
     var unregisteredUserModel: UnregisteredUser?
     
-    init(apiClient: APIClientService) {
+    init(apiClient: APIClientFacade) {
         self.apiClient = apiClient
     }
     

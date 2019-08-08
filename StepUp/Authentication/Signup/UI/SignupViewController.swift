@@ -19,7 +19,7 @@ final class SignupViewController: UIViewController {
     @IBOutlet weak private var disciplineTextField: FieldText!
     @IBOutlet weak private var startButton: UIButton!
     
-    var viewModel = SignupViewModel(apiClient: APIClientRepository())
+    var viewModel = SignupViewModel(apiClient: APIClient())
     
     // MARK: - Computed Properties
     
@@ -61,7 +61,7 @@ final class SignupViewController: UIViewController {
     }
     
     private func configureUI() {
-        let userData = viewModel.userModel?.data.user
+        let userData = viewModel.userModel?.data?.user
         
         userLabel.text = userData?.name
         jobLabel.text = userData?.jobTitle ?? "Senior Culebrerum"
@@ -103,7 +103,7 @@ final class SignupViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didTapStartButton(_ sender: UIButton) {
-        viewModel.registerUser(location: locationTextField.text!, area: disciplineTextField.text!) { [weak self] in
+        viewModel.registerUser(location: locationTextField.text, discipline: disciplineTextField.text) { [weak self] in
             self?.performSegue(withIdentifier: K.Segues.onboardingSegue, sender: nil)
         }
     }

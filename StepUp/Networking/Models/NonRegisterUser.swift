@@ -1,5 +1,5 @@
 //
-//  NonRegisterUser.swift
+//  UnregisteredUser.swift
 //  StepUp
 //
 //  Created by Juan combariza on 7/30/19.
@@ -8,19 +8,19 @@
 import Foundation
 
 struct UnregisteredUser: Codable {
-    let code: Int
-    let error: String
-    let data: UserModel
+    var code: Int?
+    var error: String?
+    var data: UserModel?
 }
 
 struct UserModel: Codable {
-    let user: User
+    var user: User?
 }
 
 struct User: Codable {
-    let msid: String
-    let name: String
-    let jobTitle: String?
-    let email: String
-    let image: String?
+    var msid: String?
+    var name: String?
+    var jobTitle: String?
+    var email: String?
+    var image: String?
 }

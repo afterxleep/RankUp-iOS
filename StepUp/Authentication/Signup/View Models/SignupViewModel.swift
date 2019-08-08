@@ -11,7 +11,7 @@ final class SignupViewModel {
     
     // MARK: - Stored Properties
     
-    private let apiClient: APIClientService
+    private let apiClient: APIClientFacade
     private var disciplines = [Area]()
     private var locations = [Location]()
     
@@ -29,14 +29,21 @@ final class SignupViewModel {
     
     // MARK: - Initializers
     
-    init(apiClient: APIClientService) {
+    init(apiClient: APIClientFacade) {
         self.apiClient = apiClient
     }
     
     // MARK: - Inteface
     
-    func registerUser(location: String, area: String, completion: @escaping () -> Void) {
-        apiClient.registerUser(location: location, area: area) { (result) in
+    func registerUser(location: String?, discipline: String?, completion: @escaping () -> Void) {
+        guard
+            let location = locations.first(where: { $0.name == location }),
+            let locationID = location.id,
+            let discipline = disciplines.first(where: { $0.name == discipline }),
+            let disciplineID = discipline.id
+            else { return }
+        
+        apiClient.registerUser(location: locationID, area: disciplineID) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let createdLoggedInUser):

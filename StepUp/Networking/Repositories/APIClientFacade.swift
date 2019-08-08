@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIClientService: AnyObject {
+protocol APIClientFacade: AnyObject {
     func allCompanyAreas(completion: @escaping RetrieveAreaCompletion)
     func allCompanyLocations(completion: @escaping RetrieveLocationCompletion)
     func userInformation(completion: @escaping RetrieveUserInformationCompletion)
