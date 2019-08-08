@@ -8,9 +8,9 @@
 import Foundation
 
 struct Value: Codable {
-    let createdAt: Date
-    let updatedAt: Date
-    let id: String
-    let name: String
-    let image: String
+    var createdAt: Date?
+    var updatedAt: Date?
+    var id: String?
+    var name: String?
+    var image: String?
 }

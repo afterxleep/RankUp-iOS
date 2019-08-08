@@ -12,8 +12,8 @@ class AuthViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     
-    lazy var commonApi: APIClientService = {
-        let api = APIClientRepository()
+    lazy var commonApi: APIClientFacade = {
+        let api = APIClient()
         api.msalDelegate = self
         
         return api
@@ -27,25 +27,6 @@ class AuthViewController: UIViewController {
     
     // Registers the User in the StepUP database or updates the access token
     func fetchProfile() {
-        
-        commonApi.allCompanyAreas { (result) in
-            switch result {
-            case .success(let areas):
-                print(areas)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        commonApi.allCompanyLocations { (result) in
-            switch result {
-            case .success(let locations):
-                print(locations)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
         commonApi.userInformation { (result) in
             switch result {
             case .success(let loggedInUser, let nonRegisterUser):
@@ -74,6 +55,23 @@ class AuthViewController: UIViewController {
     }
     
     private func registerUser() {
+        commonApi.allCompanyAreas { (result) in
+            switch result {
+            case .success(let areas):
+                print(areas)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        commonApi.allCompanyLocations { (result) in
+            switch result {
+            case .success(let locations):
+                print(locations)
+            case .failure(let error):
+                print(error)
+            }
+        }
         commonApi.registerUser(location: "5d34ff91fca3b9104a74c2b0", area: "5d350b963d25dc15994fdf8e") { (result) in
             switch result {
             case .success(let createdLoggedInUser):

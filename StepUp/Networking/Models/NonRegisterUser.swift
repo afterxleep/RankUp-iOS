@@ -8,19 +8,19 @@
 import Foundation
 
 struct NonResgisterUser: Codable {
-    let code: Int
-    let error: String
-    let data: UserModel
+    var code: Int?
+    var error: String?
+    var data: UserModel?
 }
 
 struct UserModel: Codable {
-    let user: User
+    var user: User?
 }
 
 struct User: Codable {
-    let msid: String
-    let name: String
-    let jobTitle: String
-    let email: String
-    let image: String
+    var msid: String?
+    var name: String?
+    var jobTitle: String?
+    var email: String?
+    var image: String?
 }

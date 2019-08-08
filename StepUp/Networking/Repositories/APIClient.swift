@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIClientRepository: APIClientService {
+class APIClient: APIClientFacade {
     
     private let locationKey = "location"
     private let areaKey = "area"

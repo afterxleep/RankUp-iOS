@@ -14,8 +14,8 @@
 		7A77E6DC22F2467300741749 /* MSALService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DB22F2467300741749 /* MSALService.swift */; };
 		7A77E6DE22F2468000741749 /* MSALRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DD22F2468000741749 /* MSALRepository.swift */; };
 		7A77E6E022F26D4500741749 /* MSALDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DF22F26D4500741749 /* MSALDelegate.swift */; };
-		7A77E6E222F283D500741749 /* APIClientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6E122F283D500741749 /* APIClientRepository.swift */; };
-		7A77E6E422F2850B00741749 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6E322F2850B00741749 /* APIClientService.swift */; };
+		7A77E6E222F283D500741749 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6E122F283D500741749 /* APIClient.swift */; };
+		7A77E6E422F2850B00741749 /* APIClientFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6E322F2850B00741749 /* APIClientFacade.swift */; };
 		7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D97D22E8FEFC006F18CE /* AreaService.swift */; };
 		7AC6D98122E90258006F18CE /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98022E90258006F18CE /* Area.swift */; };
 		7AC6D98322E90284006F18CE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98222E90284006F18CE /* Location.swift */; };
@@ -55,8 +55,8 @@
 		7A77E6DB22F2467300741749 /* MSALService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALService.swift; sourceTree = "<group>"; };
 		7A77E6DD22F2468000741749 /* MSALRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALRepository.swift; sourceTree = "<group>"; };
 		7A77E6DF22F26D4500741749 /* MSALDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALDelegate.swift; sourceTree = "<group>"; };
-		7A77E6E122F283D500741749 /* APIClientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientRepository.swift; sourceTree = "<group>"; };
-		7A77E6E322F2850B00741749 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
+		7A77E6E122F283D500741749 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		7A77E6E322F2850B00741749 /* APIClientFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientFacade.swift; sourceTree = "<group>"; };
 		7AC6D97D22E8FEFC006F18CE /* AreaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaService.swift; sourceTree = "<group>"; };
 		7AC6D98022E90258006F18CE /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		7AC6D98222E90284006F18CE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -209,8 +209,8 @@
 				7AC6D97C22E8FECF006F18CE /* LoggedInUser */,
 				7AC6D97B22E8FEA4006F18CE /* Location */,
 				7AC6D97A22E8FE9C006F18CE /* Area */,
-				7A77E6E122F283D500741749 /* APIClientRepository.swift */,
-				7A77E6E322F2850B00741749 /* APIClientService.swift */,
+				7A77E6E122F283D500741749 /* APIClient.swift */,
+				7A77E6E322F2850B00741749 /* APIClientFacade.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				7A77E6E022F26D4500741749 /* MSALDelegate.swift in Sources */,
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
 				7A77E6D222F0927C00741749 /* Rank.swift in Sources */,
-				7A77E6E222F283D500741749 /* APIClientRepository.swift in Sources */,
+				7A77E6E222F283D500741749 /* APIClient.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				7A77E6D522F092F700741749 /* RankService.swift in Sources */,
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,
@@ -416,7 +416,7 @@
 				7A77E6D922F0ABEA00741749 /* NonRegisterUser.swift in Sources */,
 				7AC6D9A722ECACF8006F18CE /* FeedbackRepository.swift in Sources */,
 				7AC6D98822E90BEE006F18CE /* AreaRepository.swift in Sources */,
-				7A77E6E422F2850B00741749 /* APIClientService.swift in Sources */,
+				7A77E6E422F2850B00741749 /* APIClientFacade.swift in Sources */,
 				7AC6D98A22E92912006F18CE /* LocationService.swift in Sources */,
 				7AC6D98C22E92975006F18CE /* LocationRepository.swift in Sources */,
 				D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */,

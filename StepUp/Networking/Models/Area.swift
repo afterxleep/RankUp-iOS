@@ -8,8 +8,8 @@
 import Foundation
 
 struct Area: Codable {
-    let createdAt: Date
-    let updatedAt: Date
-    let id: String
-    let name: String
+    var createdAt: Date?
+    var updatedAt: Date?
+    var id: String?
+    var name: String?
 }

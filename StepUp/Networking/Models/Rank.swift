@@ -8,12 +8,12 @@
 import Foundation
 
 struct Rank: Codable {
-    let id: String
-    let msid: String
-    let name: String
-    let jobTitle: String
-    let email: String
-    let image: String
-    let rank: Int
-    let score: Int
+    var id: String?
+    var msid: String?
+    var name: String?
+    var jobTitle: String?
+    var email: String?
+    var image: String?
+    var rank: Int?
+    var score: Int?
 }
