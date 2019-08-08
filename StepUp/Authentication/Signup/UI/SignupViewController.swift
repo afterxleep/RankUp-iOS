@@ -19,7 +19,7 @@ final class SignupViewController: UIViewController {
     @IBOutlet weak private var disciplineTextField: FieldText!
     @IBOutlet weak private var startButton: UIButton!
     
-    var viewModel = SignupViewModel(disciplineRepository: AreaRepository(), locationRepository: LocationRepository(), profileRepository: LoggedInUserRepository())
+    var viewModel = SignupViewModel(apiClient: APIClientRepository())
     
     // MARK: - Computed Properties
     
@@ -44,6 +44,8 @@ final class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        configureUI()
+        
         viewModel.fetchLocationDisciplinesData { [weak self] error in
             if error == nil {
                 self?.configureTextFieldsPickers()
@@ -58,12 +60,20 @@ final class SignupViewController: UIViewController {
         disciplineTextField.inputView = disciplinePicker
     }
     
+    private func configureUI() {
+        let userData = viewModel.userModel?.data.user
+        
+        userLabel.text = userData?.name
+        jobLabel.text = userData?.jobTitle ?? "Senior Culebrerum"
+    }
+    
     private func setupUI() {
-        header.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 66)
-
+        header.roundCorners(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 66)
+        
         let attributedTitle = NSMutableAttributedString(string: "Welcome to ", attributes: [.foregroundColor : UIColor.white,
                                                                                             .font: UIFont.systemFont(ofSize: 39, weight: .black),
                                                                                             .kern: 0.5])
+        
         let appNameString = NSAttributedString(string: "Rankme", attributes: [.foregroundColor : UIColor.aquaBlue,
                                                                               .font: UIFont.systemFont(ofSize: 39, weight: .semibold)])
         
@@ -71,16 +81,17 @@ final class SignupViewController: UIViewController {
         attributedTitle.addAttribute(.paragraphStyle, value: UIHelper.lineHeightAttribute(size: 37), range: NSRange(location: 0, length: attributedTitle.length))
         headerTitle.attributedText = attributedTitle
         
-        formContainer.roundCorners(corners: [.topLeft, .topRight], radius: 66)
-        signupImageView.roundCorners(corners: .allCorners, radius: 15)
-        locationTextField.roundCorners(corners: .allCorners, radius: 9)
-        disciplineTextField.roundCorners(corners: .allCorners, radius: 9)
+        formContainer.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 66)
+        signupImageView.roundCorners(radius: 15)
+        locationTextField.roundCorners(radius: 9)
+        disciplineTextField.roundCorners(radius: 9)
+        startButton.roundCorners(radius: 9)
         
-        startButton.roundCorners(corners: .allCorners, radius: 9)
+        let asset = UIImage(named: "smallTriangleDown")
+        let rightImageView = UIImageView(image: asset)
         
-        let rightViewImageView = UIImageView(image: UIImage(named: "smallTriangleDown"))
-        locationTextField.rightView = rightViewImageView
         locationTextField.rightViewMode = .always
+        locationTextField.rightView = rightImageView
         
         let placeholderAttributes: [NSAttributedString.Key: Any] = [.foregroundColor : UIColor.lightGreyBlue,
                                                                     .font: UIFont.systemFont(ofSize: 12, weight: .regular)]
@@ -92,8 +103,9 @@ final class SignupViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didTapStartButton(_ sender: UIButton) {
-        //TODO: Consume registration service, get profile data.
-        performSegue(withIdentifier: K.Segues.onboardingSegue, sender: nil)
+        viewModel.registerUser(location: locationTextField.text!, area: disciplineTextField.text!) { [weak self] in
+            self?.performSegue(withIdentifier: K.Segues.onboardingSegue, sender: nil)
+        }
     }
     
 }

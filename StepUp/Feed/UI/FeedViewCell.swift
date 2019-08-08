@@ -22,7 +22,7 @@ final class FeedViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        valueView.roundCorners(corners: .allCorners, radius: 6)
+        valueView.roundCorners(radius: 6)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -11,7 +11,14 @@ final class AuthenticationViewController: UIViewController {
     
     @IBOutlet weak private var statusLabel: UILabel!
     
-    // MARK: - Life Cycle
+    lazy private var viewModel: AuthenticationViewModel? = {
+        let apiClient = APIClientRepository()
+        apiClient.msalDelegate = self
+        
+        return AuthenticationViewModel(apiClient: apiClient)
+    }()
+    
+    // MARK: - Computed Properties
     
     lazy var commonApi: APIClientService = {
         let api = APIClientRepository()
@@ -20,70 +27,34 @@ final class AuthenticationViewController: UIViewController {
         return api
     }()
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fetchProfile()
+        checkAuthenticationState()
     }
     
-    // Registers the User in the StepUP database or updates the access token
-    func fetchProfile() {
-        
-        commonApi.allCompanyAreas { (result) in
-            switch result {
-            case .success(let areas):
-                print(areas)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        commonApi.allCompanyLocations { (result) in
-            switch result {
-            case .success(let locations):
-                print(locations)
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        commonApi.userInformation { (result) in
-            switch result {
-            case .success(let loggedInUser, let nonRegisterUser):
-                if let nonRegisterUser = nonRegisterUser {
-                    print("\(nonRegisterUser)")
-                    self.registerUser()
-                } else {
-                    print("\(loggedInUser)")
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-
-        commonApi.rankings(page: "1",
-                           value: "Open",
-                           location: "5d34ff91fca3b9104a74c2b0",
-                           area: "5d350b963d25dc15994fdf8e") { (result) in
-                            switch result {
-                            case .success(let ranks):
-                                print("\(ranks)")
-                            case .failure(let error):
-                                print(error)
-                            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? SignupViewController {
+            controller.viewModel.userModel = viewModel?.unregisteredUserModel
         }
     }
     
-    private func registerUser() {
-        commonApi.registerUser(location: "5d34ff91fca3b9104a74c2b0", area: "5d350b963d25dc15994fdf8e") { (result) in
-            switch result {
-            case .success(let createdLoggedInUser):
-                print("\(createdLoggedInUser)")
-            case .failure(let error):
-                print(error)
+    // MARK: - Private
+    
+    private func checkAuthenticationState() {
+        viewModel?.fetchInitialData { [weak self] authState, error in
+            switch authState {
+            case .unregistered:
+                self?.performSegue(withIdentifier: K.Segues.registrationSegue, sender: nil)
+            case .registered:
+                self?.performSegue(withIdentifier: K.Segues.feedSegue, sender: nil)
+            case .error:
+                print("We are fucked niggas...")
             }
         }
     }
+    
 }
 
 extension AuthenticationViewController: MSALDelegate {
@@ -104,6 +75,5 @@ extension AuthenticationViewController: MSALDelegate {
             self.statusLabel.text = "Syncing Stats"
         }
     }
-    
     
 }

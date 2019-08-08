@@ -11,14 +11,11 @@ final class SignupViewModel {
     
     // MARK: - Stored Properties
     
-    private let locationRepository: LocationService
-    private let disciplineRepository: AreaService
-    private let profileRepository: LoggedInUserRepository
-    
-    var accessToken: String?
-    
+    private let apiClient: APIClientService
     private var disciplines = [Area]()
     private var locations = [Location]()
+    
+    var userModel: UnregisteredUser?
     
     // MARK: - Computed Properties
     
@@ -32,24 +29,33 @@ final class SignupViewModel {
     
     // MARK: - Initializers
     
-    init(disciplineRepository: AreaService, locationRepository: LocationService, profileRepository: LoggedInUserRepository) {
-        self.disciplineRepository = disciplineRepository
-        self.locationRepository = locationRepository
-        self.profileRepository = profileRepository
+    init(apiClient: APIClientService) {
+        self.apiClient = apiClient
     }
     
     // MARK: - Inteface
     
-    func fetchLocationDisciplinesData(completion: @escaping (Error?) -> Void) {
-        guard
-            let token = accessToken
-            else { return }
-        
+    func registerUser(location: String, area: String, completion: @escaping () -> Void) {
+        apiClient.registerUser(location: location, area: area) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let createdLoggedInUser):
+                    print("\(createdLoggedInUser)")
+                case .failure(let error):
+                    print(error)
+                }
+                
+                completion()
+            }
+        }
+    }
+    
+    func fetchLocationDisciplinesData(completion: @escaping (Error?) -> Void) {        
         let dispatchGroup = DispatchGroup()
         var requestError: RequestError?
         
         dispatchGroup.enter()
-        disciplineRepository.retrieveAreaList(API.area(token).request()) { [weak self] result in
+        apiClient.allCompanyAreas { [weak self] result in
             dispatchGroup.leave()
             switch result {
             case .success(let areas):
@@ -60,7 +66,7 @@ final class SignupViewModel {
         }
         
         dispatchGroup.enter()
-        locationRepository.retrieveLocationList(API.location(token).request()) { [weak self] result in
+        apiClient.allCompanyLocations { [weak self] result in
             dispatchGroup.leave()
             switch result {
             case .success(let locations):

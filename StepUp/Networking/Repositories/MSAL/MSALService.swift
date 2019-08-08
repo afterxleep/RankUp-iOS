@@ -17,7 +17,7 @@ enum MsalApiError: Error {
 }
 
 protocol MSALService: AnyObject {
-    weak var delegate: MSALDelegate? { get set }
+    var delegate: MSALDelegate? { get set }
     
     func retrieveSecurityToken(completion: @escaping RetrieveTokenCompletion)
     func logOutUser()

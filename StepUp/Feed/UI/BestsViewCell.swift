@@ -20,7 +20,7 @@ final class BestsViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        valueView.roundCorners(corners: .allCorners, radius: 9)
+        valueView.roundCorners(radius: 9)
     }
     
 }

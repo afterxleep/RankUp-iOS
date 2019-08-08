@@ -9,7 +9,7 @@ import Foundation
 
 typealias RetrieveLoggedInUserCompletion = (Result<LoggedInUser, RequestError>) -> Void
 typealias RetrieveRelevantContactsCompletion = (Result<[Contact], RequestError>) -> Void
-typealias UserInformation = (LoggedInUser?,NonResgisterUser?)
+typealias UserInformation = (LoggedInUser?,UnregisteredUser?)
 typealias RetrieveUserInformationCompletion = (Result<UserInformation, LoggedInUserRequestError>) -> Void
 
 enum LoggedInUserRequestError: Error {

@@ -30,7 +30,7 @@ final class OnboardingContainerViewController: UIViewController {
         configurePageController()
         configurePageControl()
         
-        skipButtonView.roundCorners(corners: .topLeft, radius: 66)
+        skipButtonView.roundCorners(corners: [.layerMinXMinYCorner], radius: 66)
     }
     
     // MARK: - Navigation

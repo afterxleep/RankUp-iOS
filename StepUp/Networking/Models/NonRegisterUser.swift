@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NonResgisterUser: Codable {
+struct UnregisteredUser: Codable {
     let code: Int
     let error: String
     let data: UserModel
@@ -20,7 +20,7 @@ struct UserModel: Codable {
 struct User: Codable {
     let msid: String
     let name: String
-    let jobTitle: String
+    let jobTitle: String?
     let email: String
-    let image: String
+    let image: String?
 }

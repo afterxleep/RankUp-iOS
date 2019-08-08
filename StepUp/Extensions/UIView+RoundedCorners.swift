@@ -9,11 +9,13 @@ import UIKit
 
 extension UIView {
     
-    func roundCorners(corners: UIRectCorner, radius: CGFloat, shadow: Bool = false) {
-        let maskLayer = CAShapeLayer()
+    func roundCorners(corners: CACornerMask? = nil, radius: CGFloat, shadow: Bool = false) {
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
         
-        maskLayer.path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius)).cgPath
-        layer.mask = maskLayer
+        if let corners = corners {
+            self.layer.maskedCorners = corners
+        }
     }
     
     private func applyShadow(maskLayer: CAShapeLayer) {

@@ -115,7 +115,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jtd-1e-Kvr">
                                                             <rect key="frame" x="0.0" y="0.0" width="220" height="92"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userFemale" translatesAutoresizingMaskIntoConstraints="NO" id="KU0-Pd-MgF">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leProfile" translatesAutoresizingMaskIntoConstraints="NO" id="KU0-Pd-MgF">
                                                                     <rect key="frame" x="14" y="22" width="48" height="48"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="48" id="e1I-nJ-jEf"/>
@@ -266,7 +266,7 @@
                                                 <view clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtO-wm-agh">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userFemaleBlack" translatesAutoresizingMaskIntoConstraints="NO" id="kOI-CX-w2f">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leProfile" translatesAutoresizingMaskIntoConstraints="NO" id="kOI-CX-w2f">
                                                             <rect key="frame" x="20" y="16" width="44" height="44"/>
                                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -406,8 +406,7 @@
     </scenes>
     <resources>
         <image name="home" width="29" height="24"/>
+        <image name="leProfile" width="45" height="45"/>
         <image name="ranking" width="23" height="27"/>
-        <image name="userFemale" width="128" height="128"/>
-        <image name="userFemaleBlack" width="128" height="128"/>
     </resources>
 </document>
