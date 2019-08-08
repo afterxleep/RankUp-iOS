@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7931B53E958A60F1BC86C9CC /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 700C92E92931B9B9B9C64DA2 /* Pods_StepUp.framework */; };
+		0700D4F4903801EE2DF8BD9E /* Pods_StepUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3251D11AB86D6E20BFEA7ACC /* Pods_StepUp.framework */; };
+		7A77E6D222F0927C00741749 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D122F0927C00741749 /* Rank.swift */; };
+		7A77E6D522F092F700741749 /* RankService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D422F092F700741749 /* RankService.swift */; };
+		7A77E6D722F0930100741749 /* RankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D622F0930100741749 /* RankRepository.swift */; };
+		7A77E6D922F0ABEA00741749 /* NonRegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6D822F0ABEA00741749 /* NonRegisterUser.swift */; };
+		7A77E6DC22F2467300741749 /* MSALService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DB22F2467300741749 /* MSALService.swift */; };
+		7A77E6DE22F2468000741749 /* MSALRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DD22F2468000741749 /* MSALRepository.swift */; };
+		7A77E6E022F26D4500741749 /* MSALDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6DF22F26D4500741749 /* MSALDelegate.swift */; };
+		7A77E6E222F283D500741749 /* APIClientRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6E122F283D500741749 /* APIClientRepository.swift */; };
+		7A77E6E422F2850B00741749 /* APIClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A77E6E322F2850B00741749 /* APIClientService.swift */; };
 		7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D97D22E8FEFC006F18CE /* AreaService.swift */; };
 		7AC6D98122E90258006F18CE /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98022E90258006F18CE /* Area.swift */; };
 		7AC6D98322E90284006F18CE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D98222E90284006F18CE /* Location.swift */; };
@@ -58,9 +67,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02ACF32EAA9EFB961A57980C /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
-		15E59EB3FD54B8D5E0B88180 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
-		700C92E92931B9B9B9C64DA2 /* Pods_StepUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3251D11AB86D6E20BFEA7ACC /* Pods_StepUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4773B20303C9E50EBB528504 /* Pods-StepUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.debug.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.debug.xcconfig"; sourceTree = "<group>"; };
+		7A77E6D122F0927C00741749 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		7A77E6D422F092F700741749 /* RankService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankService.swift; sourceTree = "<group>"; };
+		7A77E6D622F0930100741749 /* RankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankRepository.swift; sourceTree = "<group>"; };
+		7A77E6D822F0ABEA00741749 /* NonRegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonRegisterUser.swift; sourceTree = "<group>"; };
+		7A77E6DB22F2467300741749 /* MSALService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALService.swift; sourceTree = "<group>"; };
+		7A77E6DD22F2468000741749 /* MSALRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALRepository.swift; sourceTree = "<group>"; };
+		7A77E6DF22F26D4500741749 /* MSALDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSALDelegate.swift; sourceTree = "<group>"; };
+		7A77E6E122F283D500741749 /* APIClientRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientRepository.swift; sourceTree = "<group>"; };
+		7A77E6E322F2850B00741749 /* APIClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientService.swift; sourceTree = "<group>"; };
 		7AC6D97D22E8FEFC006F18CE /* AreaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaService.swift; sourceTree = "<group>"; };
 		7AC6D98022E90258006F18CE /* Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Area.swift; sourceTree = "<group>"; };
 		7AC6D98222E90284006F18CE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -105,6 +122,7 @@
 		9B78776E22EE8B2C00626A63 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = StepUp/Feed/UI/FeedViewModel.swift; sourceTree = SOURCE_ROOT; };
 		9B78777022EE90BA00626A63 /* BestsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsViewCell.swift; sourceTree = "<group>"; };
 		9B78777222EE90C800626A63 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
+		C5A521D81661EFB800A7E1F9 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
 		D67FEFE022DAA04A00DA34FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67FEFE222DAA04A00DA34FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D67FEFE322DAA04A00DA34FE /* StepUp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = StepUp.entitlements; sourceTree = "<group>"; };
@@ -118,19 +136,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7931B53E958A60F1BC86C9CC /* Pods_StepUp.framework in Frameworks */,
+				0700D4F4903801EE2DF8BD9E /* Pods_StepUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		62F6BFE68C4D8E74F2A6D407 /* Frameworks */ = {
+		7A77E6D322F092EA00741749 /* Rank */ = {
 			isa = PBXGroup;
 			children = (
-				700C92E92931B9B9B9C64DA2 /* Pods_StepUp.framework */,
+				7A77E6D422F092F700741749 /* RankService.swift */,
+				7A77E6D622F0930100741749 /* RankRepository.swift */,
 			);
-			name = Frameworks;
+			path = Rank;
+			sourceTree = "<group>";
+		};
+		7A77E6DA22F2462C00741749 /* MSAL */ = {
+			isa = PBXGroup;
+			children = (
+				7A77E6DB22F2467300741749 /* MSALService.swift */,
+				7A77E6DD22F2468000741749 /* MSALRepository.swift */,
+				7A77E6DF22F26D4500741749 /* MSALDelegate.swift */,
+			);
+			path = MSAL;
 			sourceTree = "<group>";
 		};
 		7AC6D97922E8FE5A006F18CE /* Networking */ = {
@@ -179,6 +208,8 @@
 				7AC6D99922ECA617006F18CE /* Value.swift */,
 				7AC6D99C22ECA6D1006F18CE /* Contact.swift */,
 				7AC6D9A222ECABC3006F18CE /* FeedbackFeed.swift */,
+				7A77E6D122F0927C00741749 /* Rank.swift */,
+				7A77E6D822F0ABEA00741749 /* NonRegisterUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,11 +245,15 @@
 		7AC6D99B22ECA672006F18CE /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				7A77E6DA22F2462C00741749 /* MSAL */,
+				7A77E6D322F092EA00741749 /* Rank */,
 				7AC6D99722ECA58C006F18CE /* Feedback */,
 				7AC6D99822ECA5A5006F18CE /* Values */,
 				7AC6D97C22E8FECF006F18CE /* LoggedInUser */,
 				7AC6D97B22E8FEA4006F18CE /* Location */,
 				7AC6D97A22E8FE9C006F18CE /* Area */,
+				7A77E6E122F283D500741749 /* APIClientRepository.swift */,
+				7A77E6E322F2850B00741749 /* APIClientService.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -235,10 +270,18 @@
 		8AE7AA47BBE7FF4EBFA823D1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				02ACF32EAA9EFB961A57980C /* Pods-StepUp.debug.xcconfig */,
-				15E59EB3FD54B8D5E0B88180 /* Pods-StepUp.release.xcconfig */,
+				4773B20303C9E50EBB528504 /* Pods-StepUp.debug.xcconfig */,
+				C5A521D81661EFB800A7E1F9 /* Pods-StepUp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		97B92DFA8C6FEC383B7B0D4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3251D11AB86D6E20BFEA7ACC /* Pods_StepUp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9B47E06522EDF46600353A92 /* VIew Model */ = {
@@ -436,7 +479,7 @@
 				D64CF7D922DA9FE200890B2C /* StepUp */,
 				FBA79E9E1E9A038700179A54 /* Products */,
 				8AE7AA47BBE7FF4EBFA823D1 /* Pods */,
-				62F6BFE68C4D8E74F2A6D407 /* Frameworks */,
+				97B92DFA8C6FEC383B7B0D4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -455,11 +498,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBA79EC51E9A038700179A54 /* Build configuration list for PBXNativeTarget "StepUp" */;
 			buildPhases = (
-				8636D33AB5D6A11893985E7B /* [CP] Check Pods Manifest.lock */,
+				9073567F3AA7F0162EECD44E /* [CP] Check Pods Manifest.lock */,
 				FBA79E991E9A038700179A54 /* Sources */,
 				FBA79E9A1E9A038700179A54 /* Frameworks */,
 				FBA79E9B1E9A038700179A54 /* Resources */,
-				2954AF6A424A024C6901D6A3 /* [CP] Embed Pods Frameworks */,
+				D93FD220881E9BCD31EAC0CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,29 +570,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2954AF6A424A024C6901D6A3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSAL.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8636D33AB5D6A11893985E7B /* [CP] Check Pods Manifest.lock */ = {
+		9073567F3AA7F0162EECD44E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,6 +592,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D93FD220881E9BCD31EAC0CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MSAL/MSAL.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSAL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StepUp/Pods-StepUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -583,13 +626,19 @@
 				9B78776922EE8AFA00626A63 /* BestsViewController.swift in Sources */,
 				9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */,
 				9B47E06222EDCB6700353A92 /* AuthenticationViewController.swift in Sources */,
+				7A77E6DC22F2467300741749 /* MSALService.swift in Sources */,
+				7A77E6E022F26D4500741749 /* MSALDelegate.swift in Sources */,
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
+				7A77E6D222F0927C00741749 /* Rank.swift in Sources */,
+				7A77E6E222F283D500741749 /* APIClientRepository.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				9B47E06B22EDFD4B00353A92 /* OnboardingViewModel.swift in Sources */,
+				7A77E6D522F092F700741749 /* RankService.swift in Sources */,
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,
 				9B78776B22EE8B0C00626A63 /* FeedViewController.swift in Sources */,
 				7AC6D99A22ECA617006F18CE /* Value.swift in Sources */,
 				7AC6D98622E90468006F18CE /* RequestHelper.swift in Sources */,
+				7A77E6DE22F2468000741749 /* MSALRepository.swift in Sources */,
 				7AC6D99D22ECA6D1006F18CE /* Contact.swift in Sources */,
 				7AC6D9A522ECAC6B006F18CE /* FeedbackService.swift in Sources */,
 				9B47E06A22EDFD4B00353A92 /* OnboardingContainerViewModel.swift in Sources */,
@@ -602,8 +651,10 @@
 				9B47E06F22EE05BB00353A92 /* OnboardingContainerViewController.swift in Sources */,
 				9B47E06722EDFA6000353A92 /* AuthenticationViewModel.swift in Sources */,
 				7AC6D99222EB3B22006F18CE /* SystemUtils.swift in Sources */,
+				7A77E6D922F0ABEA00741749 /* NonRegisterUser.swift in Sources */,
 				7AC6D9A722ECACF8006F18CE /* FeedbackRepository.swift in Sources */,
 				7AC6D98822E90BEE006F18CE /* AreaRepository.swift in Sources */,
+				7A77E6E422F2850B00741749 /* APIClientService.swift in Sources */,
 				7AC6D98A22E92912006F18CE /* LocationService.swift in Sources */,
 				81E3D07722F13A7300464F49 /* UIView+RoundedCorners.swift in Sources */,
 				9B78776D22EE8B1D00626A63 /* BestsViewModel.swift in Sources */,
@@ -615,6 +666,7 @@
 				9B729CC322E8029C002EEA39 /* Constants.swift in Sources */,
 				7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */,
 				7AC6D98322E90284006F18CE /* Location.swift in Sources */,
+				7A77E6D722F0930100741749 /* RankRepository.swift in Sources */,
 				7AC6D98122E90258006F18CE /* Area.swift in Sources */,
 				7AC6D9A322ECABC3006F18CE /* FeedbackFeed.swift in Sources */,
 				7AC6D98E22EB3239006F18CE /* LoggedInUser.swift in Sources */,
@@ -742,7 +794,7 @@
 		};
 		FBA79EC61E9A038700179A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02ACF32EAA9EFB961A57980C /* Pods-StepUp.debug.xcconfig */;
+			baseConfigurationReference = 4773B20303C9E50EBB528504 /* Pods-StepUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -765,7 +817,7 @@
 		};
 		FBA79EC71E9A038700179A54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15E59EB3FD54B8D5E0B88180 /* Pods-StepUp.release.xcconfig */;
+			baseConfigurationReference = C5A521D81661EFB800A7E1F9 /* Pods-StepUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

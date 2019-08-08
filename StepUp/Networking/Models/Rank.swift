@@ -1,13 +1,13 @@
 //
-//  Contact.swift
+//  Rank.swift
 //  StepUp
 //
-//  Created by Juan combariza on 7/27/19.
+//  Created by Juan combariza on 7/30/19.
 //
 
 import Foundation
 
-struct Contact: Codable {
+struct Rank: Codable {
     let id: String
     let msid: String
     let name: String

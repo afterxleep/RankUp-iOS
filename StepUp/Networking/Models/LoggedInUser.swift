@@ -17,15 +17,23 @@ struct LoggedInUser: Codable {
     let email: String
     let jobTitle: String
     let image: String
-    let rank: Int
-    let scores: Scores
-    let role: String
     let location: Location
     let area: Area
+    let rank: Int
+    let score: Int
+    let valuePoints: ValuePoints
+    let role: String
+    let points: Int
+    let bonuses: Int
+    let deductions: Int
+//    let feedbacksReceived: Int
+//    let feedbacksgiven: Int
+//    let lastFeedbackReceived: Int
+//    let lastFeedbackGiven: Int
 }
 
-struct Scores: Codable {
-    let average: Int
+struct ValuePoints: Codable {
+//    let average: Int
     let thoughtful: Int
     let open: Int
     let adaptable: Int

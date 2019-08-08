@@ -58,6 +58,7 @@
                     <connections>
                         <outlet property="statusLabel" destination="tyb-oA-Ksh" id="q9Q-Bg-Qbu"/>
                         <segue destination="Xy6-rs-XqD" kind="show" identifier="registrationSegue" id="qMf-zM-K0S"/>
+                        <segue destination="n9s-Gp-CtF" kind="presentation" identifier="feedSegue" id="XoE-N0-PZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9J-cr-6QD" sceneMemberID="firstResponder"/>
@@ -211,6 +212,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bu-Gm-T1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1900.0000000000002" y="140.625"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="uVm-Fd-exD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feed" id="n9s-Gp-CtF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26c-Xc-cGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1900" y="560"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nzu-Fr-HWc">

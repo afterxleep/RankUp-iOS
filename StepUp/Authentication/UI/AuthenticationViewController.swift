@@ -9,144 +9,101 @@ import MSAL
 
 final class AuthenticationViewController: UIViewController {
     
-    // MARK: MSGraph Authentication Settings
-    let kClientID = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
-    
-    // Additional variables for Auth and Graph API
-    let kScopes: [String] = ["https://graph.microsoft.com/user.read",
-                             "https://graph.microsoft.com/analytics.read",
-                             "https://graph.microsoft.com/calendars.read",
-                             "https://graph.microsoft.com/people.read"]
-    let kAuthority = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
-    
-    // MARK: MSGraph Authentication Variables
-    var accessToken = String()
-    var applicationContext : MSALPublicClientApplication?
-    
     @IBOutlet weak private var statusLabel: UILabel!
     
     // MARK: - Life Cycle
     
+    lazy var commonApi: APIClientService = {
+        let api = APIClientRepository()
+        api.msalDelegate = self
+        
+        return api
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        statusLabel.text = "Initializing"
-        do {
-            try initMSAL()
-        } catch {
-            print("Could not initialize MSAL")
-        }
+        
+        fetchProfile()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? SignupViewController {
-            destination.viewModel.accessToken = accessToken
-        }
-    }
-    
-    // Inits MSAL
-    func initMSAL() throws {
-        guard let authorityURL = URL(string: kAuthority) else {
-            print("Unable to create authority URL")
-            return
+    // Registers the User in the StepUP database or updates the access token
+    func fetchProfile() {
+        
+        commonApi.allCompanyAreas { (result) in
+            switch result {
+            case .success(let areas):
+                print(areas)
+            case .failure(let error):
+                print(error)
+            }
         }
         
-        let authority = try MSALAADAuthority(url: authorityURL)
-        let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
-        self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-        authenticateUser()
-    }
-    
-    // Get current account from cache
-    func currentAccount() -> MSALAccount? {
-        guard let applicationContext = self.applicationContext else { return nil }
-        do {
-            let cachedAccounts = try applicationContext.allAccounts()
-            if !cachedAccounts.isEmpty {
-                return cachedAccounts.first
+        commonApi.allCompanyLocations { (result) in
+            switch result {
+            case .success(let locations):
+                print(locations)
+            case .failure(let error):
+                print(error)
             }
-        } catch let error as NSError {
-            print("No accounts stored in cache: \(error)")
         }
-        return nil
-    }
-    
-    func authenticateUser() {
-        statusLabel.text = "Authenticating"
         
-        // Check to see if we have a current logged in account.
-        // If we don't, then we need to sign someone in.
-        guard let currentAccount = self.currentAccount() else {
-            acquireTokenInteractively()
-            return
-        }
-        acquireTokenSilently(currentAccount)
-    }
-    
-    func logOutUser() {
-        guard let applicationContext = self.applicationContext else { return }
-        guard let account = self.currentAccount() else { return }
-        do {
-            try applicationContext.remove(account)
-            self.accessToken = ""
-        } catch let error as NSError {
-            print("Received error signing account out: \(error)")
-        }
-    }
-    
-    // Token acquiring
-    func acquireTokenInteractively() {
-        guard let applicationContext = self.applicationContext else { return }
-        let parameters = MSALInteractiveTokenParameters(scopes: kScopes)
-        applicationContext.acquireToken(with: parameters) { (result, error) in
-            if let error = error {
-                print("Could not acquire token: \(error)")
-                return
-            }
-            
-            guard let result = result else {
-                print("Could not acquire token: No result returned")
-                return
-            }
-            self.accessToken = result.accessToken
-            
-            self.routeToSignupView()
-        }
-    }
-    
-    func acquireTokenSilently(_ account : MSALAccount!) {
-        guard let applicationContext = self.applicationContext else { return }
-        let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
-        print(parameters)
-        applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
-            if let error = error {
-                let nsError = error as NSError
-                if (nsError.domain == MSALErrorDomain) {
-                    if (nsError.code == MSALError.interactionRequired.rawValue) {
-                        DispatchQueue.main.async {
-                            self.acquireTokenInteractively()
-                        }
-                        return
-                    }
+        commonApi.userInformation { (result) in
+            switch result {
+            case .success(let loggedInUser, let nonRegisterUser):
+                if let nonRegisterUser = nonRegisterUser {
+                    print("\(nonRegisterUser)")
+                    self.registerUser()
+                } else {
+                    print("\(loggedInUser)")
                 }
-                print("Could not acquire token silently: \(error)")
-                return
+            case .failure(let error):
+                print(error)
             }
-            guard let result = result else {
-                print("Could not acquire token: No result returned")
-                return
-            }
-            
-            self.accessToken = result.accessToken
-            print("Refreshed Access token is \(self.accessToken)")
-            
-            self.routeToSignupView()
+        }
+
+        commonApi.rankings(page: "1",
+                           value: "Open",
+                           location: "5d34ff91fca3b9104a74c2b0",
+                           area: "5d350b963d25dc15994fdf8e") { (result) in
+                            switch result {
+                            case .success(let ranks):
+                                print("\(ranks)")
+                            case .failure(let error):
+                                print(error)
+                            }
         }
     }
     
-    private func routeToSignupView() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: K.Segues.registrationSegue, sender: nil)
+    private func registerUser() {
+        commonApi.registerUser(location: "5d34ff91fca3b9104a74c2b0", area: "5d350b963d25dc15994fdf8e") { (result) in
+            switch result {
+            case .success(let createdLoggedInUser):
+                print("\(createdLoggedInUser)")
+            case .failure(let error):
+                print(error)
+            }
         }
     }
+}
+
+extension AuthenticationViewController: MSALDelegate {
+    func initializing(_ repository: MSALRepository) {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Initializing"
+        }
+    }
+    
+    func authenticating(_ repository: MSALRepository) {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Authenticating"
+        }
+    }
+    
+    func accessTokenDidAcquired(_ repository: MSALRepository) {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Syncing Stats"
+        }
+    }
+    
     
 }

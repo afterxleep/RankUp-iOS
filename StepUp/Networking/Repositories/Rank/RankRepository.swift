@@ -1,17 +1,17 @@
 //
-//  CompanyValuesRepository.swift
+//  RankRepository.swift
 //  StepUp
 //
-//  Created by Juan combariza on 7/27/19.
+//  Created by Juan combariza on 7/30/19.
 //
 
 import Foundation
 
-struct CompanyValuesRepository: CompanyValuesService {
+struct RankRepository: RankService {
     
-    //MARK: - Values request
+    //MARK: - Rank request
     
-    func retrieveCompanyValues(_ request: URLRequest?, completion: @escaping RetrieveCompanyValuesCompletion) {
+    func retrieveRanks(_ request: URLRequest?, completion: @escaping RetrieveRanksCompletion) {
         guard let request = request else {
             completion(.failure(.unableToMakeRequest))
             return
@@ -22,7 +22,7 @@ struct CompanyValuesRepository: CompanyValuesService {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let data):
-                guard let model = API.parser(from: data, to: [Value].self) else {
+                guard let model = API.parser(from: data, to: [Rank].self) else {
                     completion(.failure(.invalidResponse))
                     return
                 }

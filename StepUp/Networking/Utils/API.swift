@@ -11,21 +11,25 @@ typealias SecureToken = String
 typealias HttpBody = [String: String]
 typealias UrlParameters = [String: String]
 
-enum API: Parceable {
+enum API: Parseable {
     case area(SecureToken)
     case location(SecureToken)
     case loggedInUser(SecureToken)
-    case newLocalUser(SecureToken, HttpBody)
-    case updateLocalUser(SecureToken, HttpBody)
+    case registerUser(SecureToken, HttpBody)
+    case updateUser(SecureToken, HttpBody)
     case companyValues(SecureToken)
     case contacts(SecureToken)
     case feedback(SecureToken)
+    case createFeedback(SecureToken, HttpBody)
+    case rank(SecureToken)
     
     //MARK: - constants
     
     private static let authorizationKey             = "Authorization"
     private static let authorizationValeFormat      = "Bearer %@"
     private static let scheme                       = "https"
+    private static let contentTypeKey               = "Content-Type"
+    private static let contentTypeValue             = "application/json; charset=utf-8"
     private static let TestHost                     = "rankme-test.herokuapp.com"
     private static let ProdHost                     = "rankme-prod.herokuapp.com"
     private static let host                         = SystemUtils.isDebug ? TestHost : ProdHost
@@ -46,17 +50,18 @@ enum API: Parceable {
              .loggedInUser(let token),
              .companyValues(let token),
              .contacts(let token),
-             .feedback(let token):
+             .feedback(let token),
+             .rank(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-        case .newLocalUser(let token, let parameter):
+        case .registerUser(let token, let body), .createFeedback(let token, let body):
             request.httpMethod = HTTPMethod.post.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-            request.httpBody = createBody(parameters: parameter)
-        case .updateLocalUser(let token, let parameter):
+            request.httpBody = createBody(parameters: body)
+        case .updateUser(let token, let body):
             request.httpMethod = HTTPMethod.put.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-            request.httpBody = createBody(parameters: parameter)
+            request.httpBody = createBody(parameters: body)
         }
         
         return request
@@ -81,18 +86,18 @@ enum API: Parceable {
             return "/area"
         case .location(_):
             return "/location"
-        case .loggedInUser(_), .newLocalUser(_), .updateLocalUser(_):
+        case .loggedInUser(_), .updateUser(_), .registerUser(_):
             return "/me"
         case .companyValues(_):
             return "/value"
         case .contacts(_):
             return "/people/relevant-contacts"
-        case .feedback(_):
+        case .feedback(_), .createFeedback(_):
             return "/feedback"
+        case .rank(_):
+            return "/ranking"
         }
     }
-    
-
     
     //MARK: - Auxiliary methods
     
@@ -115,7 +120,8 @@ enum API: Parceable {
     }
     
     private func createHeader(token: String) -> [String: String] {
-        return [API.authorizationKey: String(format: API.authorizationValeFormat, token)]
+        return [API.authorizationKey: String(format: API.authorizationValeFormat, token),
+                API.contentTypeKey: API.contentTypeValue]
     }
     
     private func createBody(parameters: [String: String]) -> Data? {
@@ -127,6 +133,6 @@ enum API: Parceable {
     }
 }
 
-protocol Parceable {
+protocol Parseable {
     static func parser<T: Codable>(from data: Data, to: T.Type) -> T?
 }
