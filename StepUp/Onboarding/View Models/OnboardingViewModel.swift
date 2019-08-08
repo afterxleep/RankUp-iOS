@@ -9,6 +9,6 @@ import Foundation
 
 struct OnboardingViewModel {    
     var imageName: String
-    var title: String
+    var title: NSAttributedString
     var description: String
 }

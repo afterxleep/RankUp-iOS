@@ -5,7 +5,7 @@
 //  Created by Miguel Rojas on 28/07/18.
 //
 
-import Foundation
+import UIKit
 
 enum ControllerDirection {
     case before
@@ -16,16 +16,29 @@ enum ControllerDirection {
 struct OnboardingContainerViewModel {
     
     let onboardingModel: [OnboardingViewModel] = {
+        let onboardingAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 28.0, weight: .black), .kern: 0.39, .paragraphStyle: UIHelper.lineHeightAttribute(size: 28)]
         
-        return [OnboardingViewModel(imageName: "onBoarding3",
-                                    title: "Closer Feedback",
-                                    description: "Get closer to feedback cycle. Make honest, trusted and accurate feedback"),
-                OnboardingViewModel(imageName: "onBoarding1",
-                                    title: "Rank Me",
-                                    description: "Interact with others and be the best you can be"),
-                OnboardingViewModel(imageName: "onBoarding2",
-                                    title: "Recognize",
-                                    description: "Recognize those who deserve it by giving a punctuation based on our core values")]
+        let obOne = NSMutableAttributedString(string: "Closer\n", attributes: [.foregroundColor: UIColor.dark])
+        obOne.append(NSAttributedString(string: "FeedBack", attributes: [.foregroundColor: UIColor.aquaBlue]))
+        obOne.addAttributes(onboardingAttributes, range: NSRange(location: 0, length: obOne.length))
+        
+        let obTwo = NSMutableAttributedString(string: "Recognize\n", attributes: [.foregroundColor: UIColor.dark])
+        obTwo.append(NSAttributedString(string: "your peer", attributes: [.foregroundColor: UIColor.aquaBlue]))
+        obTwo.addAttributes(onboardingAttributes, range: NSRange(location: 0, length: obTwo.length))
+        
+        let obThree = NSMutableAttributedString(string: "Rank", attributes: [.foregroundColor: UIColor.dark])
+        obThree.append(NSAttributedString(string: "me", attributes: [.foregroundColor: UIColor.aquaBlue]))
+        obThree.addAttributes(onboardingAttributes, range: NSRange(location: 0, length: obThree.length))
+        
+        return [OnboardingViewModel(imageName: "feedback",
+                                    title: obOne,
+                                    description: "Get closer to feedback cycle.\nMake honest, trusted and\n accurate feedback"),
+                OnboardingViewModel(imageName: "recognize",
+                                    title: obTwo,
+                                    description: "Recognize those who deserve it\n by giving a punctuation based\n on our core values"),
+                OnboardingViewModel(imageName: "rankme",
+                                    title: obThree,
+                                    description: "Interact with others and be the\n best you can be")]
     }()
     
     var modelsCount: Int {

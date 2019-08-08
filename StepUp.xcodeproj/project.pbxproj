@@ -40,6 +40,7 @@
 		9B60744222EE29C20060E13D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60744122EE29C20060E13D /* SignupViewController.swift */; };
 		9B60744422EE4BF60060E13D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60744322EE4BF60060E13D /* SignupViewModel.swift */; };
 		9B63BBC422F1FD6B004BE699 /* FieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B63BBC322F1FD6B004BE699 /* FieldText.swift */; };
+		9B660ABB22FBB0EA00C04819 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B660ABA22FBB0EA00C04819 /* UIHelper.swift */; };
 		9B729CB722E8008A002EEA39 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B729CB622E8008A002EEA39 /* Authentication.storyboard */; };
 		9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CBF22E801A0002EEA39 /* MainViewController.swift */; };
 		9B729CC322E8029C002EEA39 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B729CC222E8029C002EEA39 /* Constants.swift */; };
@@ -92,6 +93,7 @@
 		9B60744122EE29C20060E13D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		9B60744322EE4BF60060E13D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		9B63BBC322F1FD6B004BE699 /* FieldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldText.swift; sourceTree = "<group>"; };
+		9B660ABA22FBB0EA00C04819 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		9B729CB622E8008A002EEA39 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		9B729CBF22E801A0002EEA39 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B729CC222E8029C002EEA39 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			children = (
 				9B729CC222E8029C002EEA39 /* Constants.swift */,
 				9B63BBC322F1FD6B004BE699 /* FieldText.swift */,
+				9B660ABA22FBB0EA00C04819 /* UIHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				9B78777122EE90BA00626A63 /* BestsViewCell.swift in Sources */,
 				7AC6D98C22E92975006F18CE /* LocationRepository.swift in Sources */,
 				D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */,
+				9B660ABB22FBB0EA00C04819 /* UIHelper.swift in Sources */,
 				9B78777322EE90C800626A63 /* FeedViewCell.swift in Sources */,
 				9B729CC322E8029C002EEA39 /* Constants.swift in Sources */,
 				7AC6D97E22E8FEFC006F18CE /* AreaService.swift in Sources */,

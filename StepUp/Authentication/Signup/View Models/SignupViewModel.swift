@@ -40,7 +40,7 @@ final class SignupViewModel {
     
     // MARK: - Inteface
     
-    func fetchLocationAreaData(completion: @escaping (Error?) -> Void) {
+    func fetchLocationDisciplinesData(completion: @escaping (Error?) -> Void) {
         guard
             let token = accessToken
             else { return }
@@ -91,34 +91,6 @@ final class SignupViewModel {
     //            self.statusLabel.text = "Syncing Stats"
     //        }
     //
-    //        LoggedInUserRepository().retrieveLoggedInUser(API.loggedInUser(self.accessToken).request()) { (result) in
-    //            switch result {
-    //            case .success(let loggedInUser):
-    //                let body = ["location": loggedInUser.location.id,
-    //                            "area": loggedInUser.area.id]
-    //
-    //                LoggedInUserRepository().createNewLocalUser(API.newLocalUser(self.accessToken, body).request(), completion: { (result) in
-    //                    switch result {
-    //                    case .success(let createdLoggedInUser):
-    //                        print("\(createdLoggedInUser)")
-    //                    case .failure(let error):
-    //                        print(error)
-    //                    }
-    //                })
-    //
-    //                LoggedInUserRepository().updateLocalUser(API.updateLocalUser(self.accessToken, body).request(), completion: { (result) in
-    //                    switch result {
-    //                    case .success(let updatedLoggedInUser):
-    //                        print("\(updatedLoggedInUser)")
-    //                    case .failure(let error):
-    //                        print(error)
-    //                    }
-    //                })
-    //
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
     //
     //        let params = ["from": "1563757462558",
     //                      "to": "1663757462558",

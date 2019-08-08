@@ -5,9 +5,9 @@
 //  Created by Daniel Bernal on 7/13/19.
 //  Copyright © 2019 All rights reserved.
 //
+
 import UIKit
 import MSAL
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

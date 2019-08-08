@@ -11,6 +11,7 @@ final class OnboardingContainerViewController: UIViewController {
     
     @IBOutlet weak private var pageControl: UIPageControl!
     @IBOutlet weak private var skipButton: UIButton!
+    @IBOutlet weak private var skipButtonView: UIView!
     
     // MARK: - Stored Properties
     
@@ -28,6 +29,8 @@ final class OnboardingContainerViewController: UIViewController {
         super.viewDidLoad()
         configurePageController()
         configurePageControl()
+        
+        skipButtonView.roundCorners(corners: .topLeft, radius: 66)
     }
     
     // MARK: - Navigation
@@ -85,7 +88,7 @@ extension OnboardingContainerViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let onboardingModels = viewModel?.modelsCount else { return }
-        skipButton.setTitle(currentControllerIndex < onboardingModels - 1 ? "Skip" : "Done", for: .normal)
+        skipButton.setTitle(currentControllerIndex < onboardingModels - 1 ? "SKIP" : "DONE", for: .normal)
         pageControl.currentPage = currentControllerIndex
     }
     

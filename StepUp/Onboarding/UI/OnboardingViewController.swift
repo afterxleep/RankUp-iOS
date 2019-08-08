@@ -29,7 +29,7 @@ final class OnboardingViewController: UIViewController {
             imageView.image = image
         }
         
-        titleLabel.text = viewModel?.title
+        titleLabel.attributedText = viewModel?.title
         descriptionLabel.text = viewModel?.description
     }
     
