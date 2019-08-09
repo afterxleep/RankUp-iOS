@@ -80,6 +80,15 @@ class AuthViewController: UIViewController {
                 print(error)
             }
         }
+        
+        commonApi.allCompanyValues { (result) in
+            switch result {
+            case .success(let values):
+                print("\(values)")
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 

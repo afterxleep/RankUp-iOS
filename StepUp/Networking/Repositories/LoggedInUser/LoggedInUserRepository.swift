@@ -22,7 +22,7 @@ struct LoggedInUserRepository: LoggedInUserService {
             case .failure(let error):
                 switch error {
                 case .nonRegisterUser(let data):
-                    guard let model = API.parser(from: data, to: NonResgisterUser.self) else {
+                    guard let model = API.parser(from: data, to: UnregisteredUser.self) else {
                         completion(.failure(.invalidResponse))
                         return
                     }

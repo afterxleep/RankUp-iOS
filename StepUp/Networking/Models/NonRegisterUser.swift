@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NonResgisterUser: Codable {
+struct UnregisteredUser: Codable {
     var code: Int?
     var error: String?
     var data: UserModel?
