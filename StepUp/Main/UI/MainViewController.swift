@@ -2,59 +2,78 @@
 //  MainViewController.swift
 //  StepUp
 //
-//  Created by Miguel Rojas on 7/23/19.
+//  Created by Daniel Bernal on 7/14/19.
 //
 
-import UIKit
+import MSAL
 
 final class MainViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    @IBOutlet weak private var statusLabel: UILabel!
     
-    @IBOutlet private weak var containerView: UIView!
+    lazy private var viewModel: MainViewModel? = {
+        let apiClient = APIClient()
+        apiClient.msalDelegate = self
+        
+        return MainViewModel(apiClient: apiClient)
+    }()
     
-    // MARK: - Stored Properties
+    // MARK: - Computed Properties
     
-    var viewModel: MainViewModel? = MainViewModel()
+    lazy var commonApi: APIClientFacade = {
+        let api = APIClient()
+        api.msalDelegate = self
+        
+        return api
+    }()
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInitialController()
+        checkAuthenticationState()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? SignupViewController {
+            controller.viewModel.userModel = viewModel?.unregisteredUserModel
+        }
     }
     
-    // MARK: - Route
+    // MARK: - Private
     
-    private func loadInitialController() {
-        guard let storyboardName = viewModel?.initialStoryboard else { return }
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-        guard let controller = storyboard.instantiateInitialViewController() else { return }
-        addChildViewController(viewController: controller)
+    private func checkAuthenticationState() {
+        viewModel?.fetchInitialData { [weak self] authState, error in
+            switch authState {
+            case .unregistered:
+                self?.performSegue(withIdentifier: K.Segues.registrationSegue, sender: nil)
+            case .registered:
+                self?.performSegue(withIdentifier: K.Segues.feedSegue, sender: nil)
+            case .error:
+                print("We are fucked niggas...")
+            }
+        }
     }
     
-    private func addChildViewController(viewController: UIViewController) {
-        addChild(viewController)
-        guard let childView = viewController.view else { return }
-        containerView.addSubview(childView)
-        
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false
-        viewController.view.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        viewController.view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        viewController.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        viewController.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        
-        viewController.didMove(toParent: self)
+}
+
+extension MainViewController: MSALDelegate {
+    func initializing(_ repository: MSALRepository) {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Initializing"
+        }
     }
     
-    private func removeChildViewController(viewController: UIViewController) {
-        viewController.willMove(toParent: nil)
-        viewController.view.removeFromSuperview()
-        viewController.removeFromParent()
+    func authenticating(_ repository: MSALRepository) {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Authenticating"
+        }
+    }
+    
+    func accessTokenDidAcquired(_ repository: MSALRepository) {
+        DispatchQueue.main.async{
+            self.statusLabel.text = "Syncing Stats"
+        }
     }
     
 }

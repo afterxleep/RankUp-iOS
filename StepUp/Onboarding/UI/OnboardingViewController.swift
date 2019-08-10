@@ -13,7 +13,7 @@ final class OnboardingViewController: UIViewController {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var descriptionLabel: UILabel!
     
-    var viewModel: OnboardingViewModel?
+    var viewModel: OnboardingModel?
     
     // MARK: - Life Cycle
     

@@ -9,6 +9,14 @@ import UIKit
 
 final class OnboardingContainerViewController: UIViewController {
     
+    private struct Constants {
+        static let skipTitle = "SKIP"
+        static let doneTitle = "DONE"
+        static let skipButtonCornerRadius: CGFloat = 66
+    }
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak private var pageControl: UIPageControl!
     @IBOutlet weak private var skipButton: UIButton!
     @IBOutlet weak private var skipButtonView: UIView!
@@ -30,7 +38,7 @@ final class OnboardingContainerViewController: UIViewController {
         configurePageController()
         configurePageControl()
         
-        skipButtonView.roundCorners(corners: [.layerMinXMinYCorner], radius: 66)
+        skipButtonView.roundCorners(corners: [.layerMinXMinYCorner], radius: Constants.skipButtonCornerRadius)
     }
     
     // MARK: - Navigation
@@ -88,7 +96,7 @@ extension OnboardingContainerViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let onboardingModels = viewModel?.modelsCount else { return }
-        skipButton.setTitle(currentControllerIndex < onboardingModels - 1 ? "SKIP" : "DONE", for: .normal)
+        skipButton.setTitle(currentControllerIndex < onboardingModels - 1 ? Constants.skipTitle : Constants.doneTitle, for: .normal)
         pageControl.currentPage = currentControllerIndex
     }
     

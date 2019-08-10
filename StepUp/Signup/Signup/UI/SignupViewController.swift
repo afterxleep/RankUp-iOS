@@ -9,6 +9,21 @@ import UIKit
 
 final class SignupViewController: UIViewController {
     
+    private struct Constants {
+        static let viewContainersRadius: CGFloat = 66
+        static let profileViewRadius: CGFloat = 15
+        static let formFieldsRadius: CGFloat = 9
+        static let headerTitleFontSize: CGFloat = 39
+        static let headerTitleLineHeight: CGFloat = 37
+        static let locationPlaceholder = "Location"
+        static let disciplinePlaceholder = "Discipline"
+        static let textFieldRightViewAsset = "smallTriangleDown"
+        static let placeholderTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor : UIColor.lightGreyBlue,
+                                                                               .font: UIFont.systemFont(ofSize: 12, weight: .regular)]
+    }
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak private var header: UIView!
     @IBOutlet weak private var formContainer: UIView!
     @IBOutlet weak private var headerTitle: UILabel!
@@ -45,6 +60,7 @@ final class SignupViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         configureUI()
+        registerForKeyboardNotifications()
         
         viewModel.fetchLocationDisciplinesData { [weak self] error in
             if error == nil {
@@ -68,36 +84,45 @@ final class SignupViewController: UIViewController {
     }
     
     private func setupUI() {
-        header.roundCorners(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 66)
-        
-        let attributedTitle = NSMutableAttributedString(string: "Welcome to ", attributes: [.foregroundColor : UIColor.white,
-                                                                                            .font: UIFont.systemFont(ofSize: 39, weight: .black),
+        roundCorners()
+        styleTextFields()
+        createAttributedStrings()
+    }
+    
+    private func roundCorners() {
+        header.roundCorners(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: Constants.viewContainersRadius)
+        formContainer.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: Constants.viewContainersRadius)
+        signupImageView.roundCorners(radius: Constants.profileViewRadius)
+        locationTextField.roundCorners(radius: Constants.formFieldsRadius)
+        disciplineTextField.roundCorners(radius: Constants.formFieldsRadius)
+        startButton.roundCorners(radius: Constants.formFieldsRadius)
+    }
+    
+    private func createAttributedStrings() {
+        let attributedTitle = NSMutableAttributedString(string: "Welcome to ", attributes: [.foregroundColor: UIColor.white,
+                                                                                            .font: UIFont.systemFont(ofSize: Constants.headerTitleFontSize,
+                                                                                                                     weight: .black),
                                                                                             .kern: 0.5])
         
-        let appNameString = NSAttributedString(string: "Rankme", attributes: [.foregroundColor : UIColor.aquaBlue,
-                                                                              .font: UIFont.systemFont(ofSize: 39, weight: .semibold)])
+        let appNameString = NSAttributedString(string: "Rankme", attributes: [.foregroundColor: UIColor.aquaBlue,
+                                                                              .font: UIFont.systemFont(ofSize: Constants.headerTitleFontSize,
+                                                                                                       weight: .semibold)])
         
         attributedTitle.append(appNameString)
-        attributedTitle.addAttribute(.paragraphStyle, value: UIHelper.lineHeightAttribute(size: 37), range: NSRange(location: 0, length: attributedTitle.length))
+        attributedTitle.addAttribute(.paragraphStyle, value: UIHelper.lineHeightAttribute(size: Constants.headerTitleLineHeight),
+                                     range: NSRange(location: 0, length: attributedTitle.length))
+        
         headerTitle.attributedText = attributedTitle
-        
-        formContainer.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 66)
-        signupImageView.roundCorners(radius: 15)
-        locationTextField.roundCorners(radius: 9)
-        disciplineTextField.roundCorners(radius: 9)
-        startButton.roundCorners(radius: 9)
-        
-        let asset = UIImage(named: "smallTriangleDown")
+        locationTextField.attributedPlaceholder = NSAttributedString(string: Constants.locationPlaceholder, attributes: Constants.placeholderTextAttributes)
+        disciplineTextField.attributedPlaceholder = NSAttributedString(string: Constants.disciplinePlaceholder, attributes: Constants.placeholderTextAttributes)
+    }
+    
+    private func styleTextFields() {
+        let asset = UIImage(named: Constants.textFieldRightViewAsset)
         let rightImageView = UIImageView(image: asset)
         
         locationTextField.rightViewMode = .always
         locationTextField.rightView = rightImageView
-        
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [.foregroundColor : UIColor.lightGreyBlue,
-                                                                    .font: UIFont.systemFont(ofSize: 12, weight: .regular)]
-        
-        locationTextField.attributedPlaceholder = NSAttributedString(string: "Location", attributes: placeholderAttributes)
-        disciplineTextField.attributedPlaceholder = NSAttributedString(string: "Discipline", attributes: placeholderAttributes)
     }
     
     // MARK: - Actions
