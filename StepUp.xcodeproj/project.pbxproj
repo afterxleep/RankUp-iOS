@@ -283,12 +283,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9B47E06522EDF46600353A92 /* VIew Model */ = {
+		9B47E06522EDF46600353A92 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
 				9B47E06322EDF46100353A92 /* MainViewModel.swift */,
 			);
-			path = "VIew Model";
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		9B60743E22EE29850060E13D /* Signup */ = {
@@ -321,7 +321,7 @@
 		9B729CB322E80045002EEA39 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9B47E06522EDF46600353A92 /* VIew Model */,
+				9B47E06522EDF46600353A92 /* View Model */,
 				9B729CBC22E800F0002EEA39 /* UI */,
 			);
 			path = Main;

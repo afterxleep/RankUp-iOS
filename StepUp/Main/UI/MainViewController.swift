@@ -11,22 +11,15 @@ final class MainViewController: UIViewController {
     
     @IBOutlet weak private var statusLabel: UILabel!
     
+    // MARK: - Computed Properties
+    
     lazy private var viewModel: MainViewModel? = {
         let apiClient = APIClient()
         apiClient.msalDelegate = self
         
         return MainViewModel(apiClient: apiClient)
     }()
-    
-    // MARK: - Computed Properties
-    
-    lazy var commonApi: APIClientFacade = {
-        let api = APIClient()
-        api.msalDelegate = self
-        
-        return api
-    }()
-    
+
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -50,7 +43,7 @@ final class MainViewController: UIViewController {
             case .registered:
                 self?.performSegue(withIdentifier: K.Segues.feedSegue, sender: nil)
             case .error:
-                print("We are fucked niggas...")
+                print("We are fucked up niggas...")
             }
         }
     }
