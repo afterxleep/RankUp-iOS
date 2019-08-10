@@ -31,3 +31,14 @@ struct Feedback: Codable {
     var isFlaggedByUser: Bool?
     var isPositive: Bool?
 }
+
+struct FeedbackFilter {
+    let from: Int
+    let to: Int
+    let value: String
+    let user: String
+    let isPrivate: Bool
+    let isPinned: Bool
+    let skip: Int
+    let limit: Int
+}
