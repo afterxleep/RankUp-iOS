@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class SignupViewModel {
     
@@ -83,6 +84,19 @@ final class SignupViewModel {
         
         dispatchGroup.notify(qos: .userInitiated, queue: DispatchQueue.main) {
             completion(requestError)
+        }
+    }
+    
+    func fetchProfilePhoto(completion: @escaping (UIImage?) -> Void) {
+        apiClient.profilePhoto { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    completion(UIImage(data: data, scale: 1.0))
+                case .failure( _ ):
+                    completion(nil)
+                }
+            }
         }
     }
     

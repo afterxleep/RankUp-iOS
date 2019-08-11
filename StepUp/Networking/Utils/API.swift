@@ -10,6 +10,7 @@ import Foundation
 typealias SecureToken = String
 typealias HttpBody = [String: String]
 typealias UrlParameters = [String: String]
+typealias FeedbackId = String
 
 enum API: Parseable {
     case area(SecureToken)
@@ -21,7 +22,10 @@ enum API: Parseable {
     case contacts(SecureToken)
     case feedback(SecureToken)
     case createFeedback(SecureToken, HttpBody)
+    case likeFeedback(SecureToken, FeedbackId)
+    case flagFeedback(SecureToken, FeedbackId)
     case rank(SecureToken)
+    case profilePhoto(SecureToken)
     
     //MARK: - constants
     
@@ -29,16 +33,18 @@ enum API: Parseable {
     private static let authorizationValeFormat      = "Bearer %@"
     private static let scheme                       = "https"
     private static let contentTypeKey               = "Content-Type"
-    private static let contentTypeValue             = "application/json; charset=utf-8"
+    private static let contentTypeJSONValue         = "application/json; charset=utf-8"
+    private static let contentTypeImageValue        = "image/jpg"
     private static let TestHost                     = "rankme-test.herokuapp.com"
     private static let ProdHost                     = "rankme-prod.herokuapp.com"
+    private static let MSHost                       = "graph.microsoft.com"
     private static let host                         = SystemUtils.isDebug ? TestHost : ProdHost
     
     
     //MARK: - get request
     
-    func request(parameters: UrlParameters? = nil) -> URLRequest? {
-        guard let url = createUrl(with: parameters) else {
+    func request(parameters: UrlParameters? = nil, defaultHost: Bool = true) -> URLRequest? {
+        guard let url = createUrl(with: parameters, host: defaultHost ? API.host : API.MSHost) else {
             return nil
         }
         
@@ -51,9 +57,10 @@ enum API: Parseable {
              .companyValues(let token),
              .contacts(let token),
              .feedback(let token),
-             .rank(let token):
+             .rank(let token),
+             .profilePhoto(let token):
             request.httpMethod = HTTPMethod.get.rawValue
-            request.allHTTPHeaderFields = createHeader(token: token)
+            request.allHTTPHeaderFields = createHeader(token: token, contentType: API.contentTypeImageValue)
         case .registerUser(let token, let body), .createFeedback(let token, let body):
             request.httpMethod = HTTPMethod.post.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
@@ -62,6 +69,9 @@ enum API: Parseable {
             request.httpMethod = HTTPMethod.put.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
             request.httpBody = createBody(parameters: body)
+        case .likeFeedback(let token, _), .flagFeedback(let token, _):
+            request.httpMethod = HTTPMethod.put.rawValue
+            request.allHTTPHeaderFields = createHeader(token: token)
         }
         
         return request
@@ -96,15 +106,21 @@ enum API: Parseable {
             return "/feedback"
         case .rank(_):
             return "/ranking"
+        case .likeFeedback(_, let feedbackId):
+            return "/feedback/\(feedbackId)/like"
+        case .flagFeedback(_, let feedbackId):
+            return "/feedback/\(feedbackId)/flag"
+        case .profilePhoto(_):
+            return "/v1.0/me/photo/$value"
         }
     }
     
     //MARK: - Auxiliary methods
     
-    private func createUrl(with parameters: UrlParameters?) -> URL? {
+    private func createUrl(with parameters: UrlParameters?, host: String) -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = API.scheme
-        urlComponents.host = API.host
+        urlComponents.host = host
         urlComponents.path = endPoint
         urlComponents.queryItems = queryItems(dictionary: parameters)
         
@@ -119,9 +135,9 @@ enum API: Parseable {
         }
     }
     
-    private func createHeader(token: String) -> [String: String] {
+    private func createHeader(token: String, contentType: String = API.contentTypeJSONValue) -> [String: String] {
         return [API.authorizationKey: String(format: API.authorizationValeFormat, token),
-                API.contentTypeKey: API.contentTypeValue]
+                API.contentTypeKey: contentType]
     }
     
     private func createBody(parameters: [String: String]) -> Data? {

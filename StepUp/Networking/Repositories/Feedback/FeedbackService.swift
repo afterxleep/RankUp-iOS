@@ -8,9 +8,11 @@
 import Foundation
 
 typealias RetrieveFeedbackCompletion = (Result<FeedbackFeed, RequestError>) -> Void
-typealias CreateFeedbackCompletion = (Result<Feedback, RequestError>) -> Void
+typealias FeedbackCompletion = (Result<Feedback, RequestError>) -> Void
 
 protocol FeedbackService {
     func retrieveFeedbacks(_ request: URLRequest?, completion: @escaping RetrieveFeedbackCompletion)
-    func createFeedbacks(_ request: URLRequest?, completion: @escaping CreateFeedbackCompletion)
+    func createFeedbacks(_ request: URLRequest?, completion: @escaping FeedbackCompletion)
+    func likeFeedback(_ request: URLRequest?, completion: @escaping FeedbackCompletion)
+    func flagFeedback(_ request: URLRequest?, completion: @escaping FeedbackCompletion)
 }

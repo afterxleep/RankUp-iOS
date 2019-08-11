@@ -16,6 +16,9 @@ protocol APIClientFacade: AnyObject {
     func updateUser(location: String, area: String, completion: @escaping RetrieveLoggedInUserCompletion)
     func relevantContacts(completion: @escaping RetrieveRelevantContactsCompletion)
     func feedbacks(filter: FeedbackFilter, completion: @escaping RetrieveFeedbackCompletion)
-    func createFeedbacks(filter: FeedbackFilter, completion: @escaping RetrieveFeedbackCompletion)
-    func rankings(page: String, value: String, location: String, area: String, completion: @escaping RetrieveRanksCompletion)
+    func createFeedback(body: CreateFeedbackBody, completion: @escaping FeedbackCompletion)
+    func likeFeedback(feedbackId: String, completion: @escaping FeedbackCompletion)
+    func flagFeedback(feedbackId: String, completion: @escaping FeedbackCompletion)
+    func rankings(filter: RankingFilter, completion: @escaping RetrieveRanksCompletion)
+    func profilePhoto(completion: @escaping RetrieveProfilePhotoCompletion)
 }
