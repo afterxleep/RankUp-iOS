@@ -60,6 +60,7 @@
 		9B78777322EE90C800626A63 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78777222EE90C800626A63 /* FeedViewCell.swift */; };
 		9B9DC1CC22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9DC1CB22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift */; };
 		9B9DC1CF22FD129C00E239CB /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DC1CE22FD129C00E239CB /* Signup.storyboard */; };
+		9BEA19E122FE5A6B00851A39 /* CustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA19E022FE5A6B00851A39 /* CustomTabController.swift */; };
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
 		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
@@ -120,6 +121,7 @@
 		9B78777222EE90C800626A63 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		9B9DC1CB22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardHandling.swift"; sourceTree = "<group>"; };
 		9B9DC1CE22FD129C00E239CB /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		9BEA19E022FE5A6B00851A39 /* CustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabController.swift; sourceTree = "<group>"; };
 		C5A521D81661EFB800A7E1F9 /* Pods-StepUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepUp.release.xcconfig"; path = "Target Support Files/Pods-StepUp/Pods-StepUp.release.xcconfig"; sourceTree = "<group>"; };
 		D67FEFE022DAA04A00DA34FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67FEFE222DAA04A00DA34FE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				9B78776A22EE8B0C00626A63 /* FeedViewController.swift */,
 				9B78777022EE90BA00626A63 /* BestsViewCell.swift */,
 				9B78777222EE90C800626A63 /* FeedViewCell.swift */,
+				9BEA19E022FE5A6B00851A39 /* CustomTabController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				9B47E06B22EDFD4B00353A92 /* OnboardingModel.swift in Sources */,
 				7A77E6D522F092F700741749 /* RankService.swift in Sources */,
+				9BEA19E122FE5A6B00851A39 /* CustomTabController.swift in Sources */,
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,
 				9B78776B22EE8B0C00626A63 /* FeedViewController.swift in Sources */,
 				7AC6D99A22ECA617006F18CE /* Value.swift in Sources */,

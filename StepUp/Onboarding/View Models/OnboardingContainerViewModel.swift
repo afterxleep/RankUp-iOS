@@ -14,21 +14,14 @@ enum ControllerDirection {
 }
 
 struct OnboardingContainerViewModel {
-    
-    private struct Constants {
-        static let firstLineAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.dark]
-        static let secondLineAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.aquaBlue]
-        static let onboardingAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 28.0, weight: .black),
-                                                                          .kern: 0.39, .paragraphStyle: UIHelper.lineHeightAttribute(size: 28)]
-    }
-    
+
     // MARK: - Interface
     
     let onboardingModel: [OnboardingModel] = {
         
-        let firstOnboardingTitle = createAttributedOnboardingTitle(firstLine: "Closer\n", secondLine: "FeedBack")
-        let secondOnboardingTitle = createAttributedOnboardingTitle(firstLine: "Recognize\n", secondLine: "your peer")
-        let thirdOnboardingTitle = createAttributedOnboardingTitle(firstLine: "Rank", secondLine: "me")
+        let firstOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Closer\n", secondLine: "FeedBack")
+        let secondOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Recognize\n", secondLine: "your peer")
+        let thirdOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "me")
         
         return [OnboardingModel(imageName: "feedback",
                                 title: firstOnboardingTitle,
@@ -55,16 +48,6 @@ struct OnboardingContainerViewModel {
     
     func indexForModel(model: OnboardingModel?) -> Int? {
         return onboardingModel.firstIndex { $0.imageName == model?.imageName && $0.title == model?.title && $0.description == model?.description}
-    }
-    
-    // MARK: - Private
-    
-    static private func createAttributedOnboardingTitle(firstLine: String, secondLine: String) -> NSAttributedString {
-        let onboardingTitle = NSMutableAttributedString(string: firstLine, attributes: Constants.firstLineAttributes)
-        onboardingTitle.append(NSAttributedString(string: secondLine, attributes: Constants.secondLineAttributes))
-        onboardingTitle.addAttributes(Constants.onboardingAttributes, range: NSRange(location: 0, length: onboardingTitle.length))
-        
-        return onboardingTitle
     }
     
 }
