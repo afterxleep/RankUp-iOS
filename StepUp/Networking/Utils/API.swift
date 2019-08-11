@@ -57,8 +57,10 @@ enum API: Parseable {
              .companyValues(let token),
              .contacts(let token),
              .feedback(let token),
-             .rank(let token),
-             .profilePhoto(let token):
+             .rank(let token):
+            request.httpMethod = HTTPMethod.get.rawValue
+            request.allHTTPHeaderFields = createHeader(token: token)
+        case .profilePhoto(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token, contentType: API.contentTypeImageValue)
         case .registerUser(let token, let body), .createFeedback(let token, let body):
