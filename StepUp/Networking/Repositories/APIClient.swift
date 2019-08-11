@@ -277,7 +277,7 @@ class APIClient: APIClientFacade {
             
             switch result {
             case .success(let token):
-                strongSelf.msal.retrieveProfilePhoto(API.profilePhoto(token).request(defaultHost: false), completion: completion)
+                strongSelf.msal.retrieveProfilePhoto(API.profilePhoto(token).request(), completion: completion)
             case .failure( _ ):
                 completion(.failure(.unableToMakeRequest))
             }

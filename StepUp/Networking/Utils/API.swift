@@ -43,8 +43,8 @@ enum API: Parseable {
     
     //MARK: - get request
     
-    func request(parameters: UrlParameters? = nil, defaultHost: Bool = true) -> URLRequest? {
-        guard let url = createUrl(with: parameters, host: defaultHost ? API.host : API.MSHost) else {
+    func request(parameters: UrlParameters? = nil) -> URLRequest? {
+        guard let url = createUrl(with: parameters) else {
             return nil
         }
         
@@ -115,9 +115,18 @@ enum API: Parseable {
         }
     }
     
+    private var host: String {
+        switch self {
+        case .profilePhoto(_):
+            return API.MSHost
+        default:
+            return API.host
+        }
+    }
+    
     //MARK: - Auxiliary methods
     
-    private func createUrl(with parameters: UrlParameters?, host: String) -> URL? {
+    private func createUrl(with parameters: UrlParameters?) -> URL? {
         var urlComponents = URLComponents()
         urlComponents.scheme = API.scheme
         urlComponents.host = host
