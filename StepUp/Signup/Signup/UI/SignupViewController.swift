@@ -30,9 +30,25 @@ final class SignupViewController: UIViewController {
     @IBOutlet weak private var signupImageView: UIImageView!
     @IBOutlet weak private var userLabel: UILabel!
     @IBOutlet weak private var jobLabel: UILabel!
-    @IBOutlet weak private var locationTextField: FieldText!
-    @IBOutlet weak private var disciplineTextField: FieldText!
-    @IBOutlet weak private var startButton: UIButton!
+    
+    @IBOutlet weak private var locationTextField: FieldText! {
+        didSet {
+            locationTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak private var disciplineTextField: FieldText! {
+        didSet {
+            disciplineTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak private var startButton: UIButton! {
+        didSet {
+            startButton.setBackgroundColor(color: UIColor.iceBlue, state: .disabled)
+            startButton.isEnabled = false
+        }
+    }
     
     var viewModel = SignupViewModel(apiClient: APIClient())
     
@@ -186,7 +202,21 @@ extension SignupViewController: UITextFieldDelegate {
             } else {
                 textField.text = viewModel.discipline(at: 0)
             }
+            
+            verifyTextFieldsState()
         }
+    }
+    
+    private func verifyTextFieldsState() {
+        guard
+            let locationText = locationTextField.text,
+            let disciplineText = disciplineTextField.text,
+            !locationText.isEmpty && !disciplineText.isEmpty
+            else { return }
+        
+        startButton.setBackgroundColor(color: UIColor.aquaBlue, state: .normal)
+        startButton.setTitleColor(.white, for: .normal)
+        startButton.isEnabled = true
     }
     
 }
