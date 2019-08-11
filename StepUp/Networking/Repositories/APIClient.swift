@@ -19,6 +19,10 @@ class APIClient: APIClientFacade {
     private let isPinnedKey = "isPinned"
     private let skipKey = "skip"
     private let limitKey = "limit"
+    private let msidKey = "msid"
+    private let commentKey = "comment"
+    private let isPublicKey = "isPublic"
+    private let isPositiveKey = "isPositive"
     
     private lazy var area: AreaService = { return AreaRepository() }()
     private lazy var location: LocationService = { return LocationRepository() }()
@@ -187,8 +191,58 @@ class APIClient: APIClientFacade {
         }
     }
     
-    func createFeedbacks(filter: FeedbackFilter, completion: @escaping RetrieveFeedbackCompletion) {
-        
+    func createFeedback(body: CreateFeedbackBody, completion: @escaping FeedbackCompletion) {
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                let body = [strongSelf.msidKey: body.msid,
+                    strongSelf.valueKey: body.value,
+                    strongSelf.commentKey: body.comment,
+                    strongSelf.isPublicKey: "\(body.isPublic)",
+                    strongSelf.isPositiveKey: "\(body.isPositive)"]
+                
+                strongSelf.feedback.createFeedbacks(API.createFeedback(token, body).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
+    }
+    
+    func likeFeedback(feedbackId: String, completion: @escaping FeedbackCompletion) {
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                strongSelf.feedback.likeFeedback(API.likeFeedback(token, feedbackId).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
+    }
+    
+    func flagFeedback(feedbackId: String, completion: @escaping FeedbackCompletion) {
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }
+            
+            switch result {
+            case .success(let token):
+                strongSelf.feedback.flagFeedback(API.flagFeedback(token, feedbackId).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
     }
     
     // MARK: - Rank

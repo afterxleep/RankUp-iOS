@@ -36,7 +36,25 @@ struct FeedbackRepository: FeedbackService {
     
     //MARK: - Create feedback request
     
-    func createFeedbacks(_ request: URLRequest?, completion: @escaping CreateFeedbackCompletion) {
+    func createFeedbacks(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
+        commoRequest(request, completion: completion)
+    }
+    
+    // MARK: - like feedback
+    
+    func likeFeedback(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
+        commoRequest(request, completion: completion)
+    }
+    
+    // MARK: - flag feedback
+    
+    func flagFeedback(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
+        commoRequest(request, completion: completion)
+    }
+    
+    // MARK: - Auxiliary method
+    
+    private func commoRequest(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
         guard let request = request else {
             completion(.failure(.unableToMakeRequest))
             return
@@ -58,4 +76,5 @@ struct FeedbackRepository: FeedbackService {
         
         task.resume()
     }
+    
 }

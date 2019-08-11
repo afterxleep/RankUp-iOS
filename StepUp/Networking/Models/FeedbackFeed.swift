@@ -42,3 +42,11 @@ struct FeedbackFilter {
     let skip: Int
     let limit: Int
 }
+
+struct CreateFeedbackBody {
+    let msid: String
+    let value: String
+    let comment: String
+    let isPublic: Bool
+    let isPositive: Bool
+}

@@ -10,6 +10,7 @@ import Foundation
 typealias SecureToken = String
 typealias HttpBody = [String: String]
 typealias UrlParameters = [String: String]
+typealias FeedbackId = String
 
 enum API: Parseable {
     case area(SecureToken)
@@ -21,6 +22,8 @@ enum API: Parseable {
     case contacts(SecureToken)
     case feedback(SecureToken)
     case createFeedback(SecureToken, HttpBody)
+    case likeFeedback(SecureToken, FeedbackId)
+    case flagFeedback(SecureToken, FeedbackId)
     case rank(SecureToken)
     
     //MARK: - constants
@@ -62,6 +65,9 @@ enum API: Parseable {
             request.httpMethod = HTTPMethod.put.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
             request.httpBody = createBody(parameters: body)
+        case .likeFeedback(let token, _), .flagFeedback(let token, _):
+            request.httpMethod = HTTPMethod.put.rawValue
+            request.allHTTPHeaderFields = createHeader(token: token)
         }
         
         return request
@@ -96,6 +102,10 @@ enum API: Parseable {
             return "/feedback"
         case .rank(_):
             return "/ranking"
+        case .likeFeedback(_, let feedbackId):
+            return "/feedback/\(feedbackId)/like"
+        case .flagFeedback(_, let feedbackId):
+            return "/feedback/\(feedbackId)/flag"
         }
     }
     
