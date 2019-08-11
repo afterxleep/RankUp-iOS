@@ -25,6 +25,7 @@ enum API: Parseable {
     case likeFeedback(SecureToken, FeedbackId)
     case flagFeedback(SecureToken, FeedbackId)
     case rank(SecureToken)
+    case profilePhoto(SecureToken)
     
     //MARK: - constants
     
@@ -54,7 +55,8 @@ enum API: Parseable {
              .companyValues(let token),
              .contacts(let token),
              .feedback(let token),
-             .rank(let token):
+             .rank(let token),
+             .profilePhoto(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
         case .registerUser(let token, let body), .createFeedback(let token, let body):
@@ -106,6 +108,8 @@ enum API: Parseable {
             return "/feedback/\(feedbackId)/like"
         case .flagFeedback(_, let feedbackId):
             return "/feedback/\(feedbackId)/flag"
+        case .profilePhoto(_):
+            return "https://graph.microsoft.com/v1.0/me/photo/$value"
         }
     }
     

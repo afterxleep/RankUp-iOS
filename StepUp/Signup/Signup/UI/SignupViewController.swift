@@ -54,6 +54,12 @@ final class SignupViewController: UIViewController {
         return picker
     }
     
+    var profilePhoto: UIImageView? {
+        didSet {
+            signupImageView = profilePhoto
+        }
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -66,6 +72,12 @@ final class SignupViewController: UIViewController {
             if error == nil {
                 self?.configureTextFieldsPickers()
             }
+        }
+        
+        viewModel.fetchProfilePhoto { [weak self] image in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.profilePhoto = UIImageView(image: image)
         }
     }
     

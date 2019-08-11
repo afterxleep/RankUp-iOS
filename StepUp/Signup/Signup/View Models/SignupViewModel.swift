@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class SignupViewModel {
     
@@ -94,6 +95,17 @@ final class SignupViewModel {
     func discipline(at row: Int) -> String? {
         guard row >= 0 && row <= disciplines.count - 1 else { return nil }
         return disciplines[row].name
+    }
+    
+    func fetchProfilePhoto(completion: @escaping (UIImage?) -> Void) {
+        apiClient.profilePhoto { (result) in
+            switch result {
+            case .success(let data):
+                completion(UIImage(data:data,scale:1.0))
+            case .failure( _ ):
+                completion(nil)
+            }
+        }
     }
     
 }

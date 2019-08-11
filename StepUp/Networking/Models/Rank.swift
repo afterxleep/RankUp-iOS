@@ -17,3 +17,10 @@ struct Rank: Codable {
     var rank: Int?
     var score: Int?
 }
+
+struct RankingFilter {
+    let page: Int
+    let value: String
+    let location: String
+    let area: String
+}
