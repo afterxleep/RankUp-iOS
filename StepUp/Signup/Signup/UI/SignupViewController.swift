@@ -54,10 +54,9 @@ final class SignupViewController: UIViewController {
         return picker
     }
     
-    var profilePhoto: UIImageView? {
-        didSet {
-            signupImageView = profilePhoto
-        }
+    var rightViewTextFieldImage: UIImageView {
+        let asset = UIImage(named: Constants.textFieldRightViewAsset)
+        return UIImageView(image: asset)
     }
     
     // MARK: - Life Cycle
@@ -77,8 +76,12 @@ final class SignupViewController: UIViewController {
         viewModel.fetchProfilePhoto { [weak self] image in
             guard let strongSelf = self else { return }
             
-            strongSelf.profilePhoto = UIImageView(image: image)
+            strongSelf.signupImageView.image = image
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: - Configuration
@@ -130,11 +133,10 @@ final class SignupViewController: UIViewController {
     }
     
     private func styleTextFields() {
-        let asset = UIImage(named: Constants.textFieldRightViewAsset)
-        let rightImageView = UIImageView(image: asset)
-        
         locationTextField.rightViewMode = .always
-        locationTextField.rightView = rightImageView
+        locationTextField.rightView = rightViewTextFieldImage
+        disciplineTextField.rightViewMode = .always
+        disciplineTextField.rightView = rightViewTextFieldImage
     }
     
     // MARK: - Actions
