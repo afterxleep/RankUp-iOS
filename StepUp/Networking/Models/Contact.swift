@@ -8,12 +8,18 @@
 import Foundation
 
 struct Contact: Codable {
+    var createdAt: Date?
+    var updatedAt: Date?
     var id: String?
     var msid: String?
     var name: String?
-    var jobTitle: String?
     var email: String?
+    var jobTitle: String?
     var image: String?
     var rank: Int?
-    var score: Int?
+    var valuePoints: [String: Int]?
+    var role: String?
+    var is_registered: Bool?
+    var location: String?
+    var area: String?
 }

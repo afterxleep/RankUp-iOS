@@ -33,7 +33,7 @@
                                 <color key="textColor" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xe4-jm-XM2">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xe4-jm-XM2">
                                 <rect key="frame" x="169" y="405.33333333333331" width="37" height="37"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPr-s0-3Lb">
@@ -56,6 +56,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="hZh-yI-zDG"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="xe4-jm-XM2" id="xQ3-vC-PXE"/>
+                        <outlet property="appNameLabel" destination="PmY-St-uDm" id="g0E-Ui-XLJ"/>
                         <outlet property="statusLabel" destination="MPr-s0-3Lb" id="4un-1Y-ifs"/>
                         <segue destination="Wor-Cq-T8z" kind="show" identifier="registrationSegue" id="Tq0-Gm-Wcn"/>
                         <segue destination="AAO-4x-y4D" kind="presentation" identifier="feedSegue" modalTransitionStyle="flipHorizontal" id="J86-Qb-k3h"/>

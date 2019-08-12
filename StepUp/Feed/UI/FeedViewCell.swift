@@ -20,13 +20,39 @@ final class FeedViewCell: UITableViewCell {
     @IBOutlet weak private var rankLabel: UILabel!
     @IBOutlet weak private var byLineLabel: UILabel!
     
+    // MARK: - Overrides
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        resetContent()
+        userImageView.roundCorners(radius: 9)
         valueView.roundCorners(radius: 6)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: - Interface
+    
+    func configure(withModel model: Feedback?) {
+        guard let model = model else { return }
+        resetContent()
+        
+        userNameLabel.text = model.to?.name
+        feedbackLabel.text = model.comment
+        valueLabel.text = model.value?.name?.uppercased()
+        valueLabel.textColor = UIHelper.valueColor(forType: model.value?.name)
+        valueView.backgroundColor = UIHelper.valueColor(forType: model.value?.name)
+        elapsedTimeLabel.text = model.createdAt?.formattedElapsedTime()
+        rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: "\(model.likes ?? 0)", leadingAttachment: "rankLike")
+        let fromName = model.from?.name ?? "Anonymous"
+        byLineLabel.text = "Rank by \(fromName)"
+    }
+    
+    private func resetContent() {
+        userNameLabel.text = nil
+        feedbackLabel.text = nil
+        valueLabel.text = nil
+        byLineLabel.text = nil
+        rankLabel.text = nil
+        elapsedTimeLabel.text = nil
     }
     
 }

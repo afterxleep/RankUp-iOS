@@ -9,9 +9,9 @@ import Foundation
 
 struct FeedbackFeed: Codable {
     var totalRecords: Int?
-    var skip: Int?
+    var skipped: Int?
     var limit: Int?
-    var feedback: [Feedback]?
+    var feedbacks: [Feedback]?
 }
 
 struct Feedback: Codable {
@@ -26,9 +26,9 @@ struct Feedback: Codable {
     var isPublic: Bool?
     var isPinned: Bool?
     var likes: Int?
-    var isLikedByUser: Bool?
+    var isLikedByuser: Bool?
     var flags: Int?
-    var isFlaggedByUser: Bool?
+    var isFlaggedByuser: Bool?
     var isPositive: Bool?
 }
 

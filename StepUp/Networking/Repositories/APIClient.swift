@@ -39,7 +39,7 @@ class APIClient: APIClientFacade {
     }
     
     // MARK: - areas
-
+    
     func allCompanyAreas(completion: @escaping RetrieveAreaCompletion) {
         msal.retrieveSecurityToken { [weak self] (result) in
             guard let strongSelf = self else {
@@ -166,7 +166,7 @@ class APIClient: APIClientFacade {
     
     // MARK: - Feedback
     
-    func feedbacks(filter: FeedbackFilter, completion: @escaping RetrieveFeedbackCompletion) {
+    func feedbacks(filter: FeedbackFilter? = nil, completion: @escaping RetrieveFeedbackCompletion) {
         msal.retrieveSecurityToken { [weak self] (result) in
             guard let strongSelf = self else {
                 completion(.failure(.unableToMakeRequest))
@@ -175,16 +175,20 @@ class APIClient: APIClientFacade {
             
             switch result {
             case .success(let token):
-                let filter = [strongSelf.fromKey: "\(filter.from)",
-                              strongSelf.toKey: "\(filter.to)",
-                              strongSelf.valueKey: filter.value,
-                              strongSelf.userKey: "\(filter.user)",
-                              strongSelf.isPrivateKey: "\(filter.isPrivate)",
-                              strongSelf.isPinnedKey: "\(filter.isPinned)",
-                              strongSelf.skipKey: "\(filter.skip)",
-                              strongSelf.limitKey: "\(filter.limit)"]
+                var filterParams = [String: String]()
                 
-                strongSelf.feedback.retrieveFeedbacks(API.feedback(token).request(parameters: filter), completion: completion)
+                if let filter = filter {
+                    filterParams = [strongSelf.fromKey: "\(filter.from)",
+                        strongSelf.toKey: "\(filter.to)",
+                        strongSelf.valueKey: filter.value,
+                        strongSelf.userKey: "\(filter.user)",
+                        strongSelf.isPrivateKey: "\(filter.isPrivate)",
+                        strongSelf.isPinnedKey: "\(filter.isPinned)",
+                        strongSelf.skipKey: "\(filter.skip)",
+                        strongSelf.limitKey: "\(filter.limit)"]
+                }
+                
+                strongSelf.feedback.retrieveFeedbacks(API.feedback(token).request(parameters: filterParams), completion: completion)
             case .failure( _ ):
                 completion(.failure(.unableToMakeRequest))
             }
@@ -201,9 +205,9 @@ class APIClient: APIClientFacade {
             switch result {
             case .success(let token):
                 let body = [strongSelf.msidKey: body.msid,
-                    strongSelf.valueKey: body.value,
-                    strongSelf.commentKey: body.comment,
-                    strongSelf.isPublicKey: "\(body.isPublic)",
+                            strongSelf.valueKey: body.value,
+                            strongSelf.commentKey: body.comment,
+                            strongSelf.isPublicKey: "\(body.isPublic)",
                     strongSelf.isPositiveKey: "\(body.isPositive)"]
                 
                 strongSelf.feedback.createFeedbacks(API.createFeedback(token, body).request(), completion: completion)
@@ -257,9 +261,9 @@ class APIClient: APIClientFacade {
             switch result {
             case .success(let token):
                 let filter = [strongSelf.pageKey: "\(filter.page)",
-                              strongSelf.valueKey: filter.value,
-                              strongSelf.locationKey: filter.location,
-                              strongSelf.areaKey: filter.area]
+                    strongSelf.valueKey: filter.value,
+                    strongSelf.locationKey: filter.location,
+                    strongSelf.areaKey: filter.area]
                 
                 strongSelf.rank.retrieveRanks(API.rank(token).request(parameters: filter), completion: completion)
             case .failure( _ ):

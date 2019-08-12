@@ -9,7 +9,13 @@ import MSAL
 
 final class MainViewController: UIViewController {
     
+    private struct Constants {
+        static let firstLineTitleAttrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
+    }
+    
     @IBOutlet weak private var statusLabel: UILabel!
+    @IBOutlet weak private var appNameLabel: UILabel!
+    @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Computed Properties
     
@@ -19,11 +25,12 @@ final class MainViewController: UIViewController {
         
         return MainViewModel(apiClient: apiClient)
     }()
-
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         checkAuthenticationState()
     }
     
@@ -35,8 +42,13 @@ final class MainViewController: UIViewController {
     
     // MARK: - Private
     
+    private func setupUI() {
+        appNameLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "me", firstLineAttrs: Constants.firstLineTitleAttrs)
+    }
+    
     private func checkAuthenticationState() {
         viewModel?.fetchInitialData { [weak self] authState, error in
+            self?.activityIndicator.stopAnimating()
             switch authState {
             case .unregistered:
                 self?.performSegue(withIdentifier: K.Segues.registrationSegue, sender: nil)
