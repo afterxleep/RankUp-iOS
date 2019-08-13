@@ -14,6 +14,7 @@ extension UIViewController {
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIApplication.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIApplication.keyboardWillHideNotification, object: nil)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
     
     // MARK: - Actions
@@ -24,6 +25,10 @@ extension UIViewController {
     
     @objc private func keyboardWillHide(notification: Notification) {
         handleKeyboardEvent(withNotification: notification)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // MARK: - Private
