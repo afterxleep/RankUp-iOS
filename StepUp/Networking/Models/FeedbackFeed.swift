@@ -7,6 +7,17 @@
 
 import Foundation
 
+struct FeedbackFilterKeys {
+    static let valueKey = "value"
+    static let fromKey = "from"
+    static let toKey = "to"
+    static let userKey = "user"
+    static let isPrivateKey = "isPrivate"
+    static let isPinnedKey = "isPinned"
+    static let skipKey = "skip"
+    static let limitKey = "limit"
+}
+
 struct FeedbackFeed: Codable {
     var totalRecords: Int?
     var skipped: Int?
@@ -30,17 +41,6 @@ struct Feedback: Codable {
     var flags: Int?
     var isFlaggedByuser: Bool?
     var isPositive: Bool?
-}
-
-struct FeedbackFilter {
-    let from: Int
-    let to: Int
-    let value: String
-    let user: String
-    let isPrivate: Bool
-    let isPinned: Bool
-    let skip: Int
-    let limit: Int
 }
 
 struct CreateFeedbackBody {

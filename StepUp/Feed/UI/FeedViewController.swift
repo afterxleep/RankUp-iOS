@@ -54,7 +54,6 @@ extension FeedViewController: UITableViewDelegate {
         flagAction.image = UIImage(named: "flag")
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [flagAction])
-        swipeConfiguration.performsFirstActionWithFullSwipe = false
         
         return swipeConfiguration
     }
@@ -68,7 +67,6 @@ extension FeedViewController: UITableViewDelegate {
         rankAction.image = UIImage(named: "rank")
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [rankAction])
-        swipeConfiguration.performsFirstActionWithFullSwipe = false
         
         return swipeConfiguration
     }

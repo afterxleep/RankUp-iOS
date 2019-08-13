@@ -11,8 +11,13 @@ final class BestsViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    let viewModel = BestsViewModel(apiClient: APIClient())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetchBestsFeeds { error in
+            
+        }
     }
     
 }

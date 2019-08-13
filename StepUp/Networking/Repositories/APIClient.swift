@@ -8,21 +8,15 @@
 import Foundation
 
 class APIClient: APIClientFacade {
+    
     private let locationKey = "location"
     private let areaKey = "area"
     private let pageKey = "page"
-    private let valueKey = "value"
-    private let fromKey = "from"
-    private let toKey = "to"
-    private let userKey = "user"
-    private let isPrivateKey = "isPrivate"
-    private let isPinnedKey = "isPinned"
-    private let skipKey = "skip"
-    private let limitKey = "limit"
     private let msidKey = "msid"
     private let commentKey = "comment"
     private let isPublicKey = "isPublic"
     private let isPositiveKey = "isPositive"
+    private let valueKey = "value"
     
     private lazy var area: AreaService = { return AreaRepository() }()
     private lazy var location: LocationService = { return LocationRepository() }()
@@ -166,7 +160,7 @@ class APIClient: APIClientFacade {
     
     // MARK: - Feedback
     
-    func feedbacks(filter: FeedbackFilter? = nil, completion: @escaping RetrieveFeedbackCompletion) {
+    func feedbacks(filter: [String: String]? = nil, completion: @escaping RetrieveFeedbackCompletion) {
         msal.retrieveSecurityToken { [weak self] (result) in
             guard let strongSelf = self else {
                 completion(.failure(.unableToMakeRequest))
@@ -175,20 +169,7 @@ class APIClient: APIClientFacade {
             
             switch result {
             case .success(let token):
-                var filterParams = [String: String]()
-                
-                if let filter = filter {
-                    filterParams = [strongSelf.fromKey: "\(filter.from)",
-                        strongSelf.toKey: "\(filter.to)",
-                        strongSelf.valueKey: filter.value,
-                        strongSelf.userKey: "\(filter.user)",
-                        strongSelf.isPrivateKey: "\(filter.isPrivate)",
-                        strongSelf.isPinnedKey: "\(filter.isPinned)",
-                        strongSelf.skipKey: "\(filter.skip)",
-                        strongSelf.limitKey: "\(filter.limit)"]
-                }
-                
-                strongSelf.feedback.retrieveFeedbacks(API.feedback(token).request(parameters: filterParams), completion: completion)
+                strongSelf.feedback.retrieveFeedbacks(API.feedback(token).request(parameters: filter), completion: completion)
             case .failure( _ ):
                 completion(.failure(.unableToMakeRequest))
             }
