@@ -42,7 +42,7 @@ final class FeedViewModel {
     }
     
     func feedback(at index: Int) -> Feedback? {
-        guard let feedbacks = feedbackFeed?.feedbacks, index > 0 && index <= feedbacks.count else { return nil }
+        guard let feedbacks = feedbackFeed?.feedbacks, index >= 0 && index < feedbacks.count else { return nil }
         
         return feedbacks[index]
     }

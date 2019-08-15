@@ -18,8 +18,6 @@ final class FeedViewController: UIViewController {
         viewModel.fetchFeeds { [weak self] error in
             guard let strongSelf = self else { return }
             if error == nil {
-                strongSelf.tableView.dataSource = self
-                strongSelf.tableView.delegate = self
                 strongSelf.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             }
         }
@@ -50,7 +48,7 @@ extension FeedViewController: UITableViewDelegate {
             guard let strongSelf = self else { return }
         }
         
-        flagAction.backgroundColor = .black
+        flagAction.backgroundColor = .red
         flagAction.image = UIImage(named: "flag")
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [flagAction])

@@ -44,7 +44,7 @@ final class BestsViewModel {
     }
     
     func bestFeed(at index: Int) -> Feedback? {
-        guard let feedbacks = bestsFeed?.feedbacks, index > 0 && index <= feedbacks.count else { return nil }
+        guard let feedbacks = bestsFeed?.feedbacks, index >= 0 && index < feedbacks.count else { return nil }
         
         return feedbacks[index]
     }

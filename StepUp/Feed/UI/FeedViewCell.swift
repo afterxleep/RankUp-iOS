@@ -24,7 +24,6 @@ final class FeedViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        resetContent()
         userImageView.roundCorners(radius: 9)
         valueView.roundCorners(radius: 6)
     }

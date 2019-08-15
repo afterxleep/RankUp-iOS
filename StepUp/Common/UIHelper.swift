@@ -64,15 +64,15 @@ struct UIHelper {
         
         switch value {
         case .open:
-            return UIColor.orangeyRed
+            return UIColor.lightishBlue
         case .trust:
             return UIColor.yellowishOrange
         case .smart:
-            return UIColor.tealBlue
+            return UIColor.magenta
         case .thoughtful:
-            return UIColor.blueyGreen
+            return UIColor.coolGreen
         case .adaptable:
-            return UIColor.blue
+            return UIColor.aquaBlue
         }
     }
     
