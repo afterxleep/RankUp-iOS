@@ -21,7 +21,7 @@ struct OnboardingContainerViewModel {
         
         let firstOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Closer\n", secondLine: "FeedBack")
         let secondOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Recognize\n", secondLine: "your peer")
-        let thirdOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "me")
+        let thirdOnboardingTitle = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "Up")
         
         return [OnboardingModel(imageName: "feedback",
                                 title: firstOnboardingTitle,

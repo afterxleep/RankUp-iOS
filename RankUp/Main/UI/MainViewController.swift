@@ -43,7 +43,7 @@ final class MainViewController: UIViewController {
     // MARK: - Private
     
     private func setupUI() {
-        appNameLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "me", firstLineAttrs: Constants.firstLineTitleAttrs)
+        appNameLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "Up", firstLineAttrs: Constants.firstLineTitleAttrs)
     }
     
     private func checkAuthenticationState() {

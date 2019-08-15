@@ -28,6 +28,8 @@ final class SignupViewController: UIViewController {
     @IBOutlet weak private var formContainer: UIView!
     @IBOutlet weak private var headerTitle: UILabel!
     @IBOutlet weak private var signupImageView: UIImageView!
+    @IBOutlet weak private var signupDefaultView: UIView!
+    @IBOutlet weak private var profileInitials: UILabel!
     @IBOutlet weak private var userLabel: UILabel!
     @IBOutlet weak private var jobLabel: UILabel!
     
@@ -91,7 +93,7 @@ final class SignupViewController: UIViewController {
         
         viewModel.fetchProfilePhoto { [weak self] image in
             guard let strongSelf = self else { return }
-            
+            strongSelf.signupImageView.isHidden = false
             strongSelf.signupImageView.image = image
         }
     }
@@ -112,6 +114,14 @@ final class SignupViewController: UIViewController {
         
         userLabel.text = userData?.name
         jobLabel.text = userData?.jobTitle ?? "Senior Culebrerum"
+        
+        if let userNames = userData?.name?.split(separator: " ", maxSplits: 1, omittingEmptySubsequences: true) {
+            profileInitials.text = userNames.reduce(into: "") { result, substring in
+                result?.append(String(substring.first ?? Character("")))
+            }
+        } else {
+            profileInitials.text = "ED"
+        }
     }
     
     private func setupUI() {
@@ -124,6 +134,7 @@ final class SignupViewController: UIViewController {
         header.roundCorners(corners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: Constants.viewContainersRadius)
         formContainer.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: Constants.viewContainersRadius)
         signupImageView.roundCorners(radius: Constants.profileViewRadius)
+        signupDefaultView.roundCorners(radius: Constants.profileViewRadius)
         locationTextField.roundCorners(radius: Constants.formFieldsRadius)
         disciplineTextField.roundCorners(radius: Constants.formFieldsRadius)
         startButton.roundCorners(radius: Constants.formFieldsRadius)
@@ -135,7 +146,7 @@ final class SignupViewController: UIViewController {
                                                                                                                      weight: .black),
                                                                                             .kern: 0.5])
         
-        let appNameString = NSAttributedString(string: "Rankme", attributes: [.foregroundColor: UIColor.aquaBlue,
+        let appNameString = NSAttributedString(string: "RankUp", attributes: [.foregroundColor: UIColor.aquaBlue,
                                                                               .font: UIFont.systemFont(ofSize: Constants.headerTitleFontSize,
                                                                                                        weight: .semibold)])
         

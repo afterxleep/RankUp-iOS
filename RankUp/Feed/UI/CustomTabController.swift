@@ -16,7 +16,7 @@ final class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let titleLabel = UILabel(frame: .zero)
-        titleLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "me", firstLineAttrs: Constants.firstLineTitleAttrs)
+        titleLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "Up", firstLineAttrs: Constants.firstLineTitleAttrs)
         navigationItem.titleView = titleLabel
         let leftImageView = UIImageView(frame: .zero)
         leftImageView.translatesAutoresizingMaskIntoConstraints = false

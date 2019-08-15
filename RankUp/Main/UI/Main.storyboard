@@ -18,7 +18,7 @@
         <!--Main View Controller-->
         <scene sceneID="6k6-n5-14M">
             <objects>
-                <viewController id="Vyi-Te-D8M" customClass="MainViewController" customModule="StepUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vyi-Te-D8M" customClass="MainViewController" customModule="RankUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jf5-ri-uDC"/>
                         <viewControllerLayoutGuide type="bottom" id="i9o-z6-Osf"/>
@@ -27,8 +27,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rankme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmY-St-uDm">
-                                <rect key="frame" x="95.333333333333329" y="326.66666666666669" width="184.33333333333337" height="58.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RankUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmY-St-uDm">
+                                <rect key="frame" x="97.333333333333329" y="326.66666666666669" width="180.66666666666669" height="58.666666666666686"/>
                                 <fontDescription key="fontDescription" name="TradeGothicLTStd-Bold" family="Trade Gothic LT Std" pointSize="50"/>
                                 <color key="textColor" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

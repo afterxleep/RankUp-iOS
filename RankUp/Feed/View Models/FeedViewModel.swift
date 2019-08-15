@@ -41,6 +41,21 @@ final class FeedViewModel {
         }
     }
     
+    func flagFeedback(at index: Int, completion: @escaping (Error?) -> Void) {
+        if let feedBack = feedback(at: index), let feedbackID = feedBack.id {
+            apiClient.flagFeedback(feedbackId: feedbackID) { result in
+                switch result {
+                case .success(let flaggedFeedback):
+                    break
+                case .failure(let error):
+                    break
+                }
+            }
+        }
+    }
+    
+    // MARK: - Datasource
+    
     func feedback(at index: Int) -> Feedback? {
         guard let feedbacks = feedbackFeed?.feedbacks, index >= 0 && index < feedbacks.count else { return nil }
         
