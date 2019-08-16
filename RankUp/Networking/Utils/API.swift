@@ -11,6 +11,7 @@ typealias SecureToken = String
 typealias HttpBody = [String: String]
 typealias UrlParameters = [String: String]
 typealias FeedbackId = String
+typealias UserMSID = String
 
 enum API: Parseable {
     case area(SecureToken)
@@ -25,7 +26,7 @@ enum API: Parseable {
     case likeFeedback(SecureToken, FeedbackId)
     case flagFeedback(SecureToken, FeedbackId)
     case rank(SecureToken)
-    case profilePhoto(SecureToken)
+    case profilePhoto(UserMSID?, SecureToken)
     
     //MARK: - constants
     
@@ -60,7 +61,7 @@ enum API: Parseable {
              .rank(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
-        case .profilePhoto(let token):
+        case .profilePhoto(_, let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token, contentType: API.contentTypeImageValue)
         case .registerUser(let token, let body), .createFeedback(let token, let body):
@@ -112,8 +113,11 @@ enum API: Parseable {
             return "/feedback/\(feedbackId)/like"
         case .flagFeedback(_, let feedbackId):
             return "/feedback/\(feedbackId)/flag"
-        case .profilePhoto(_):
-            return "/v1.0/me/photo/$value"
+        case .profilePhoto(let userMSID, _):
+            if let msid = userMSID {
+                return "/v1.0/users/\(msid)/photo/$value"
+            }
+            return  "/v1.0/me/photo/$value"
         }
     }
     

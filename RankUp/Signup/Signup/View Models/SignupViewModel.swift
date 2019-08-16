@@ -88,7 +88,7 @@ final class SignupViewModel {
     }
     
     func fetchProfilePhoto(completion: @escaping (UIImage?) -> Void) {
-        apiClient.profilePhoto { result in
+        apiClient.profilePhoto(userMSID: nil) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):

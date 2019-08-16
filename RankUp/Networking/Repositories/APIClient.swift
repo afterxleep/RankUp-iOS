@@ -253,7 +253,7 @@ class APIClient: APIClientFacade {
         }
     }
     
-    func profilePhoto(completion: @escaping RetrieveProfilePhotoCompletion) {
+    func profilePhoto(userMSID: String?, completion: @escaping RetrieveProfilePhotoCompletion) {
         msal.retrieveSecurityToken { [weak self] (result) in
             guard let strongSelf = self else {
                 completion(.failure(.unableToMakeRequest))
@@ -262,7 +262,7 @@ class APIClient: APIClientFacade {
             
             switch result {
             case .success(let token):
-                strongSelf.msal.retrieveProfilePhoto(API.profilePhoto(token).request(), completion: completion)
+                strongSelf.msal.retrieveProfilePhoto(API.profilePhoto(userMSID, token).request(), completion: completion)
             case .failure( _ ):
                 completion(.failure(.unableToMakeRequest))
             }
