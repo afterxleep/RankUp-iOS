@@ -87,19 +87,6 @@ final class SignupViewModel {
         }
     }
     
-    func fetchProfilePhoto(completion: @escaping (UIImage?) -> Void) {
-        apiClient.profilePhoto(userMSID: nil) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    completion(UIImage(data: data, scale: 1.0))
-                case .failure( _ ):
-                    completion(nil)
-                }
-            }
-        }
-    }
-    
     func location(at row: Int) -> String? {
         guard row >= 0 && row <= locations.count - 1 else { return nil }
         return locations[row].name

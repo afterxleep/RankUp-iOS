@@ -62,6 +62,9 @@
 		9B78777322EE90C800626A63 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B78777222EE90C800626A63 /* FeedViewCell.swift */; };
 		9B9DC1CC22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9DC1CB22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift */; };
 		9B9DC1CF22FD129C00E239CB /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9DC1CE22FD129C00E239CB /* Signup.storyboard */; };
+		9BE3666F230706EF00BACCB9 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE3666E230706EF00BACCB9 /* ProfileView.xib */; };
+		9BE366712307083900BACCB9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE366702307083900BACCB9 /* ProfileView.swift */; };
+		9BE36673230709F300BACCB9 /* UIView+NibLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE36672230709F300BACCB9 /* UIView+NibLoading.swift */; };
 		9BEA19E122FE5A6B00851A39 /* CustomTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEA19E022FE5A6B00851A39 /* CustomTabController.swift */; };
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
@@ -125,6 +128,9 @@
 		9B78777222EE90C800626A63 /* FeedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		9B9DC1CB22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+KeyboardHandling.swift"; sourceTree = "<group>"; };
 		9B9DC1CE22FD129C00E239CB /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		9BE3666E230706EF00BACCB9 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		9BE366702307083900BACCB9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		9BE36672230709F300BACCB9 /* UIView+NibLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoading.swift"; sourceTree = "<group>"; };
 		9BEA19E022FE5A6B00851A39 /* CustomTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabController.swift; sourceTree = "<group>"; };
 		C317681D1F1DB4085A10C3D3 /* Pods-RankUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RankUp.debug.xcconfig"; path = "Target Support Files/Pods-RankUp/Pods-RankUp.debug.xcconfig"; sourceTree = "<group>"; };
 		D67FEFE022DAA04A00DA34FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 			children = (
 				9B9DC1CB22FD0C2100E239CB /* UIViewController+KeyboardHandling.swift */,
 				81E3D07622F13A7300464F49 /* UIView+RoundedCorners.swift */,
+				9BE36672230709F300BACCB9 /* UIView+NibLoading.swift */,
 				81E3D07822F146B100464F49 /* UIColor+Styles.swift */,
 				9B211C82230075A00076FA7A /* UIButton+ImageState.swift */,
 				9B28D6C023010ED20096DB58 /* Date+ElapsedTime.swift */,
@@ -404,6 +411,8 @@
 				9B729CC222E8029C002EEA39 /* Constants.swift */,
 				9B63BBC322F1FD6B004BE699 /* FieldText.swift */,
 				9B660ABA22FBB0EA00C04819 /* UIHelper.swift */,
+				9BE3666E230706EF00BACCB9 /* ProfileView.xib */,
+				9BE366702307083900BACCB9 /* ProfileView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -535,6 +544,7 @@
 			files = (
 				9B9DC1CF22FD129C00E239CB /* Signup.storyboard in Resources */,
 				9B729CC622E803F1002EEA39 /* Feed.storyboard in Resources */,
+				9BE3666F230706EF00BACCB9 /* ProfileView.xib in Resources */,
 				D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */,
 				9B55848222EBD72C0020D5DB /* Main.storyboard in Resources */,
 				D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */,
@@ -603,9 +613,11 @@
 				7A77E6E022F26D4500741749 /* MSALDelegate.swift in Sources */,
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
 				7A77E6D222F0927C00741749 /* Rank.swift in Sources */,
+				9BE36673230709F300BACCB9 /* UIView+NibLoading.swift in Sources */,
 				7A77E6E222F283D500741749 /* APIClient.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				9B47E06B22EDFD4B00353A92 /* OnboardingModel.swift in Sources */,
+				9BE366712307083900BACCB9 /* ProfileView.swift in Sources */,
 				7A77E6D522F092F700741749 /* RankService.swift in Sources */,
 				9BEA19E122FE5A6B00851A39 /* CustomTabController.swift in Sources */,
 				7AC6D99422EB53FC006F18CE /* LoggedInUserService.swift in Sources */,

@@ -11,7 +11,7 @@ final class BestsViewCell: UICollectionViewCell {
     
     static let reuseIdentifier = String(describing: BestsViewCell.self)
     
-    @IBOutlet weak private var userImageView: UIImageView!
+    @IBOutlet weak private var profileView: ProfileView!
     @IBOutlet weak private var valueView: UIView!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var feedbackLabel: UILabel!
@@ -19,7 +19,6 @@ final class BestsViewCell: UICollectionViewCell {
     //MARK: - Life Cycle
     
     override func awakeFromNib() {
-        userImageView.roundCorners(radius: 12)
         valueView.roundCorners(radius: 6)
     }
     
@@ -32,6 +31,9 @@ final class BestsViewCell: UICollectionViewCell {
         valueView.backgroundColor = UIHelper.valueColor(forType: model.value?.name)
         let comment = model.comment ?? "Nothing to see here..."
         feedbackLabel.text = #""\#(comment)""#
+        
+        profileView.configure(withName: model.to?.name)
+        profileView.fetchProfilePhoto(userMSID: model.to?.msid)
     }
     
     private func resetContent() {

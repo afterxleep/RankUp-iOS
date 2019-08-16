@@ -11,7 +11,7 @@ final class FeedViewCell: UITableViewCell {
     
     static let reuseIdentifier = String(describing: FeedViewCell.self)
     
-    @IBOutlet weak private var userImageView: UIImageView!
+    @IBOutlet weak private var profileView: ProfileView!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var valueView: UIView!
     @IBOutlet weak private var valueLabel: UILabel!
@@ -24,7 +24,6 @@ final class FeedViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        userImageView.roundCorners(radius: 9)
         valueView.roundCorners(radius: 6)
     }
     
@@ -43,10 +42,8 @@ final class FeedViewCell: UITableViewCell {
         rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: "\(model.likes ?? 0)", leadingAttachment: "rankLike")
         let fromName = model.from?.name ?? "Anonymous"
         byLineLabel.text = "Rank by \(fromName)"
-        
-        fetchProfilePhoto(userMSID: model.to?.msid) { [weak self] image in
-            self?.userImageView.image = image
-        }
+        profileView.configure(withName: model.to?.name)
+        profileView.fetchProfilePhoto(userMSID: model.to?.msid)
     }
     
     private func resetContent() {
