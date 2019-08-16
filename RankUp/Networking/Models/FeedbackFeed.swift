@@ -39,7 +39,7 @@ struct Feedback: Codable {
     var likes: Int?
     var isLikedByuser: Bool?
     var flags: Int?
-    var isFlaggedByuser: Bool?
+    var isFlaggedByuser: Bool = false
     var isPositive: Bool?
 }
 
@@ -49,4 +49,12 @@ struct CreateFeedbackBody {
     let comment: String
     let isPublic: Bool
     let isPositive: Bool
+}
+
+struct UpdatedFeedBack: Codable {
+    let createdAt: Date?
+    let updatedAt: Date?
+    let id: String?
+    let from: String?
+    let feedback: String?
 }

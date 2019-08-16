@@ -32,7 +32,6 @@ final class BestsViewModel {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let feed):
-                    print(feed.feedbacks)
                     self?.bestsFeed = feed
                     completion(nil)
                 case .failure(let error):

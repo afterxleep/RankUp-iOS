@@ -65,7 +65,7 @@ struct FeedbackRepository: FeedbackService {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let data):
-                guard let model = API.parser(from: data, to: Feedback.self) else {
+                guard let model = API.parser(from: data, to: UpdatedFeedBack.self) else {
                     completion(.failure(.invalidResponse))
                     return
                 }

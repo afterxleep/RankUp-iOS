@@ -10,12 +10,19 @@ import Foundation
 final class FeedViewModel {
     
     var feedbackFeed: FeedbackFeed?
+    
+    var filteredFeedbacks: [Feedback]? {
+        guard let feedbacks = feedbackFeed?.feedbacks else { return nil }
+        
+        return feedbacks.filter( { !$0.isFlaggedByuser } )
+    }
+    
     private let apiClient: APIClientFacade
     
     // MARK: - Computed Properties
     
     var numberOfFeeds: Int {
-        return feedbackFeed?.feedbacks?.count ?? 0
+        return filteredFeedbacks?.count ?? 0
     }
     
     // MARK: - Initializers
@@ -41,14 +48,26 @@ final class FeedViewModel {
         }
     }
     
-    func flagFeedback(at index: Int, completion: @escaping (Error?) -> Void) {
+    func flagFeedback(at index: Int, completion: @escaping (Bool, Error?) -> Void) {
         if let feedBack = feedback(at: index), let feedbackID = feedBack.id {
-            apiClient.flagFeedback(feedbackId: feedbackID) { result in
-                switch result {
-                case .success(let flaggedFeedback):
-                    break
-                case .failure(let error):
-                    break
+            apiClient.flagFeedback(feedbackId: feedbackID) { [weak self] result in
+                DispatchQueue.main.async {
+                    guard let strongSelf = self else { return }
+                    switch result {
+                    case .success(let updatedFeedback):
+                        if var feedBacks = strongSelf.feedbackFeed?.feedbacks,
+                            let updatedFeedbackIndex = feedBacks.firstIndex(where: {$0.id == updatedFeedback.feedback }) {
+                            feedBacks[updatedFeedbackIndex].isFlaggedByuser = true
+                            var updatedFeedbackFeed = strongSelf.feedbackFeed
+                            updatedFeedbackFeed?.feedbacks = feedBacks
+                            strongSelf.feedbackFeed = updatedFeedbackFeed
+                            completion(true, nil)
+                        }
+                        completion(false, nil)
+                    case .failure(let error):
+                        print("Failed to flag feed: \(error.localizedDescription)")
+                        completion(false, error)
+                    }
                 }
             }
         }
@@ -57,7 +76,7 @@ final class FeedViewModel {
     // MARK: - Datasource
     
     func feedback(at index: Int) -> Feedback? {
-        guard let feedbacks = feedbackFeed?.feedbacks, index >= 0 && index < feedbacks.count else { return nil }
+        guard let feedbacks = filteredFeedbacks, index >= 0 && index < feedbacks.count else { return nil }
         
         return feedbacks[index]
     }
