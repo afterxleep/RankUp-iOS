@@ -42,31 +42,19 @@ final class FeedViewCell: UITableViewCell {
         rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: "\(model.likes ?? 0)", leadingAttachment: "rankLike")
         let fromName = model.from?.name ?? "Anonymous"
         byLineLabel.text = "Rank by \(fromName)"
+        
         profileView.configure(withName: model.to?.name)
         profileView.fetchProfilePhoto(userMSID: model.to?.msid)
     }
     
     private func resetContent() {
+        profileView.reset()
         userNameLabel.text = nil
         feedbackLabel.text = nil
         valueLabel.text = nil
         byLineLabel.text = nil
         rankLabel.text = nil
         elapsedTimeLabel.text = nil
-    }
-    
-    func fetchProfilePhoto(userMSID: String?, completion: @escaping (UIImage?) -> Void) {
-        guard let msid = userMSID else { return }
-        APIClient().profilePhoto(userMSID: msid) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    completion(UIImage(data: data, scale: 1.0))
-                case .failure( _ ):
-                    completion(nil)
-                }
-            }
-        }
     }
     
 }

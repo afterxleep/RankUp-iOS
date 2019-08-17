@@ -236,7 +236,7 @@
                                     <outlet property="dataSource" destination="Um5-wa-YJD" id="VBf-Dw-5wC"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEADS' PICK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snf-hl-pHq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEADS' PICKS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snf-hl-pHq">
                                 <rect key="frame" x="20" y="24" width="354" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <nil key="highlightedColor"/>
@@ -282,7 +282,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtO-wm-agh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="158.5"/>
                                                     <subviews>
                                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-4e-NT7" customClass="ProfileView" customModule="RankUp" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="14" width="44" height="44"/>
@@ -362,7 +362,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATf-N1-jLt">
-                                                    <rect key="frame" x="0.0" y="159" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="158.5" width="414" height="1"/>
                                                     <color key="backgroundColor" red="0.60784313725490191" green="0.70588235294117641" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="OGP-do-Dhn"/>

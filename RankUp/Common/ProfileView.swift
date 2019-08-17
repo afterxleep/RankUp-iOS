@@ -11,6 +11,8 @@ final class ProfileView: UIView {
     
     private struct Constants {
         static let profileViewRadius: CGFloat = 15
+        static let defaultInitials = "ED"
+        static let imageViewAnimationDuration = 0.3
     }
     
     // MARK: - IBOutlets
@@ -46,7 +48,7 @@ final class ProfileView: UIView {
                 result?.append(String(substring.first ?? Character("")))
             }
         } else {
-            profileInitials.text = "ED"
+            profileInitials.text = Constants.defaultInitials
         }
     }
     
@@ -57,7 +59,7 @@ final class ProfileView: UIView {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-                    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+                    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: Constants.imageViewAnimationDuration, delay: 0, options: .curveLinear, animations: {
                         strongSelf.userImageView.image = UIImage(data: data, scale: 1.0)
                         strongSelf.userImageView.alpha = 1.0
                     })
@@ -66,6 +68,10 @@ final class ProfileView: UIView {
                 }
             }
         }
+    }
+    
+    func reset() {
+        profileInitials.text = nil
     }
     
 }
