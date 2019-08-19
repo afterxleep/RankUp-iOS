@@ -39,10 +39,9 @@ final class FeedViewCell: UITableViewCell {
         valueLabel.textColor = UIHelper.valueColor(forType: model.value?.name)
         valueView.backgroundColor = UIHelper.valueColor(forType: model.value?.name)
         elapsedTimeLabel.text = model.createdAt?.formattedElapsedTime()
-        rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: "\(model.likes ?? 0)", leadingAttachment: "rankLike")
+        rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(model.likes ?? 0)", leadingAttachment: "rankLike")
         let fromName = model.from?.name ?? "Anonymous"
-        byLineLabel.text = "Rank by \(fromName)"
-        
+        byLineLabel.text = "By: \(fromName)"
         profileView.configure(withName: model.to?.name)
         profileView.fetchProfilePhoto(userMSID: model.to?.msid)
     }
