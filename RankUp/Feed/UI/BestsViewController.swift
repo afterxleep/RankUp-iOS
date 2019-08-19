@@ -22,7 +22,7 @@ final class BestsViewController: UIViewController {
         viewModel.fetchBestsFeeds { [weak self] error in
             guard let strongSelf = self else { return }
             if error == nil {
-                strongSelf.collectionView.reloadData()
+                strongSelf.collectionView.reloadSections(IndexSet(integer: 0))
             }
         }
     }

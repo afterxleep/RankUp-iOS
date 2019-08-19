@@ -35,7 +35,7 @@ final class FeedViewCell: UITableViewCell {
         
         userNameLabel.text = model.to?.name
         feedbackLabel.text = model.comment
-        valueLabel.text = model.value?.name?.uppercased()
+        valueLabel.text = model.value?.name.uppercased()
         valueLabel.textColor = UIHelper.valueColor(forType: model.value?.name)
         valueView.backgroundColor = UIHelper.valueColor(forType: model.value?.name)
         elapsedTimeLabel.text = model.createdAt?.formattedElapsedTime()

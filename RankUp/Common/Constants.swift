@@ -17,6 +17,7 @@ struct K {
         static let onboarding = "Onboarding"
         static let authentication = "Authentication"
         static let feed = "Feed"
+        static let giveFeedback = "GiveFeedback"
     }
     
     struct SBIDs {
@@ -27,6 +28,8 @@ struct K {
         static let registrationSegue = "registrationSegue"
         static let onboardingSegue = "onboardingSegue"
         static let feedSegue = "feedSegue"
+        static let feedbackSegue = "feedbackSegue"
+        static let giveFeedbackSegue = "giveFeedbackSegue"
     }
     
 }

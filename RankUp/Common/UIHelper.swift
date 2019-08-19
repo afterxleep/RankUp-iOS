@@ -9,7 +9,7 @@ import UIKit
 
 enum ValueType: String, CaseIterable {
     case open
-    case trust
+    case trusted
     case smart
     case thoughtful
     case adaptable
@@ -64,15 +64,15 @@ struct UIHelper {
         
         switch value {
         case .open:
-            return UIColor.lightishBlue
-        case .trust:
-            return UIColor.yellowishOrange
+            return UIColor.open
+        case .trusted:
+            return UIColor.trust
         case .smart:
-            return UIColor.magenta
+            return UIColor.smart
         case .thoughtful:
-            return UIColor.coolGreen
+            return UIColor.thoughful
         case .adaptable:
-            return UIColor.aquaBlue
+            return UIColor.adaptable
         }
     }
     

@@ -37,24 +37,24 @@ struct FeedbackRepository: FeedbackService {
     //MARK: - Create feedback request
     
     func createFeedbacks(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
-        commoRequest(request, completion: completion)
+        commonRequest(request, parsingType: Feedback.self, completion: completion)
     }
     
     // MARK: - like feedback
     
     func likeFeedback(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
-        commoRequest(request, completion: completion)
+        commonRequest(request, parsingType: UpdatedFeedBack.self, completion: completion)
     }
     
     // MARK: - flag feedback
     
     func flagFeedback(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
-        commoRequest(request, completion: completion)
+        commonRequest(request, parsingType: UpdatedFeedBack.self, completion: completion)
     }
     
     // MARK: - Auxiliary method
     
-    private func commoRequest(_ request: URLRequest?, completion: @escaping FeedbackCompletion) {
+    private func commonRequest<T: Codable>(_ request: URLRequest?, parsingType: T.Type, completion: @escaping FeedbackCompletion) {
         guard let request = request else {
             completion(.failure(.unableToMakeRequest))
             return
@@ -65,7 +65,7 @@ struct FeedbackRepository: FeedbackService {
             case .failure(let error):
                 completion(.failure(error))
             case .success(let data):
-                guard let model = API.parser(from: data, to: UpdatedFeedBack.self) else {
+                guard let model = API.parser(from: data, to: parsingType) else {
                     completion(.failure(.invalidResponse))
                     return
                 }

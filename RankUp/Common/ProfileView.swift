@@ -10,7 +10,7 @@ import UIKit
 final class ProfileView: UIView {
     
     private struct Constants {
-        static let profileViewRadius: CGFloat = 15
+        static let profileViewRadius: CGFloat = 11
         static let defaultInitials = "ED"
         static let imageViewAnimationDuration = 0.3
     }
@@ -36,8 +36,7 @@ final class ProfileView: UIView {
     // MARK: - Life Cycle
     
     override func didMoveToSuperview() {
-        userImageView.roundCorners(radius: Constants.profileViewRadius)
-        placeholderView.roundCorners(radius: Constants.profileViewRadius)
+        roundCorners(radius: Constants.profileViewRadius)
     }
     
     // MARK: - Interface
