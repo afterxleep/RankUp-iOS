@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if (!containsPII) {
             }
         }
+        
+        // General Caching
+        let uRLCache = URLCache(memoryCapacity: 500 * 1024 * 1024, diskCapacity: 500 * 1024 * 1024, diskPath: nil)
+        URLCache.shared = uRLCache
+        
         return true
     }
     
