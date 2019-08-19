@@ -58,7 +58,7 @@ final class FeedBackTypeViewController: UIViewController {
     }
     
     private func roundCorners() {
-        viewContainer.roundCorners(radius: 66)
+        viewContainer.roundCorners(corners: [CACornerMask.layerMinXMinYCorner, CACornerMask.layerMaxXMinYCorner], radius: 66)
         profileView.roundCorners(radius: 15)
     }
     

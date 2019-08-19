@@ -32,10 +32,8 @@ final class FeedbackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        valueView.roundCorners(radius: 11)
-        viewContainer.roundCorners(radius: 66)
-        feedbackTextView.roundCorners(radius: 9)
-        sendButton.roundCorners(radius: 9)
+        roundCorners()
+        registerForKeyboardNotifications()
         feedbackTextView.delegate = self
         feedbackTextView.textContainerInset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
     }
@@ -60,6 +58,13 @@ final class FeedbackViewController: UIViewController {
         
         profileView.configure(withName: viewModel.feedback?.userName)
         profileView.fetchProfilePhoto(userMSID: viewModel.feedback?.userMSID)
+    }
+    
+    private func roundCorners() {
+        valueView.roundCorners(radius: 11)
+        viewContainer.roundCorners(corners: [CACornerMask.layerMinXMinYCorner, CACornerMask.layerMaxXMinYCorner], radius: 66)
+        feedbackTextView.roundCorners(radius: 9)
+        sendButton.roundCorners(radius: 9)
     }
     
     //MARK: - Actions

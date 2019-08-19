@@ -134,7 +134,6 @@ final class MSALRepository: MSALService {
         guard let applicationContext = self.applicationContext else { return }
         
         let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
-        print(parameters)
         applicationContext.acquireTokenSilent(with: parameters) { [weak self] (result, error) in
             guard let strongSelf = self else { return }
             
