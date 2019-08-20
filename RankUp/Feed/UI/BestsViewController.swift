@@ -27,6 +27,15 @@ final class BestsViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? BestsDetailViewController,
+            let selectedIndex = collectionView.indexPathsForSelectedItems?.first,
+            let model = viewModel.feedbackDetail(at: selectedIndex.item) {
+            
+            destination.viewModel.detail = model
+        }
+    }
+    
 }
 
 extension BestsViewController: UICollectionViewDataSource {
@@ -41,6 +50,14 @@ extension BestsViewController: UICollectionViewDataSource {
         cell.configure(model: model)
         
         return cell
+    }
+    
+}
+
+extension BestsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.Segues.bestsDetailSegue, sender: nil)
     }
     
 }

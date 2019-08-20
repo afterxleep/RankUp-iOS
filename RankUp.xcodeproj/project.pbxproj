@@ -38,6 +38,9 @@
 		7AC6D9A722ECACF8006F18CE /* FeedbackRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */; };
 		8147C75723050B69004BD4C4 /* BestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147C75523050B69004BD4C4 /* BestsViewModel.swift */; };
 		8147C75823050B69004BD4C4 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147C75623050B69004BD4C4 /* FeedViewModel.swift */; };
+		817B4087230B9E8D005C8EA3 /* BestsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B4086230B9E8D005C8EA3 /* BestsDetailViewController.swift */; };
+		817B4089230BA046005C8EA3 /* BestsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B4088230BA046005C8EA3 /* BestsDetailViewModel.swift */; };
+		817B408C230BA0C1005C8EA3 /* BestsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817B408B230BA0C1005C8EA3 /* BestsDetailModel.swift */; };
 		81D5971523089FEB00D29DC0 /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D5971423089FEB00D29DC0 /* Feedback.storyboard */; };
 		81D597172308A66B00D29DC0 /* FeedBackTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D597162308A66B00D29DC0 /* FeedBackTypeViewController.swift */; };
 		81D5971B2308A75300D29DC0 /* FeedBackTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D5971A2308A75300D29DC0 /* FeedBackTypeViewModel.swift */; };
@@ -110,6 +113,9 @@
 		7AC6D9A622ECACF8006F18CE /* FeedbackRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRepository.swift; sourceTree = "<group>"; };
 		8147C75523050B69004BD4C4 /* BestsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestsViewModel.swift; sourceTree = "<group>"; };
 		8147C75623050B69004BD4C4 /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		817B4086230B9E8D005C8EA3 /* BestsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsDetailViewController.swift; sourceTree = "<group>"; };
+		817B4088230BA046005C8EA3 /* BestsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsDetailViewModel.swift; sourceTree = "<group>"; };
+		817B408B230BA0C1005C8EA3 /* BestsDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsDetailModel.swift; sourceTree = "<group>"; };
 		81D5971423089FEB00D29DC0 /* Feedback.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
 		81D597162308A66B00D29DC0 /* FeedBackTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackTypeViewController.swift; sourceTree = "<group>"; };
 		81D5971A2308A75300D29DC0 /* FeedBackTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackTypeViewModel.swift; sourceTree = "<group>"; };
@@ -293,8 +299,17 @@
 			children = (
 				8147C75523050B69004BD4C4 /* BestsViewModel.swift */,
 				8147C75623050B69004BD4C4 /* FeedViewModel.swift */,
+				817B4088230BA046005C8EA3 /* BestsDetailViewModel.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		817B408A230BA0AF005C8EA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				817B408B230BA0C1005C8EA3 /* BestsDetailModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		81D5971323089FD000D29DC0 /* Give Feedback */ = {
@@ -469,6 +484,7 @@
 		9B729CC422E803DE002EEA39 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				817B408A230BA0AF005C8EA3 /* Models */,
 				8147C75423050B69004BD4C4 /* View Models */,
 				9B729CC722E803F6002EEA39 /* UI */,
 			);
@@ -484,6 +500,7 @@
 				9B78777022EE90BA00626A63 /* BestsViewCell.swift */,
 				9B78777222EE90C800626A63 /* FeedViewCell.swift */,
 				9BEA19E022FE5A6B00851A39 /* CustomTabController.swift */,
+				817B4086230B9E8D005C8EA3 /* BestsDetailViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -559,7 +576,7 @@
 				TargetAttributes = {
 					FBA79E9C1E9A038700179A54 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JM9222EF99;
+						DevelopmentTeam = 4P8A43ABAU;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -659,12 +676,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				81E3D07922F146B100464F49 /* UIColor+Styles.swift in Sources */,
+				817B4087230B9E8D005C8EA3 /* BestsDetailViewController.swift in Sources */,
 				9B78776922EE8AFA00626A63 /* BestsViewController.swift in Sources */,
 				9B729CC022E801A0002EEA39 /* MainViewController.swift in Sources */,
+				817B408C230BA0C1005C8EA3 /* BestsDetailModel.swift in Sources */,
 				7A77E6DC22F2467300741749 /* MSALService.swift in Sources */,
 				7A77E6E022F26D4500741749 /* MSALDelegate.swift in Sources */,
 				7AC6D99022EB38B0006F18CE /* API.swift in Sources */,
 				7A77E6D222F0927C00741749 /* Rank.swift in Sources */,
+				817B4089230BA046005C8EA3 /* BestsDetailViewModel.swift in Sources */,
 				9BE36673230709F300BACCB9 /* UIView+NibLoading.swift in Sources */,
 				7A77E6E222F283D500741749 /* APIClient.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
@@ -847,7 +867,7 @@
 				CODE_SIGN_ENTITLEMENTS = "RankUp/Supporting Files/RankUp.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JM9222EF99;
+				DEVELOPMENT_TEAM = 4P8A43ABAU;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RankUp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -871,7 +891,7 @@
 				CODE_SIGN_ENTITLEMENTS = "RankUp/Supporting Files/RankUp.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JM9222EF99;
+				DEVELOPMENT_TEAM = 4P8A43ABAU;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RankUp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
