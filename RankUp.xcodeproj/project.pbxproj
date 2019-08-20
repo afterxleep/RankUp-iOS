@@ -75,6 +75,7 @@
 		D67FEFE622DAA04A00DA34FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFE022DAA04A00DA34FE /* Assets.xcassets */; };
 		D67FEFEA22DAA04A00DA34FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */; };
 		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
+		D6C7E778230B7A7300A86716 /* String+ordinalSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		D67FEFE322DAA04A00DA34FE /* RankUp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = RankUp.entitlements; sourceTree = "<group>"; };
 		D67FEFE522DAA04A00DA34FE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ordinalSuffix.swift"; sourceTree = "<group>"; };
 		FBA79E9D1E9A038700179A54 /* RankUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RankUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -343,6 +345,7 @@
 				81E3D07822F146B100464F49 /* UIColor+Styles.swift */,
 				9B211C82230075A00076FA7A /* UIButton+ImageState.swift */,
 				9B28D6C023010ED20096DB58 /* Date+ElapsedTime.swift */,
+				D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				9B47E06D22EDFD5E00353A92 /* OnboardingViewController.swift in Sources */,
 				9B60744422EE4BF60060E13D /* SignupViewModel.swift in Sources */,
 				9B60744222EE29C20060E13D /* SignupViewController.swift in Sources */,
+				D6C7E778230B7A7300A86716 /* String+ordinalSuffix.swift in Sources */,
 				7AC6D99F22ECA8EE006F18CE /* CompanyValuesService.swift in Sources */,
 				9B63BBC422F1FD6B004BE699 /* FieldText.swift in Sources */,
 				81D597172308A66B00D29DC0 /* FeedBackTypeViewController.swift in Sources */,

@@ -15,7 +15,7 @@ final class FeedBackTypeViewController: UIViewController {
     //MARK: - IBOutlets
     
     @IBOutlet weak private var profileView: ProfileView!
-    @IBOutlet weak private var userPointsLabel: UILabel!
+    @IBOutlet weak private var userRankLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var buttonsContainer: UIStackView!
     @IBOutlet weak private var feedBackTypeLabel: UILabel!
@@ -48,12 +48,10 @@ final class FeedBackTypeViewController: UIViewController {
     //MARK: - Configuration
     
     func configure() {
-        userPointsLabel.text = viewModel.feedback?.userPoints
+        userRankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(viewModel.feedback?.userRank ?? "")", leadingAttachment: "rankingTinted")
         userNameLabel.text = viewModel.feedback?.userName
         profileView.configure(withName: viewModel.feedback?.userName)
         profileView.fetchProfilePhoto(userMSID: viewModel.feedback?.userMSID)
-        
-        //TODO: TBD by the action the user performed (recognise/improve)
         feedBackTypeLabel.text = viewModel.feedBackType.rawValue
     }
     

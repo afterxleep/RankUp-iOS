@@ -10,5 +10,5 @@ import Foundation
 struct FeedbackModel {
     var userMSID = String()
     var userName = String()
-    var userPoints = String()
+    var userRank = String()
 }

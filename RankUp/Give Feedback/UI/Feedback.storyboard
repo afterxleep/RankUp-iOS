@@ -24,7 +24,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NwV-av-wGe">
                                         <rect key="frame" x="20" y="44" width="374" height="44.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-m9-zos">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-m9-zos" userLabel="User Rank Label">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                                 <color key="textColor" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,7 +144,7 @@
                         <outlet property="loader" destination="z1Q-fk-dUu" id="hOZ-PM-faB"/>
                         <outlet property="profileView" destination="qUO-z7-Brp" id="3wV-7O-6sc"/>
                         <outlet property="userNameLabel" destination="uBN-AE-a5l" id="dVQ-FE-boL"/>
-                        <outlet property="userPointsLabel" destination="MXd-m9-zos" id="H6u-hF-Ju6"/>
+                        <outlet property="userRankLabel" destination="MXd-m9-zos" id="H6u-hF-Ju6"/>
                         <outlet property="viewContainer" destination="CPv-Mo-fht" id="TzJ-YS-NYG"/>
                         <segue destination="yAN-TX-Og5" kind="show" identifier="giveFeedbackSegue" id="pT2-h3-uH1"/>
                     </connections>
@@ -206,12 +206,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-xS-ks2">
                                                 <rect key="frame" x="0.0" y="19" width="33" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEE-YD-WxL">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BEE-YD-WxL">
                                         <rect key="frame" x="345" y="184" width="51" height="31"/>
                                         <color key="onTintColor" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </switch>

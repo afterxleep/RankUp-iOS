@@ -91,7 +91,7 @@ final class FeedViewModel {
             let userName = giveFeedbackModel?.to?.name,
             let points = giveFeedbackModel?.to?.rank else { return nil }
         
-        return FeedbackModel(userMSID: msid, userName: userName, userPoints: String(describing: points))
+        return FeedbackModel(userMSID: msid, userName: userName, userRank: String(describing: points).withOrdinalSuffix())
     }
     
 }

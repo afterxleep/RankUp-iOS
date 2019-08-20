@@ -10,7 +10,7 @@ import UIKit
 final class FeedbackViewController: UIViewController {
     
     private struct Constants {
-        static let feedbackPlaceholder = "Enter your feedback (max 140)"
+        static let feedbackPlaceholder = "Enter your comment (max 140 chars)"
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -50,8 +50,8 @@ final class FeedbackViewController: UIViewController {
         valueLabel.textColor = valueColor
         valueDescriptionLabel.text = viewModel.companyValue?.description
         
-        privateTitleLabel.text = "Private Rank"
-        privateSubheadLabel.text = "This rank is private and will be only visible for you and your peer."
+        privateTitleLabel.text = "Private Feedback"
+        privateSubheadLabel.text = "When selected, your message will be only visible to \(viewModel.feedback?.userName ?? "your peer")."
         
         feedbackTextView.attributedText = NSAttributedString(string: Constants.feedbackPlaceholder,
                                                              attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGreyBlue])
