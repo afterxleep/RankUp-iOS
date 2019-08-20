@@ -30,6 +30,7 @@ struct K {
         static let feedSegue = "feedSegue"
         static let feedbackSegue = "feedbackSegue"
         static let giveFeedbackSegue = "giveFeedbackSegue"
+        static let bestsDetailSegue = "bestsDetailSegue"
     }
     
 }
