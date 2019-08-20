@@ -50,8 +50,8 @@ final class FeedbackViewController: UIViewController {
         valueLabel.textColor = valueColor
         valueDescriptionLabel.text = viewModel.companyValue?.description
         
-        privateTitleLabel.text = "Private Feedback"
-        privateSubheadLabel.text = "When selected, your message will be only visible to \(viewModel.feedback?.userName ?? "your peer")."
+        privateTitleLabel.text = "Keep it private?"
+        privateSubheadLabel.text = "When enabled only \(viewModel.feedback?.userName ?? "your peer") will see your message. (It will not appear in the feed)."
         
         feedbackTextView.attributedText = NSAttributedString(string: Constants.feedbackPlaceholder,
                                                              attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGreyBlue])
@@ -70,7 +70,7 @@ final class FeedbackViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction private func didTapSendButton(_ sender: Any) {
-        viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: !privacySwitch.isOn) { [weak self] in
+        viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: privacySwitch.isOn) { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
         }
     }

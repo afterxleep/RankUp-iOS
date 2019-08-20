@@ -1,18 +1,22 @@
 PODS:
+  - JGProgressHUD (2.0.3)
   - MSAL (0.4.0):
     - MSAL/app-lib (= 0.4.0)
   - MSAL/app-lib (0.4.0)
 
 DEPENDENCIES:
+  - JGProgressHUD
   - MSAL (~> 0.4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - JGProgressHUD
     - MSAL
 
 SPEC CHECKSUMS:
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   MSAL: fb209227bd464771648206286eb2bcca46f438ec
 
-PODFILE CHECKSUM: e8430c4ca862d80cf8890f0189ef2ae2faf87cee
+PODFILE CHECKSUM: e4419b47cb79714e782f592fdfd77a44146846d6
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

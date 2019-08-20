@@ -20,6 +20,8 @@ final class FeedViewCell: UITableViewCell {
     @IBOutlet weak private var rankLabel: UILabel!
     @IBOutlet weak private var byLineLabel: UILabel!
     
+    var likes = 0
+    
     // MARK: - Overrides
     
     override func awakeFromNib() {
@@ -32,14 +34,24 @@ final class FeedViewCell: UITableViewCell {
     func configure(withModel model: Feedback?) {
         guard let model = model else { return }
         resetContent()
-        
+        likes = model.likes ?? 0
         userNameLabel.text = model.to?.name
         feedbackLabel.text = model.comment
         valueLabel.text = model.value?.name.uppercased()
         valueLabel.textColor = UIHelper.valueColor(forType: model.value?.name)
         valueView.backgroundColor = UIHelper.valueColor(forType: model.value?.name)
         elapsedTimeLabel.text = model.createdAt?.formattedElapsedTime()
-        rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(model.likes ?? 0)", leadingAttachment: "rankLike")
+        
+        // Color the liked label accordingly        
+        var rankLabelAttachment = "rankLike"
+        var rankLabelColor = UIColor.lightGray
+        if(model.isLikedByuser ?? false) {
+            rankLabelAttachment = "rankLikeTinted"
+            rankLabelColor = UIColor.aquaBlue
+        }
+        rankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(likes)", leadingAttachment: rankLabelAttachment)
+        rankLabel.textColor = rankLabelColor
+        
         let fromName = model.from?.name ?? "Anonymous"
         byLineLabel.text = "By: \(fromName)"
         profileView.configure(withName: model.to?.name)

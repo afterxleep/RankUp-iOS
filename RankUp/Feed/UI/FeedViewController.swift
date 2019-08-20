@@ -19,6 +19,10 @@ final class FeedViewController: UIViewController {
         static let leadingActionTitle = "Boost"
         static let trailingActionImage = "flag"
         static let leadingActionImage = "rank"
+        static let boostedMessage = "Feedback Boosted!"
+        static let flaggedMessage = "Feedback Flaged!"
+        static let alreadyBoosterMessage = "You already boosted this!"
+        static let messagesDuration = 1.0
     }
     
     //MARK: - Stored Properties
@@ -33,7 +37,8 @@ final class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerTableViews()
+        registerTableViews()        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +75,7 @@ final class FeedViewController: UIViewController {
                 strongSelf.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             } else {
                 strongSelf.tableView.reloadData()
-                strongSelf.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+                //strongSelf.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             }
         }
     }
@@ -87,7 +92,6 @@ extension FeedViewController: UITableViewDataSource {
         let model = viewModel.feedback(at: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: FeedViewCell.reuseIdentifier) as! FeedViewCell
         cell.configure(withModel: model)
-        
         return cell
     }
     
@@ -120,6 +124,7 @@ extension FeedViewController: UITableViewDelegate {
         let flagAction = UIContextualAction(style: .normal, title: Constants.trailingActionTitle) { [weak self] _, _, successHandler in
             guard let strongSelf = self else { return }
             strongSelf.viewModel.flagFeedback(at: indexPath.row, completion: { success, error in
+                strongSelf.view.displaySuccessHudWithText(text: Constants.flaggedMessage, andDuration: Constants.messagesDuration)
                 if success {
                     strongSelf.tableView.deleteRows(at: [indexPath], with: .left)
                 }
@@ -137,11 +142,18 @@ extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let rankAction = UIContextualAction(style: .normal, title: Constants.leadingActionTitle) { [weak self] _, _, successHandler in
             guard let strongSelf = self else { return }
-            /* Test Scenario to give feedback.
-             This should be moved to the search results table or fucking profile view with a couple of buttons with options (recognise/improve)
-             */
-            strongSelf.selectedFeedback = indexPath.row
-            strongSelf.performSegue(withIdentifier: K.Segues.feedbackSegue, sender: nil)
+            strongSelf.tableView.setEditing(false, animated: true)
+            if (!strongSelf.viewModel.isLikedFeedback(at: indexPath.row)) {
+                strongSelf.viewModel.likeFeedback(at: indexPath.row, completion: { success, error in
+                    strongSelf.view.displaySuccessHudWithText(text: Constants.boostedMessage, andDuration: Constants.messagesDuration)
+                    if success {
+                        strongSelf.fetchFeeds()
+                    }
+                })
+            }
+            else {
+                strongSelf.view.displaySuccessHudWithText(text: Constants.alreadyBoosterMessage, andDuration: Constants.messagesDuration)
+            }
         }
         
         rankAction.backgroundColor = UIColor.aquaBlue

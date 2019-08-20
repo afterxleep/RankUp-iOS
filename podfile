@@ -4,4 +4,5 @@ use_frameworks!
 
 target 'RankUp' do
   pod 'MSAL', '~> 0.4.0'
+  pod 'JGProgressHUD'
 end

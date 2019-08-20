@@ -8,7 +8,7 @@
 import Foundation
 
 enum FeedbackType: String {
-    case recognise = "I want to send feedback for being:"
+    case recognise = "I want to send feedback about being:"
 }
 
 final class FeedBackTypeViewModel {
