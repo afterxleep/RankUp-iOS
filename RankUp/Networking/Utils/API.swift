@@ -27,6 +27,7 @@ enum API: Parseable {
     case flagFeedback(SecureToken, FeedbackId)
     case rank(SecureToken)
     case profilePhoto(UserMSID?, SecureToken)
+    case user(SecureToken)
     
     //MARK: - constants
     
@@ -58,7 +59,8 @@ enum API: Parseable {
              .companyValues(let token),
              .contacts(let token),
              .feedback(let token),
-             .rank(let token):
+             .rank(let token),
+             .user(let token):
             request.httpMethod = HTTPMethod.get.rawValue
             request.allHTTPHeaderFields = createHeader(token: token)
         case .profilePhoto(_, let token):
@@ -95,6 +97,8 @@ enum API: Parseable {
     
     private var endPoint: String {
         switch self {
+        case .user(_):
+            return "/user"
         case .area(_):
             return "/area"
         case .location(_):

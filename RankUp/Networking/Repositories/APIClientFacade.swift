@@ -21,4 +21,5 @@ protocol APIClientFacade: AnyObject {
     func flagFeedback(feedbackId: String, completion: @escaping FeedbackCompletion)
     func rankings(filter: RankingFilter, completion: @escaping RetrieveRanksCompletion)
     func profilePhoto(userMSID: String?, completion: @escaping RetrieveProfilePhotoCompletion)
+    func userSearch(filter: [String: String]?, completion: @escaping RetrieveUsersCompletion)
 }

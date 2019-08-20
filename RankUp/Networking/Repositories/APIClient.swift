@@ -25,6 +25,7 @@ class APIClient: APIClientFacade {
     private lazy var value: CompanyValuesService = { return CompanyValuesRepository() }()
     private lazy var feedback: FeedbackService = { return FeedbackRepository() }()
     private lazy var rank: RankService = { return RankRepository() }()
+    private lazy var user: UserService = { return UserRepository() }()
     
     weak var msalDelegate: MSALDelegate? {
         didSet {
@@ -263,6 +264,21 @@ class APIClient: APIClientFacade {
             switch result {
             case .success(let token):
                 strongSelf.msal.retrieveProfilePhoto(API.profilePhoto(userMSID, token).request(), completion: completion)
+            case .failure( _ ):
+                completion(.failure(.unableToMakeRequest))
+            }
+        }
+    }
+    
+    func userSearch(filter: [String: String]? = nil, completion: @escaping RetrieveUsersCompletion) {
+        msal.retrieveSecurityToken { [weak self] (result) in
+            guard let strongSelf = self else {
+                completion(.failure(.unableToMakeRequest))
+                return
+            }            
+            switch result {
+            case .success(let token):
+                strongSelf.user.retrieveUsers(API.user(token).request(parameters: filter), completion: completion)
             case .failure( _ ):
                 completion(.failure(.unableToMakeRequest))
             }
