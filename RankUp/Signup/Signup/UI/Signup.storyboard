@@ -63,7 +63,7 @@
                                         <color key="textColor" red="0.1058823529" green="0.15686274510000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJb-Fg-8Ba" customClass="FieldText" customModule="RankUp" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iJb-Fg-8Ba" customClass="FieldText" customModule="RankUp" customModuleProvider="target">
                                         <rect key="frame" x="97.5" y="138" width="219" height="44"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -76,7 +76,7 @@
                                             <outlet property="delegate" destination="LqI-pI-vL3" id="oGU-KN-zqZ"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Discipline" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8n4-6T-aEQ" customClass="FieldText" customModule="RankUp" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Discipline" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8n4-6T-aEQ" customClass="FieldText" customModule="RankUp" customModuleProvider="target">
                                         <rect key="frame" x="97.5" y="206" width="219" height="44"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -128,6 +128,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cIQ-j8-SJl">
+                                <rect key="frame" x="197" y="410" width="20" height="20"/>
+                                <color key="color" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TC2-oQ-giM" customClass="ProfileView" customModule="RankUp" customModuleProvider="target">
                                 <rect key="frame" x="167" y="272" width="80" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,8 +146,10 @@
                             <constraint firstItem="cfd-Wg-c5n" firstAttribute="top" secondItem="Mr2-Gh-yWL" secondAttribute="bottom" constant="70" id="1hn-D2-wFI"/>
                             <constraint firstItem="Mr2-Gh-yWL" firstAttribute="height" secondItem="ppy-QI-w5k" secondAttribute="height" multiplier="0.27" id="1zd-Vi-1ft"/>
                             <constraint firstItem="OBx-qK-7q1" firstAttribute="trailing" secondItem="cfd-Wg-c5n" secondAttribute="trailing" id="33V-AS-qLh"/>
+                            <constraint firstItem="cIQ-j8-SJl" firstAttribute="top" secondItem="cfd-Wg-c5n" secondAttribute="top" constant="98" id="A1B-ob-gXh"/>
                             <constraint firstItem="Mr2-Gh-yWL" firstAttribute="trailing" secondItem="OBx-qK-7q1" secondAttribute="trailing" id="BkU-Zd-T6A"/>
                             <constraint firstItem="Mr2-Gh-yWL" firstAttribute="top" secondItem="ppy-QI-w5k" secondAttribute="top" id="KNh-dS-C4x"/>
+                            <constraint firstItem="cIQ-j8-SJl" firstAttribute="centerX" secondItem="cfd-Wg-c5n" secondAttribute="centerX" id="Wck-Pv-pW1"/>
                             <constraint firstItem="TC2-oQ-giM" firstAttribute="centerX" secondItem="OBx-qK-7q1" secondAttribute="centerX" id="Zo6-XA-SHf"/>
                             <constraint firstItem="cfd-Wg-c5n" firstAttribute="top" secondItem="TC2-oQ-giM" secondAttribute="bottom" constant="-40" id="hAx-td-fex"/>
                             <constraint firstAttribute="bottom" secondItem="cfd-Wg-c5n" secondAttribute="bottom" id="hrP-zr-6Y4"/>
@@ -158,6 +164,7 @@
                         <outlet property="header" destination="Mr2-Gh-yWL" id="3GK-fJ-V3B"/>
                         <outlet property="headerTitle" destination="xW3-yX-ulb" id="Z72-WA-09X"/>
                         <outlet property="jobLabel" destination="5Ry-Zp-Bzw" id="HGo-90-smv"/>
+                        <outlet property="loader" destination="cIQ-j8-SJl" id="ACh-Yj-WAg"/>
                         <outlet property="locationTextField" destination="iJb-Fg-8Ba" id="FWD-fA-NvT"/>
                         <outlet property="profileView" destination="TC2-oQ-giM" id="vNj-2J-vw6"/>
                         <outlet property="startButton" destination="5XU-Gj-G4q" id="V7Z-iN-2Nw"/>

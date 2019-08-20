@@ -56,8 +56,7 @@ final class FeedbackViewController: UIViewController {
         feedbackTextView.attributedText = NSAttributedString(string: Constants.feedbackPlaceholder,
                                                              attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGreyBlue])
         
-        profileView.configure(withName: viewModel.feedback?.userName)
-        profileView.fetchProfilePhoto(userMSID: viewModel.feedback?.userMSID)
+        profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
     }
     
     private func roundCorners() {

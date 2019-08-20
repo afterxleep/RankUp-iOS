@@ -37,7 +37,6 @@ final class MSALRepository: MSALService {
     }
     
     func retrieveProfilePhoto(_ request: URLRequest?, completion: @escaping RetrieveProfilePhotoCompletion) {
-        
         guard var request = request else {
             completion(.failure(.unableToMakeRequest))
             return

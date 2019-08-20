@@ -51,8 +51,7 @@ final class FeedViewCell: UITableViewCell {
         
         let fromName = model.from?.name ?? "Anonymous"
         byLineLabel.text = "By: \(fromName)"
-        profileView.configure(withName: model.to?.name)
-        profileView.fetchProfilePhoto(userMSID: model.to?.msid)
+        profileView.configure(withName: model.to?.name, userMSID: model.to?.msid)
     }
     
     private func resetContent() {

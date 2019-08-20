@@ -41,7 +41,7 @@ final class ProfileView: UIView {
     
     // MARK: - Interface
     
-    func configure(withName name: String?) {
+    func configure(withName name: String?, userMSID: String? = nil) {
         if let userNames = name?.split(separator: " ", maxSplits: 1, omittingEmptySubsequences: true) {
             profileInitials.text = userNames.reduce(into: "") { result, substring in
                 result?.append(String(substring.first ?? Character("")))
@@ -49,11 +49,12 @@ final class ProfileView: UIView {
         } else {
             profileInitials.text = Constants.defaultInitials
         }
+        
+        fetchProfilePhoto(userMSID: userMSID)
     }
     
-    func fetchProfilePhoto(userMSID: String? = nil) {
-        guard let msid = userMSID else { return }
-        APIClient().profilePhoto(userMSID: msid) { [weak self] result in
+    private func fetchProfilePhoto(userMSID: String? = nil) {
+        APIClient().profilePhoto(userMSID: userMSID) { [weak self] result in
             guard let strongSelf = self else { return }
             DispatchQueue.main.async {
                 switch result {

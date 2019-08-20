@@ -32,8 +32,7 @@ final class BestsViewCell: UICollectionViewCell {
         let comment = model.comment ?? "Nothing to see here..."
         feedbackLabel.text = #""\#(comment)""#
         
-        profileView.configure(withName: model.to?.name)
-        profileView.fetchProfilePhoto(userMSID: model.to?.msid)
+        profileView.configure(withName: model.to?.name, userMSID: model.to?.msid)
     }
     
     private func resetContent() {

@@ -30,6 +30,7 @@ final class SignupViewController: UIViewController {
     @IBOutlet weak private var profileView: ProfileView!
     @IBOutlet weak private var userLabel: UILabel!
     @IBOutlet weak private var jobLabel: UILabel!
+    @IBOutlet weak private var loader: UIActivityIndicatorView!
     
     @IBOutlet weak private var locationTextField: FieldText! {
         didSet {
@@ -85,11 +86,10 @@ final class SignupViewController: UIViewController {
         
         viewModel.fetchLocationDisciplinesData { [weak self] error in
             if error == nil {
+                self?.loader.stopAnimating()
                 self?.configureTextFieldsPickers()
             }
         }
-        
-        profileView.fetchProfilePhoto()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -99,8 +99,10 @@ final class SignupViewController: UIViewController {
     // MARK: - Configuration
     
     private func configureTextFieldsPickers() {
+        locationTextField.isEnabled = true
         locationTextField.inputView = locationPicker
         disciplineTextField.inputView = disciplinePicker
+        disciplineTextField.isEnabled = true
     }
     
     private func configureUI() {

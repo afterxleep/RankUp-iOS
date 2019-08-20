@@ -35,8 +35,7 @@ final class BestsDetailViewController: UIViewController {
     //MARK: - Configuration
     
     private func configure() {
-        profileView.configure(withName: viewModel.detail?.userName)
-        profileView.fetchProfilePhoto(userMSID: viewModel.detail?.userMSID)
+        profileView.configure(withName: viewModel.detail?.userName, userMSID: viewModel.detail?.userMSID)
         valueView.backgroundColor = UIHelper.valueColor(forType: viewModel.detail?.valueName)
         valueLabel.text = viewModel.detail?.valueName?.uppercased()
         pointsLabel.text = viewModel.detail?.points

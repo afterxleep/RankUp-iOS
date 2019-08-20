@@ -50,8 +50,7 @@ final class FeedBackTypeViewController: UIViewController {
     func configure() {
         userRankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(viewModel.feedback?.userRank ?? "")", leadingAttachment: "rankingTinted")
         userNameLabel.text = viewModel.feedback?.userName
-        profileView.configure(withName: viewModel.feedback?.userName)
-        profileView.fetchProfilePhoto(userMSID: viewModel.feedback?.userMSID)
+        profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
         feedBackTypeLabel.text = viewModel.feedBackType.rawValue
     }
     
