@@ -124,9 +124,9 @@ extension FeedViewController: UITableViewDelegate {
         let flagAction = UIContextualAction(style: .normal, title: Constants.trailingActionTitle) { [weak self] _, _, successHandler in
             guard let strongSelf = self else { return }
             strongSelf.viewModel.flagFeedback(at: indexPath.row, completion: { success, error in
-                strongSelf.view.displaySuccessHudWithText(text: Constants.flaggedMessage, andDuration: Constants.messagesDuration)
                 if success {
                     strongSelf.tableView.deleteRows(at: [indexPath], with: .left)
+                    strongSelf.view.displaySuccessHudWithText(text: Constants.flaggedMessage, andDuration: Constants.messagesDuration)
                 }
             })
         }
@@ -145,9 +145,9 @@ extension FeedViewController: UITableViewDelegate {
             strongSelf.tableView.setEditing(false, animated: true)
             if (!strongSelf.viewModel.isLikedFeedback(at: indexPath.row)) {
                 strongSelf.viewModel.likeFeedback(at: indexPath.row, completion: { success, error in
-                    strongSelf.view.displaySuccessHudWithText(text: Constants.boostedMessage, andDuration: Constants.messagesDuration)
                     if success {
                         strongSelf.fetchFeeds()
+                        strongSelf.view.displaySuccessHudWithText(text: Constants.boostedMessage, andDuration: Constants.messagesDuration)
                     }
                 })
             }
