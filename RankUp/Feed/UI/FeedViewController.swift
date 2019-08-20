@@ -12,7 +12,7 @@ final class FeedViewController: UIViewController {
     private struct Constants {
         static let sectionHeaderID = String(describing: UITableViewHeaderFooterView.self)
         static let headerHeight: CGFloat = 55
-        static let headerTitle = "RECENT FEEDBACKS"
+        static let headerTitle = "LATEST FEEDBACKS"
         static let headerFontSize: CGFloat = 15
         static let headerMargin: CGFloat = 20
         static let trailingActionTitle = "Report"
@@ -20,7 +20,7 @@ final class FeedViewController: UIViewController {
         static let trailingActionImage = "flag"
         static let leadingActionImage = "rank"
         static let boostedMessage = "Feedback Boosted!"
-        static let flaggedMessage = "Feedback Flaged!"
+        static let flaggedMessage = "Reported as innapropiate!"
         static let alreadyBoosterMessage = "You already boosted this!"
         static let messagesDuration = 1.0
     }
@@ -101,7 +101,7 @@ extension FeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.sectionHeaderID) else { return nil }
-        header.contentView.backgroundColor = .white
+        header.contentView.backgroundColor = .almostWhiteGray
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont.systemFont(ofSize: Constants.headerFontSize, weight: .heavy)

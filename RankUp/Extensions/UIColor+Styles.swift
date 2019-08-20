@@ -21,6 +21,10 @@ extension UIColor {
         return UIColor(red: 172.0 / 255.0, green: 185.0 / 255.0, blue: 192.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var almostWhiteGray: UIColor {
+        return UIColor(red: 250.0 / 255.0, green: 250.0 / 255.0, blue: 250.0 / 255.0, alpha: 1.0)
+    }
+    
     @nonobjc class var adaptable: UIColor {
         return UIColor(red: 0.0, green: 158.0 / 255.0, blue: 160.0 / 255.0, alpha: 1.0)
     }
