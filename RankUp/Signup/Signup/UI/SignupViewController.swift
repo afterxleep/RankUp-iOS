@@ -13,7 +13,7 @@ final class SignupViewController: UIViewController {
         static let viewContainersRadius: CGFloat = 66
         static let profileViewRadius: CGFloat = 15
         static let formFieldsRadius: CGFloat = 9
-        static let headerTitleFontSize: CGFloat = 39
+        static let headerTitleFontSize: CGFloat = 30
         static let headerTitleLineHeight: CGFloat = 37
         static let locationPlaceholder = "Location"
         static let disciplinePlaceholder = "Discipline"
@@ -133,11 +133,6 @@ final class SignupViewController: UIViewController {
                                                                                                                      weight: .black),
                                                                                             .kern: 0.5])
         
-        let appNameString = NSAttributedString(string: "RankUp", attributes: [.foregroundColor: UIColor.aquaBlue,
-                                                                              .font: UIFont.systemFont(ofSize: Constants.headerTitleFontSize,
-                                                                                                       weight: .semibold)])
-        
-        attributedTitle.append(appNameString)
         attributedTitle.addAttribute(.paragraphStyle, value: UIHelper.lineHeightAttribute(size: Constants.headerTitleLineHeight),
                                      range: NSRange(location: 0, length: attributedTitle.length))
         
