@@ -359,7 +359,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNP-dJ-fE3">
-                                        <rect key="frame" x="0.0" y="54" width="414" height="720"/>
+                                        <rect key="frame" x="0.0" y="54" width="414" height="754"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactViewCell" rowHeight="90" id="nuN-cI-W4w" customClass="ContactViewCell" customModule="RankUp" customModuleProvider="target">
@@ -424,7 +424,7 @@
                                     <constraint firstItem="eAx-J8-dTL" firstAttribute="leading" secondItem="x2y-b8-7Bh" secondAttribute="leading" constant="-2" id="M8Q-XO-ANL"/>
                                     <constraint firstAttribute="trailing" secondItem="eAx-J8-dTL" secondAttribute="trailing" id="MbQ-kh-uEm"/>
                                     <constraint firstItem="y50-22-etM" firstAttribute="leading" secondItem="x2y-b8-7Bh" secondAttribute="leading" id="X0h-X9-R5T"/>
-                                    <constraint firstAttribute="bottom" secondItem="eNP-dJ-fE3" secondAttribute="bottom" constant="34" id="cYL-BG-5Lr"/>
+                                    <constraint firstAttribute="bottom" secondItem="eNP-dJ-fE3" secondAttribute="bottom" id="cYL-BG-5Lr"/>
                                     <constraint firstAttribute="trailing" secondItem="y50-22-etM" secondAttribute="trailing" id="hYc-yb-jNY"/>
                                     <constraint firstItem="eNP-dJ-fE3" firstAttribute="leading" secondItem="x2y-b8-7Bh" secondAttribute="leading" id="lUk-hm-PF6"/>
                                     <constraint firstItem="y50-22-etM" firstAttribute="top" secondItem="eAx-J8-dTL" secondAttribute="bottom" constant="-6.5" id="pEx-PR-PBi"/>
@@ -437,7 +437,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ux9-Q4-464" firstAttribute="bottom" secondItem="x2y-b8-7Bh" secondAttribute="bottom" constant="-34" id="26d-CR-bzC"/>
+                            <constraint firstAttribute="bottom" secondItem="x2y-b8-7Bh" secondAttribute="bottom" id="26d-CR-bzC"/>
                             <constraint firstItem="hzR-eN-DPD" firstAttribute="centerY" secondItem="ux9-Q4-464" secondAttribute="centerY" id="2Ei-wK-km9"/>
                             <constraint firstItem="x2y-b8-7Bh" firstAttribute="top" secondItem="ux9-Q4-464" secondAttribute="top" id="DVv-Ks-nG9"/>
                             <constraint firstItem="x2y-b8-7Bh" firstAttribute="leading" secondItem="ux9-Q4-464" secondAttribute="leading" id="S21-WL-BIk"/>

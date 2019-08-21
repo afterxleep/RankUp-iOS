@@ -14,11 +14,12 @@ class FeedbackSearchPeopleViewController: UIViewController {
         static let searchFieldPlaceholder = "Search people by name or email"
         static let sectionHeaderID = String(describing: UITableViewHeaderFooterView.self)
         static let headerHeight: CGFloat = 55
-        static let headerTitleRecommended = "OR PICK A CONTACT FROM YOUR CIRCLE"
+        static let headerTitleRecommended = "SUGGESTED PEOPLE FROM YOUR CIRCLES"
         static let headerTitleSearchResults = "SEARCH RESULTS"
         static let headerFontSize: CGFloat = 15
         static let headerMargin: CGFloat = 20
-        static let viewTitle = "New Feedback"
+        static let viewTitleFirstWord = "New"
+        static let viewTitleSecondWord = "Feedback"
     }
     
     //MARK: - Stored Properties
@@ -81,8 +82,7 @@ class FeedbackSearchPeopleViewController: UIViewController {
         searchTxtField.placeholder = Constants.searchFieldPlaceholder
         
         let titleLabel = UILabel()
-        titleLabel.text = Constants.viewTitle
-        titleLabel.setViewTitleAttributes()
+        titleLabel.attributedText = UIHelper.createAttributedTitle(firstWord: Constants.viewTitleFirstWord, secondWord: Constants.viewTitleSecondWord)
         self.navigationItem.titleView = titleLabel
     }
     
