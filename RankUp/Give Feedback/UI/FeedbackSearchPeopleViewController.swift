@@ -14,7 +14,7 @@ class FeedbackSearchPeopleViewController: UIViewController {
         static let searchFieldPlaceholder = "Search people by name or email"
         static let sectionHeaderID = String(describing: UITableViewHeaderFooterView.self)
         static let headerHeight: CGFloat = 55
-        static let headerTitleRecommended = "YOUR CLOSEST CONTACTS"
+        static let headerTitleRecommended = "OR PICK A CONTACT FROM YOUR CIRCLE"
         static let headerTitleSearchResults = "SEARCH RESULTS"
         static let headerFontSize: CGFloat = 15
         static let headerMargin: CGFloat = 20
@@ -91,9 +91,9 @@ extension FeedbackSearchPeopleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = viewModel.contact(at: indexPath.row)
-        let contactCell = tableView.dequeueReusableCell(withIdentifier: ContactViewCell.reuseIdentifier) as! ContactViewCell
-        contactCell.configure(withModel: model)
-        return contactCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ContactViewCell.reuseIdentifier) as! ContactViewCell
+        cell.configure(withModel: model)
+        return cell
     }
     
     

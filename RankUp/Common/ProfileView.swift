@@ -72,6 +72,7 @@ final class ProfileView: UIView {
     
     func reset() {
         profileInitials.text = nil
+        userImageView.image = nil
     }
     
 }

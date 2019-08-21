@@ -348,7 +348,7 @@
                                         <rect key="frame" x="0.0" y="54" width="414" height="754"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="nuN-cI-W4w" customClass="ContactViewCell" customModule="RankUp" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactViewCell" rowHeight="90" id="nuN-cI-W4w" customClass="ContactViewCell" customModule="RankUp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nuN-cI-W4w" id="OAe-ho-BqY">
@@ -356,14 +356,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3F-1b-RhH">
-                                                            <rect key="frame" x="75" y="27.5" width="319" height="21"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <rect key="frame" x="81" y="30.5" width="313" height="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                             <color key="textColor" red="0.10588235294117647" green="0.15686274509803921" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZF-dh-cAj">
-                                                            <rect key="frame" x="75" y="45.5" width="319" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="81" y="47.5" width="313" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.67450980392156867" green="0.72549019607843135" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -381,10 +381,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="j3F-1b-RhH" secondAttribute="trailing" constant="20" id="3GX-Sf-Gdj"/>
                                                         <constraint firstItem="Mbl-hB-D2D" firstAttribute="leading" secondItem="OAe-ho-BqY" secondAttribute="leading" constant="20" id="8OO-vf-xb6"/>
                                                         <constraint firstItem="JZF-dh-cAj" firstAttribute="leading" secondItem="j3F-1b-RhH" secondAttribute="leading" id="OIl-NQ-nYr"/>
-                                                        <constraint firstItem="j3F-1b-RhH" firstAttribute="top" secondItem="Mbl-hB-D2D" secondAttribute="top" constant="5" id="ZMe-n3-f1t"/>
+                                                        <constraint firstItem="j3F-1b-RhH" firstAttribute="top" secondItem="Mbl-hB-D2D" secondAttribute="top" constant="8" id="ZMe-n3-f1t"/>
                                                         <constraint firstItem="JZF-dh-cAj" firstAttribute="width" secondItem="j3F-1b-RhH" secondAttribute="width" id="gfY-gW-Obj"/>
-                                                        <constraint firstItem="JZF-dh-cAj" firstAttribute="top" secondItem="j3F-1b-RhH" secondAttribute="bottom" constant="-3" id="pNx-kc-Zx0"/>
-                                                        <constraint firstItem="j3F-1b-RhH" firstAttribute="leading" secondItem="Mbl-hB-D2D" secondAttribute="trailing" constant="10" id="u5q-V3-hDj"/>
+                                                        <constraint firstItem="JZF-dh-cAj" firstAttribute="top" secondItem="j3F-1b-RhH" secondAttribute="bottom" id="pNx-kc-Zx0"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Mbl-hB-D2D" secondAttribute="bottom" constant="15" id="pmj-mQ-Wcn"/>
+                                                        <constraint firstItem="j3F-1b-RhH" firstAttribute="leading" secondItem="Mbl-hB-D2D" secondAttribute="trailing" constant="16" id="u5q-V3-hDj"/>
+                                                        <constraint firstItem="Mbl-hB-D2D" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OAe-ho-BqY" secondAttribute="top" constant="15" id="uPb-Jf-XH5"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>

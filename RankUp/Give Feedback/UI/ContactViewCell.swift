@@ -11,7 +11,6 @@ final class ContactViewCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: ContactViewCell.self)
     
-    
     @IBOutlet weak var contactNameLbl: UILabel!
     @IBOutlet weak var contactJobTitleLbl: UILabel!
     @IBOutlet weak var profileView: ProfileView!
