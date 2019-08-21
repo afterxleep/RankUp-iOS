@@ -31,7 +31,6 @@ final class FeedViewController: UIViewController {
     @IBOutlet weak private var loader: UIActivityIndicatorView!
     
     let viewModel = FeedViewModel(apiClient: APIClient())
-    var selectedFeedback: Int?
     
     //MARK: - Life Cycle
     

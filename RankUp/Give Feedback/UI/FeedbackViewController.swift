@@ -13,8 +13,10 @@ final class FeedbackViewController: UIViewController {
         static let feedbackPlaceholder = "Enter your comment (max 140 chars)"
         static let privateTitleLabel = "Keep it private?"
         static let privateExplanationPrefix = "When enabled only"
-        static let privateExplanationSuffix = "will see your message. (It will not appear in the feed)."
+        static let privateExplanationSuffix = "will see your message"
         static let privateExplanationDefault = "your peer"
+        static let feedbackTypeLabel = "My feedback is to:"
+        static let feedbackTypeExplanation = "You can recognize or give advice, but always be respectful."
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -28,6 +30,8 @@ final class FeedbackViewController: UIViewController {
     @IBOutlet weak private var viewContainer: UIView!
     @IBOutlet weak private var privateTitleLabel: UILabel!
     @IBOutlet weak private var privateSubheadLabel: UILabel!
+    @IBOutlet weak var feedbackTypeLabel: UILabel!
+    @IBOutlet weak var feedbackTypeExplanation: UILabel!
     
     var viewModel = FeedbackViewModel(apiClient: APIClient())
     
@@ -61,6 +65,9 @@ final class FeedbackViewController: UIViewController {
                                                              attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGreyBlue])
         
         profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
+        
+        feedbackTypeLabel.text = Constants.feedbackTypeLabel
+        feedbackTypeExplanation.text = Constants.feedbackTypeExplanation
     }
     
     private func roundCorners() {

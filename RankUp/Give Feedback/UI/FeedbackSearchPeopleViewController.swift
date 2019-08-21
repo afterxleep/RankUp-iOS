@@ -74,6 +74,13 @@ class FeedbackSearchPeopleViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? FeedBackTypeViewController {
+            guard let currentRow = tableView.indexPathForSelectedRow?.row, let contact = viewModel.contact(at: currentRow) else { return }            
+            destination.viewModel.feedback = FeedbackModel(withMSID: contact.msid ?? "", andName: contact.name ?? "")
+        }
+    }
+    
     //MARK: - Configure
     
     private func configure() {

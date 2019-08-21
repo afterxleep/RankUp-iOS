@@ -9,8 +9,14 @@ import UIKit
 
 final class FeedBackTypeViewController: UIViewController {
     
+    private struct Constants {
+        static let viewTitleFirstWord = "New"
+        static let viewTitleSecondWord = "Feedback"
+    }
+    
     var viewModel = FeedBackTypeViewModel(apiClient: APIClient())
     private var selectedButtonIndex: Int?
+    
     
     //MARK: - IBOutlets
     
@@ -52,6 +58,10 @@ final class FeedBackTypeViewController: UIViewController {
         userNameLabel.text = viewModel.feedback?.userName
         profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
         feedBackTypeLabel.text = viewModel.feedBackType.rawValue
+        
+        let titleLabel = UILabel()
+        titleLabel.attributedText = UIHelper.createAttributedTitle(firstWord: Constants.viewTitleFirstWord, secondWord: Constants.viewTitleSecondWord)
+        self.navigationItem.titleView = titleLabel
     }
     
     private func roundCorners() {
