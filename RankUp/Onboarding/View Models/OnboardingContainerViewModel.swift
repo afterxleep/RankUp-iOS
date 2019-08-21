@@ -18,10 +18,10 @@ struct OnboardingContainerViewModel {
     // MARK: - Interface
     
     let onboardingModel: [OnboardingModel] = {
-        
-        let firstOnboardingTitle = UIHelper.createAttributedTitle(firstWord: "Closer\n", secondWord: "FeedBack")
-        let secondOnboardingTitle = UIHelper.createAttributedTitle(firstWord: "Recognize\n", secondWord: "your peer")
-        let thirdOnboardingTitle = UIHelper.createAttributedTitle(firstWord: "Rank", secondWord: "Up")
+        let firstLineAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.dark]
+        let firstOnboardingTitle = UIHelper.createAttributedTitle(firstWord: "Closer\n", secondWord: "FeedBack", firstLineAttrs: firstLineAttributes)
+        let secondOnboardingTitle = UIHelper.createAttributedTitle(firstWord: "Recognize\n", secondWord: "your peers", firstLineAttrs: firstLineAttributes)
+        let thirdOnboardingTitle = UIHelper.createAttributedTitle(firstWord: "Rank", secondWord: "Up", firstLineAttrs: firstLineAttributes)
         
         return [OnboardingModel(imageName: "feedback",
                                 title: firstOnboardingTitle,
