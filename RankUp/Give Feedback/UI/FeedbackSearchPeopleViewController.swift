@@ -126,9 +126,11 @@ extension FeedbackSearchPeopleViewController: UITableViewDelegate {
 extension FeedbackSearchPeopleViewController: UITextFieldDelegate {
     
     private func textViewDidBeginEditing(_ textView: UITextView) {
+        
     }
     
     private func textViewDidEndEditing(_ textView: UITextView) {
+        
     }
     
     func textViewDidChange(_ textView: UITextView) {
