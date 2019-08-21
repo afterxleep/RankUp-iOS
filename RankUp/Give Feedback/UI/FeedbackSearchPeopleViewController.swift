@@ -18,6 +18,7 @@ class FeedbackSearchPeopleViewController: UIViewController {
         static let headerTitleSearchResults = "SEARCH RESULTS"
         static let headerFontSize: CGFloat = 15
         static let headerMargin: CGFloat = 20
+        static let viewTitle = "New Feedback"
     }
     
     //MARK: - Stored Properties
@@ -78,6 +79,11 @@ class FeedbackSearchPeopleViewController: UIViewController {
     private func configure() {
         toLabel.text = Constants.toLabel
         searchTxtField.placeholder = Constants.searchFieldPlaceholder
+        
+        let titleLabel = UILabel()
+        titleLabel.text = Constants.viewTitle
+        titleLabel.setViewTitleAttributes()
+        self.navigationItem.titleView = titleLabel
     }
     
 
