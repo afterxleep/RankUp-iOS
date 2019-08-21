@@ -14,7 +14,6 @@ final class MainViewController: UIViewController {
     }
     
     @IBOutlet weak private var statusLabel: UILabel!
-    @IBOutlet weak private var appNameLabel: UILabel!
     @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Computed Properties
@@ -30,7 +29,6 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         checkAuthenticationState()
     }
     
@@ -41,10 +39,6 @@ final class MainViewController: UIViewController {
     }
     
     // MARK: - Private
-    
-    private func setupUI() {
-        appNameLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "Up", firstLineAttrs: Constants.firstLineTitleAttrs)
-    }
     
     private func checkAuthenticationState() {
         viewModel?.fetchInitialData { [weak self] authState, error in

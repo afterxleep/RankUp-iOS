@@ -53,7 +53,7 @@ final class BestsViewModel {
         
         return BestsDetailModel(userMSID: feedback.to?.msid,
                                 valueName: feedback.value?.name,
-                                points: String(describing: 2800),
+                                rank: String(describing: feedback.to?.rank ?? 0),
                                 userName: feedback.to?.name,
                                 jobTitle: feedback.to?.jobTitle,
                                 feedback: feedback.comment,

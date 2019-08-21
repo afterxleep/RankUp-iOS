@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="TradeGothicLTStd-Bold.otf">
-            <string>TradeGothicLTStd-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="6k6-n5-14M">
@@ -27,37 +22,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RankUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmY-St-uDm">
-                                <rect key="frame" x="97.333333333333329" y="326.66666666666669" width="180.66666666666669" height="58.666666666666686"/>
-                                <fontDescription key="fontDescription" name="TradeGothicLTStd-Bold" family="Trade Gothic LT Std" pointSize="50"/>
-                                <color key="textColor" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xe4-jm-XM2">
-                                <rect key="frame" x="169" y="405.33333333333331" width="37" height="37"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3aN-pL-JFt">
+                                <rect key="frame" x="113.66666666666669" y="388.66666666666669" width="148" height="45"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xe4-jm-XM2">
+                                <rect key="frame" x="177.66666666666666" y="441.66666666666669" width="20" height="20"/>
+                                <color key="color" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPr-s0-3Lb">
-                                <rect key="frame" x="166.66666666666666" y="450.33333333333331" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="170" y="469.66666666666669" width="35.333333333333343" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MPr-s0-3Lb" firstAttribute="centerX" secondItem="xe4-jm-XM2" secondAttribute="centerX" id="Eov-2A-Wda"/>
+                            <constraint firstItem="3aN-pL-JFt" firstAttribute="centerY" secondItem="K0R-qs-CWC" secondAttribute="centerY" id="Neo-oC-18H"/>
                             <constraint firstItem="xe4-jm-XM2" firstAttribute="centerX" secondItem="zak-n4-S5a" secondAttribute="centerX" id="UXs-Su-yVo"/>
-                            <constraint firstItem="MPr-s0-3Lb" firstAttribute="centerX" secondItem="PmY-St-uDm" secondAttribute="centerX" id="adH-wa-MeV"/>
-                            <constraint firstItem="PmY-St-uDm" firstAttribute="centerY" secondItem="zak-n4-S5a" secondAttribute="centerY" constant="-50" id="jhV-BD-YcA"/>
+                            <constraint firstItem="3aN-pL-JFt" firstAttribute="centerX" secondItem="K0R-qs-CWC" secondAttribute="centerX" id="aQ1-C0-40v"/>
                             <constraint firstItem="MPr-s0-3Lb" firstAttribute="top" secondItem="xe4-jm-XM2" secondAttribute="bottom" constant="8" id="kpF-ds-Uj7"/>
-                            <constraint firstItem="xe4-jm-XM2" firstAttribute="top" secondItem="PmY-St-uDm" secondAttribute="bottom" constant="20" id="qpJ-nN-pko"/>
-                            <constraint firstItem="PmY-St-uDm" firstAttribute="centerX" secondItem="zak-n4-S5a" secondAttribute="centerX" id="xog-yd-BZF"/>
+                            <constraint firstItem="xe4-jm-XM2" firstAttribute="top" secondItem="3aN-pL-JFt" secondAttribute="bottom" constant="8" id="pK0-af-90G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K0R-qs-CWC"/>
                     </view>
                     <navigationItem key="navigationItem" id="hZh-yI-zDG"/>
                     <connections>
                         <outlet property="activityIndicator" destination="xe4-jm-XM2" id="xQ3-vC-PXE"/>
-                        <outlet property="appNameLabel" destination="PmY-St-uDm" id="g0E-Ui-XLJ"/>
                         <outlet property="statusLabel" destination="MPr-s0-3Lb" id="4un-1Y-ifs"/>
                         <segue destination="Wor-Cq-T8z" kind="show" identifier="registrationSegue" id="Tq0-Gm-Wcn"/>
                         <segue destination="AAO-4x-y4D" kind="presentation" identifier="feedSegue" modalTransitionStyle="flipHorizontal" id="J86-Qb-k3h"/>
@@ -101,4 +93,7 @@
             <point key="canvasLocation" x="173.91304347826087" y="140.625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="148" height="45"/>
+    </resources>
 </document>
