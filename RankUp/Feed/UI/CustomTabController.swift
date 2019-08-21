@@ -33,7 +33,7 @@ final class MainTabController: UITabBarController {
     }
     
     @objc private func didTapNewRankButton() {
-        
+        self.performSegue(withIdentifier: K.Segues.feedbackSegue, sender: nil)
     }
     
 }

@@ -23,7 +23,6 @@ struct FeedbackSearchPeopleViewModel {
     }
     
     func searchPeople(completion: @escaping () -> Void) {
-        
     }
 
 }

@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Feedback-->
+        <scene sceneID="OKx-RJ-xHK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Feedback" id="GOp-nV-2ao" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UhR-6I-Nra" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2264" y="370"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Kff-6W-ker">
             <objects>
@@ -108,6 +116,7 @@
                     <connections>
                         <segue destination="fgZ-yx-BAO" kind="relationship" relationship="viewControllers" id="elh-9j-e8C"/>
                         <segue destination="O4T-1S-YAB" kind="relationship" relationship="viewControllers" id="gpf-ew-itL"/>
+                        <segue destination="GOp-nV-2ao" kind="show" identifier="feedbackSegue" id="Dpv-C7-ZWm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mcj-Zc-dyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -452,7 +461,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DtO-wm-agh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="158.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
                                                     <subviews>
                                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-4e-NT7" customClass="ProfileView" customModule="RankUp" customModuleProvider="target">
                                                             <rect key="frame" x="20" y="14" width="48" height="48"/>
@@ -531,7 +540,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATf-N1-jLt">
-                                                    <rect key="frame" x="0.0" y="158.5" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="159" width="414" height="1"/>
                                                     <color key="backgroundColor" red="0.60784313725490191" green="0.70588235294117641" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="OGP-do-Dhn"/>

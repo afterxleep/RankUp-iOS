@@ -9,21 +9,51 @@ import UIKit
 
 class FeedbackSearchPeopleViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    private struct Constants {
+        static let toLabel = "To:"
+        static let searchFieldPlaceholder = "Search people by name or email"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var searchTxtField: UITextField!
+    @IBOutlet weak var toLabel: UILabel!    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    let viewModel = FeedbackSearchPeopleViewModel(apiClient: APIClient())
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+        registerForKeyboardNotifications()
+        searchTxtField.delegate = self
+        viewModel.fetchRelevantPeople { [weak self] in
+            self?.loader.stopAnimating()            
+        }
     }
-    */
-
+    
+    //MARK: - Configure
+    
+    private func configure() {
+        toLabel.text = Constants.toLabel
+        searchTxtField.placeholder = Constants.searchFieldPlaceholder
+    }
+    
 }
+
+
+extension FeedbackSearchPeopleViewController: UITextFieldDelegate {
+    
+    private func textViewDidBeginEditing(_ textView: UITextView) {
+    }
+    
+    private func textViewDidEndEditing(_ textView: UITextView) {
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+    }
+    
+}
+
