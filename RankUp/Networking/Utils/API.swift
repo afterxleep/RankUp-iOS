@@ -108,7 +108,7 @@ enum API: Parseable {
         case .companyValues(_):
             return "/value"
         case .contacts(_):
-            return "/people/relevant-contacts"
+            return "/me/relevant-contacts"
         case .feedback(_), .createFeedback(_):
             return "/feedback"
         case .rank(_):

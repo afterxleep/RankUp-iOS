@@ -348,14 +348,49 @@
                                         <rect key="frame" x="0.0" y="54" width="414" height="754"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="81" id="nuN-cI-W4w">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="81"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="nuN-cI-W4w" customClass="ContactViewCell" customModule="RankUp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nuN-cI-W4w" id="OAe-ho-BqY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3F-1b-RhH">
+                                                            <rect key="frame" x="75" y="27.5" width="319" height="21"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" red="0.10588235294117647" green="0.15686274509803921" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZF-dh-cAj">
+                                                            <rect key="frame" x="75" y="45.5" width="319" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.67450980392156867" green="0.72549019607843135" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mbl-hB-D2D" customClass="ProfileView" customModule="RankUp" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="22.5" width="45" height="45"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="45" id="70j-UC-fyM"/>
+                                                                <constraint firstAttribute="height" constant="45" id="iB8-nq-bgd"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Mbl-hB-D2D" firstAttribute="centerY" secondItem="OAe-ho-BqY" secondAttribute="centerY" id="38k-Z3-4xJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="j3F-1b-RhH" secondAttribute="trailing" constant="20" id="3GX-Sf-Gdj"/>
+                                                        <constraint firstItem="Mbl-hB-D2D" firstAttribute="leading" secondItem="OAe-ho-BqY" secondAttribute="leading" constant="20" id="8OO-vf-xb6"/>
+                                                        <constraint firstItem="JZF-dh-cAj" firstAttribute="leading" secondItem="j3F-1b-RhH" secondAttribute="leading" id="OIl-NQ-nYr"/>
+                                                        <constraint firstItem="j3F-1b-RhH" firstAttribute="top" secondItem="Mbl-hB-D2D" secondAttribute="top" constant="5" id="ZMe-n3-f1t"/>
+                                                        <constraint firstItem="JZF-dh-cAj" firstAttribute="width" secondItem="j3F-1b-RhH" secondAttribute="width" id="gfY-gW-Obj"/>
+                                                        <constraint firstItem="JZF-dh-cAj" firstAttribute="top" secondItem="j3F-1b-RhH" secondAttribute="bottom" constant="-3" id="pNx-kc-Zx0"/>
+                                                        <constraint firstItem="j3F-1b-RhH" firstAttribute="leading" secondItem="Mbl-hB-D2D" secondAttribute="trailing" constant="10" id="u5q-V3-hDj"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="contactJobTitleLbl" destination="JZF-dh-cAj" id="fKn-NE-4io"/>
+                                                    <outlet property="contactNameLbl" destination="j3F-1b-RhH" id="eKf-sY-qwb"/>
+                                                    <outlet property="profileView" destination="Mbl-hB-D2D" id="5QV-ib-vvy"/>
                                                     <segue destination="Hfl-Ve-wvy" kind="show" id="1cB-Ei-1Sj"/>
                                                 </connections>
                                             </tableViewCell>

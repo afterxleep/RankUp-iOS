@@ -84,6 +84,7 @@
 		D67FEFEF22DAA24500DA34FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */; };
 		D6C7E778230B7A7300A86716 /* String+ordinalSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */; };
 		D6C7E780230BA39100A86716 /* UIView+Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E77F230BA39100A86716 /* UIView+Hud.swift */; };
+		D6C7E786230CFF9F00A86716 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E785230CFF9F00A86716 /* ContactViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,7 @@
 		D67FEFED22DAA21F00DA34FE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ordinalSuffix.swift"; sourceTree = "<group>"; };
 		D6C7E77F230BA39100A86716 /* UIView+Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Hud.swift"; sourceTree = "<group>"; };
+		D6C7E785230CFF9F00A86716 /* ContactViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
 		FBA79E9D1E9A038700179A54 /* RankUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RankUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -343,6 +345,7 @@
 				81D5971423089FEB00D29DC0 /* Feedback.storyboard */,
 				81D597162308A66B00D29DC0 /* FeedBackTypeViewController.swift */,
 				81D5971C2309C88800D29DC0 /* FeedbackViewController.swift */,
+				D6C7E785230CFF9F00A86716 /* ContactViewCell.swift */,
 				A9EC469E230C8271005FF9D3 /* FeedbackSearchPeopleViewController.swift */,
 			);
 			path = UI;
@@ -713,6 +716,7 @@
 				817B4089230BA046005C8EA3 /* BestsDetailViewModel.swift in Sources */,
 				9BE36673230709F300BACCB9 /* UIView+NibLoading.swift in Sources */,
 				7A77E6E222F283D500741749 /* APIClient.swift in Sources */,
+				D6C7E786230CFF9F00A86716 /* ContactViewCell.swift in Sources */,
 				7AC6D9A122ECA94A006F18CE /* CompanyValuesRepository.swift in Sources */,
 				9B47E06B22EDFD4B00353A92 /* OnboardingModel.swift in Sources */,
 				9BE366712307083900BACCB9 /* ProfileView.swift in Sources */,

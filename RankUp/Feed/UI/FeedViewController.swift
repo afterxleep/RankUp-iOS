@@ -46,16 +46,7 @@ final class FeedViewController: UIViewController {
         fetchFeeds()
     }
     
-    /* Test Scenario to give feedback.
-     This should be moved to the search results table or fucking profile view with a couple of buttons with options (recognise/improve)
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? FeedBackTypeViewController,
-            let selectedFeedbackIndex = selectedFeedback {
-            
-            destination.viewModel.feedback = viewModel.feedbackModel(at: selectedFeedbackIndex)
-        }
-    }
+    
     
     //MARK: - Private
     

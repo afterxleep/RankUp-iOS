@@ -63,7 +63,7 @@ struct LoggedInUserRepository: LoggedInUserService {
             completion(.failure(.unableToMakeRequest))
             return
         }
-        
+        print(request)
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             switch BasicRequest.handleBasicResponse(with: data, response: response, error: error) {
             case .failure(let error):
