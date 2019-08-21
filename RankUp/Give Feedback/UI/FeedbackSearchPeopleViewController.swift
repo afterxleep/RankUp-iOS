@@ -37,7 +37,6 @@ class FeedbackSearchPeopleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        registerForKeyboardNotifications()
         registerTableViews()
         searchTxtField.delegate = self
     }
