@@ -395,6 +395,10 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BXq-s9-Z51" id="EMg-ig-AjU"/>
+                                            <outlet property="delegate" destination="BXq-s9-Z51" id="2Pv-oN-ert"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
