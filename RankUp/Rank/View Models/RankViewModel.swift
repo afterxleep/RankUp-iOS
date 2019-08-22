@@ -29,7 +29,7 @@ final class RankViewModel {
     // MARK: - Interface
     
     func fetchRankData(completion: @escaping (Bool, String?) -> Void) {
-        apiClient.userSearch(filter: ["sortBy": "ranking ASC"]) { [weak self] result in
+        apiClient.userSearch(filter: ["sort": "score DESC"]) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let users):

@@ -12,7 +12,7 @@ final class RankViewController: UIViewController {
     private struct Constants {
         static let sectionHeaderID = String(describing: UITableViewHeaderFooterView.self)
         static let headerHeight: CGFloat = 55
-        static let headerTitle = "BEST RANKING"
+        static let headerTitle = "TOP USERS"
         static let headerFontSize: CGFloat = 15
         static let headerMargin: CGFloat = 20
     }
@@ -22,18 +22,20 @@ final class RankViewController: UIViewController {
     
     let viewModel = RankViewModel(apiClient: APIClient())
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: Constants.sectionHeaderID)
+    override func viewDidAppear(_ animated: Bool) {
         viewModel.fetchRankData { [weak self] success, errorMsg in
             self?.loader.stopAnimating()
-            
             if success {
                 self?.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             } else {
                 print("Screw you: \(errorMsg)")
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: Constants.sectionHeaderID)
     }
     
 }

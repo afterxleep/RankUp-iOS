@@ -21,8 +21,8 @@ final class FeedBackTypeViewController: UIViewController {
     //MARK: - IBOutlets
     
     @IBOutlet weak private var profileView: ProfileView!
-    @IBOutlet weak private var userRankLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var userJobTitleLabel: UILabel!
     @IBOutlet weak private var buttonsContainer: UIStackView!
     @IBOutlet weak private var feedBackTypeLabel: UILabel!
     @IBOutlet weak private var viewContainer: UIView!
@@ -53,7 +53,8 @@ final class FeedBackTypeViewController: UIViewController {
     //MARK: - Configuration
     
     func configure() {
-        userRankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(viewModel.feedback?.userRank ?? "")", leadingAttachment: "rankingTinted")
+        userNameLabel.text = viewModel.feedback?.userName
+        userJobTitleLabel.text = viewModel.feedback?.userJobTitle
         userNameLabel.text = viewModel.feedback?.userName
         profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)        
         

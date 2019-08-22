@@ -31,7 +31,6 @@ final class BestsViewCell: UICollectionViewCell {
         valueView.backgroundColor = UIHelper.valueColor(forType: model.value?.name)
         let comment = model.comment ?? "Nothing to see here..."
         feedbackLabel.text = #""\#(comment)""#
-        
         profileView.configure(withName: model.to?.name, userMSID: model.to?.msid)
     }
     

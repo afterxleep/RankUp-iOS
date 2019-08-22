@@ -144,8 +144,8 @@
                         <outlet property="feedBackTypeLabel" destination="kKs-R4-nSC" id="vkY-Kw-DbQ"/>
                         <outlet property="loader" destination="z1Q-fk-dUu" id="hOZ-PM-faB"/>
                         <outlet property="profileView" destination="qUO-z7-Brp" id="3wV-7O-6sc"/>
-                        <outlet property="userNameLabel" destination="uBN-AE-a5l" id="dVQ-FE-boL"/>
-                        <outlet property="userRankLabel" destination="MXd-m9-zos" id="H6u-hF-Ju6"/>
+                        <outlet property="userJobTitleLabel" destination="uBN-AE-a5l" id="zqz-wu-yQD"/>
+                        <outlet property="userNameLabel" destination="MXd-m9-zos" id="Tn9-Xf-b6f"/>
                         <outlet property="viewContainer" destination="CPv-Mo-fht" id="TzJ-YS-NYG"/>
                         <segue destination="yAN-TX-Og5" kind="show" identifier="giveFeedbackSegue" id="pT2-h3-uH1"/>
                     </connections>

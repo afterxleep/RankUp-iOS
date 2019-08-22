@@ -274,13 +274,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Z9N-Ba-uAf">
-                                                <rect key="frame" x="48" y="86" width="44" height="14.5"/>
+                                                <rect key="frame" x="53.5" y="86" width="33" height="14.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy" translatesAutoresizingMaskIntoConstraints="NO" id="f4Y-Q4-esk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="8" height="14.5"/>
-                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRn-Xe-sgn">
-                                                        <rect key="frame" x="11" y="0.0" width="33" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                         <color key="textColor" red="0.039215686270000001" green="0.76470588240000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -374,7 +371,7 @@
                         <outlet property="feedbackLabel" destination="5Ga-NO-etF" id="Jb1-bR-ve8"/>
                         <outlet property="jobTitleLabel" destination="YEo-zi-r1M" id="hk8-qq-8Lu"/>
                         <outlet property="profileView" destination="V0K-iO-ChP" id="VXE-yq-dVj"/>
-                        <outlet property="rankLabel" destination="uRn-Xe-sgn" id="aja-h2-PYb"/>
+                        <outlet property="scoreLabel" destination="uRn-Xe-sgn" id="W73-xX-KXg"/>
                         <outlet property="userNameLabel" destination="bhI-nd-ycY" id="OsG-CZ-uE3"/>
                         <outlet property="valueLabel" destination="o0n-XO-unl" id="lcH-1z-5wp"/>
                         <outlet property="viewContainer" destination="SV8-77-t3i" id="Izz-Ce-UxI"/>
@@ -706,7 +703,6 @@
         <image name="home" width="29" height="24"/>
         <image name="podium" width="46" height="30"/>
         <image name="ranking" width="23" height="27"/>
-        <image name="trophy" width="8" height="8"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

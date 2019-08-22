@@ -19,6 +19,9 @@ final class FeedbackViewController: UIViewController {
         static let feedbackTypeExplanation = ""
         static let viewTitleFirstWord = "New"
         static let viewTitleSecondWord = "Feedback"
+        static let privateAlertTitle = "Your feedback will be private"
+        static let privateAlertMessage = "Advise feedback will always be private to the receiving user.  \n\n It will not shown in the general feed."
+        static let okMessage = "OK"
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -112,7 +115,6 @@ final class FeedbackViewController: UIViewController {
     @IBAction func didTapRecognizeButton(_ sender: Any) {
         enableFeedbackButton(button: recognizeButton)
         disableFeedbackButton(button: adviseButton)
-        viewModel.feedback?.isPublic = true
         privacySwitch.isOn = false
         privacySwitch.isEnabled = true
     }
@@ -120,12 +122,11 @@ final class FeedbackViewController: UIViewController {
     @IBAction func didTapAdviseButton(_ sender: Any) {
         enableFeedbackButton(button: adviseButton)
         disableFeedbackButton(button: recognizeButton)
-        viewModel.feedback?.isPublic = false
         viewModel.feedback?.isPositive = false
         privacySwitch.isOn = true
         privacySwitch.isEnabled = false
-        let alertController = UIAlertController(title: "Your feedback will be private", message: "Advise feedback will always be private to the receiving user.  \n\n It will not shown in the general feed.", preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "OK",
+        let alertController = UIAlertController(title: Constants.privateAlertTitle, message: Constants.privateAlertMessage, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: Constants.okMessage,
                                      style: .default,
                                      handler: nil)
         alertController.addAction(actionOk)

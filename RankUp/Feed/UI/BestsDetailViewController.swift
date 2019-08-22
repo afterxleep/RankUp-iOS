@@ -14,7 +14,7 @@ final class BestsDetailViewController: UIViewController {
     @IBOutlet weak private var viewContainer: UIView!
     @IBOutlet weak private var profileView: ProfileView!
     @IBOutlet weak private var valueLabel: UILabel!
-    @IBOutlet weak private var rankLabel: UILabel!
+    @IBOutlet weak private var scoreLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var jobTitleLabel: UILabel!
     @IBOutlet weak private var feedbackLabel: UILabel!
@@ -38,8 +38,8 @@ final class BestsDetailViewController: UIViewController {
         valueLabel.text = viewModel.detail?.valueName?.uppercased()
         valueLabel.textColor = UIHelper.valueColor(forType: viewModel.detail?.valueName)
         
-        if let rank = viewModel.detail?.rank {
-            rankLabel.text = rank.withOrdinalSuffix()
+        if let score = viewModel.detail?.score {
+            scoreLabel.text = "\(score)"
         }
 
         userNameLabel.text = viewModel.detail?.userName

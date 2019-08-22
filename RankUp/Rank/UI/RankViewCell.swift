@@ -36,7 +36,7 @@ final class RankViewCell: UITableViewCell {
         profileView.configure(withName: contact.name, userMSID: contact.msid)
         userNameLabel.text = contact.name
         jobTitleLabel.text = contact.jobTitle
-        pointsLabel.text = "9999"
+        pointsLabel.text = "\(String(contact.score ?? 0))p"
     }
     
     private func clearData() {

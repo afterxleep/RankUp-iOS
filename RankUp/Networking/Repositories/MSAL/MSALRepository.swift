@@ -151,7 +151,7 @@ final class MSALRepository: MSALService {
                 return
             }
             
-            strongSelf.delegate?.accessTokenDidAcquired(strongSelf)
+            strongSelf.delegate?.accessTokenDidAcquired(strongSelf)           
             completion(.success(result.accessToken))
         }
     }

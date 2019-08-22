@@ -26,7 +26,6 @@ final class FeedBackTypeViewModel {
     
     func valueForIndex(index: Int) -> Value? {
         guard index >= 0 && index < endavaValues.count else { return nil }
-        
         return endavaValues[index]
     }
     
