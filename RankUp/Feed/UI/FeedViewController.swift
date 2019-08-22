@@ -36,16 +36,13 @@ final class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerTableViews()        
-        
+        registerTableViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchFeeds()
     }
-    
-    
     
     //MARK: - Private
     
@@ -85,6 +82,10 @@ extension FeedViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension FeedViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.headerHeight
     }
@@ -105,10 +106,6 @@ extension FeedViewController: UITableViewDataSource {
         
         return header
     }
-    
-}
-
-extension FeedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let flagAction = UIContextualAction(style: .normal, title: Constants.trailingActionTitle) { [weak self] _, _, successHandler in
