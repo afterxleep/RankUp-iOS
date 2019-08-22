@@ -85,6 +85,7 @@
 		D6C7E778230B7A7300A86716 /* String+ordinalSuffix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */; };
 		D6C7E780230BA39100A86716 /* UIView+Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E77F230BA39100A86716 /* UIView+Hud.swift */; };
 		D6C7E786230CFF9F00A86716 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E785230CFF9F00A86716 /* ContactViewCell.swift */; };
+		D6C7E790230E3B1400A86716 /* UiButton+CenteredText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C7E78F230E3B1400A86716 /* UiButton+CenteredText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,6 +173,7 @@
 		D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ordinalSuffix.swift"; sourceTree = "<group>"; };
 		D6C7E77F230BA39100A86716 /* UIView+Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Hud.swift"; sourceTree = "<group>"; };
 		D6C7E785230CFF9F00A86716 /* ContactViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
+		D6C7E78F230E3B1400A86716 /* UiButton+CenteredText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+CenteredText.swift"; sourceTree = "<group>"; };
 		FBA79E9D1E9A038700179A54 /* RankUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RankUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -380,6 +382,7 @@
 				9B211C82230075A00076FA7A /* UIButton+ImageState.swift */,
 				9B28D6C023010ED20096DB58 /* Date+ElapsedTime.swift */,
 				D6C7E777230B7A7300A86716 /* String+ordinalSuffix.swift */,
+				D6C7E78F230E3B1400A86716 /* UiButton+CenteredText.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				7AC6D9A722ECACF8006F18CE /* FeedbackRepository.swift in Sources */,
 				81D5971B2308A75300D29DC0 /* FeedBackTypeViewModel.swift in Sources */,
 				7AC6D98822E90BEE006F18CE /* AreaRepository.swift in Sources */,
+				D6C7E790230E3B1400A86716 /* UiButton+CenteredText.swift in Sources */,
 				7A77E6E422F2850B00741749 /* APIClientFacade.swift in Sources */,
 				7AC6D98A22E92912006F18CE /* LocationService.swift in Sources */,
 				81E3D07722F13A7300464F49 /* UIView+RoundedCorners.swift in Sources */,

@@ -47,7 +47,6 @@ final class FeedBackTypeViewController: UIViewController {
             let companyValue = viewModel.valueForIndex(index: buttonIndex)
             destination.viewModel.companyValue = companyValue
             destination.viewModel.feedback = viewModel.feedback
-            destination.viewModel.feedBackType = viewModel.feedBackType
         }
     }
     
@@ -56,8 +55,7 @@ final class FeedBackTypeViewController: UIViewController {
     func configure() {
         userRankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(viewModel.feedback?.userRank ?? "")", leadingAttachment: "rankingTinted")
         userNameLabel.text = viewModel.feedback?.userName
-        profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
-        feedBackTypeLabel.text = viewModel.feedBackType.rawValue
+        profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)        
         
         let titleLabel = UILabel()
         titleLabel.attributedText = UIHelper.createAttributedTitle(firstWord: Constants.viewTitleFirstWord, secondWord: Constants.viewTitleSecondWord)

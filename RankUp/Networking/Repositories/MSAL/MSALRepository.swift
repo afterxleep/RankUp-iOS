@@ -13,9 +13,13 @@ final class MSALRepository: MSALService {
     // MARK: Constants
     
     private let kClientID               = "31e5cf9f-5655-43df-bf98-9732798c0a9d"
-    private let kScopes: [String]       = ["https://graph.microsoft.com/People.Read",
+    private let kScopes: [String]       = ["https://graph.microsoft.com/Analytics.Read",
+                                           "https://graph.microsoft.com/Calendars.Read",
+                                           "https://graph.microsoft.com/Contacts.Read",
+                                           "https://graph.microsoft.com/People.Read",
                                            "https://graph.microsoft.com/User.Read",
-                                           "https://graph.microsoft.com/User.ReadBasic.All"]
+                                           "https://graph.microsoft.com/User.ReadBasic.All",
+                                           "https://graph.microsoft.com/User.Read"]
     private let kAuthority              = "https://login.microsoftonline.com/endava.com/v2.0/.well-known/openid-configuration"
     private let domainHintKey           = "domain_hint"
     private let domainHintValue         = "endava.com"

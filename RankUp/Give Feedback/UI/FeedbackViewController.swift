@@ -15,8 +15,10 @@ final class FeedbackViewController: UIViewController {
         static let privateExplanationPrefix = "When enabled only"
         static let privateExplanationSuffix = "will see your message"
         static let privateExplanationDefault = "your peer"
-        static let feedbackTypeLabel = "My feedback is to:"
-        static let feedbackTypeExplanation = "You can recognize or give advice, but always be respectful."
+        static let feedbackTypeLabel = "I want to:"
+        static let feedbackTypeExplanation = ""
+        static let viewTitleFirstWord = "New"
+        static let viewTitleSecondWord = "Feedback"
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -32,6 +34,8 @@ final class FeedbackViewController: UIViewController {
     @IBOutlet weak private var privateSubheadLabel: UILabel!
     @IBOutlet weak var feedbackTypeLabel: UILabel!
     @IBOutlet weak var feedbackTypeExplanation: UILabel!
+    @IBOutlet weak var recognizeButton: UIButton!
+    @IBOutlet weak var adviseButton: UIButton!
     
     var viewModel = FeedbackViewModel(apiClient: APIClient())
     
@@ -68,6 +72,13 @@ final class FeedbackViewController: UIViewController {
         
         feedbackTypeLabel.text = Constants.feedbackTypeLabel
         feedbackTypeExplanation.text = Constants.feedbackTypeExplanation
+        
+        let titleLabel = UILabel()
+        titleLabel.attributedText = UIHelper.createAttributedTitle(firstWord: Constants.viewTitleFirstWord, secondWord: Constants.viewTitleSecondWord)
+        self.navigationItem.titleView = titleLabel
+        
+        enableFeedbackButton(button: recognizeButton)
+        
     }
     
     private func roundCorners() {
@@ -77,12 +88,49 @@ final class FeedbackViewController: UIViewController {
         sendButton.roundCorners(radius: 9)
     }
     
+    func enableFeedbackButton(button: UIButton) {
+        button.titleLabel?.textColor = UIColor.aquaBlue
+        button.tintColor = UIColor.aquaBlue
+        button.setTitleColor(.aquaBlue, for: .normal)
+    }
+    
+    func disableFeedbackButton(button: UIButton) {
+        button.titleLabel?.textColor = UIColor.gray
+        button.tintColor = UIColor.gray
+        button.setTitleColor(.gray, for: .normal)
+    }
+    
+    
     //MARK: - Actions
     
     @IBAction private func didTapSendButton(_ sender: Any) {
         viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: privacySwitch.isOn) { [weak self] in
             self?.navigationController?.popToRootViewController(animated: true)
         }
+    }
+    
+    @IBAction func didTapRecognizeButton(_ sender: Any) {
+        enableFeedbackButton(button: recognizeButton)
+        disableFeedbackButton(button: adviseButton)
+        viewModel.feedback?.isPublic = true
+        privacySwitch.isOn = false
+        privacySwitch.isEnabled = true
+    }
+    
+    @IBAction func didTapAdviseButton(_ sender: Any) {
+        enableFeedbackButton(button: adviseButton)
+        disableFeedbackButton(button: recognizeButton)
+        viewModel.feedback?.isPublic = false
+        viewModel.feedback?.isPositive = false
+        privacySwitch.isOn = true
+        privacySwitch.isEnabled = false
+        let alertController = UIAlertController(title: "Your feedback will be private", message: "Advise feedback will always be private to the receiving user.  \n\n It will not shown in the general feed.", preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "OK",
+                                     style: .default,
+                                     handler: nil)
+        alertController.addAction(actionOk)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 }

@@ -12,8 +12,7 @@ struct FeedbackViewModel {
     //MARK: - Stored Properties
     
     var companyValue: Value?
-    var feedback: FeedbackModel?
-    var feedBackType: FeedbackType?
+    var feedback: FeedbackModel?    
     var isPositive: Bool = true
     
     private let apiClient: APIClientFacade
@@ -36,7 +35,7 @@ struct FeedbackViewModel {
                                               value: value.id,
                                               comment: comment,
                                               isPublic: isPublic,
-                                              isPositive: feedBackType == .recognise)
+                                              isPositive: isPositive)
         
         apiClient.createFeedback(body: feedbackBody) { result in
             DispatchQueue.main.async {

@@ -7,17 +7,12 @@
 
 import Foundation
 
-enum FeedbackType: String {
-    case recognise = "I want to send feedback about being:"
-}
-
 final class FeedBackTypeViewModel {
     
     //MARK: - Stored Properties
     
     private let apiClient: APIClientFacade
-    
-    var feedBackType: FeedbackType = .recognise
+        
     var feedback: FeedbackModel?    
     var endavaValues = [Value]()
     
