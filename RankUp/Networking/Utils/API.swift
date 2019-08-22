@@ -38,7 +38,7 @@ enum API: Parseable {
     private static let contentTypeJSONValue         = "application/json; charset=utf-8"
     private static let contentTypeImageValue        = "image/jpg"
     private static let TestHost                     = "rankme-test.herokuapp.com"
-    private static let ProdHost                     = "rankme-prod.herokuapp.com"
+    private static let ProdHost                     = "rankme-test.herokuapp.com"
     private static let MSHost                       = "graph.microsoft.com"
     private static let host                         = SystemUtils.isDebug ? TestHost : ProdHost
     
