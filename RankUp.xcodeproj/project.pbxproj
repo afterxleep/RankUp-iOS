@@ -645,7 +645,7 @@
 				TargetAttributes = {
 					FBA79E9C1E9A038700179A54 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JM9222EF99;
+						DevelopmentTeam = LUZ9KLPXF2;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -941,7 +941,7 @@
 				CODE_SIGN_ENTITLEMENTS = "RankUp/Supporting Files/RankUp.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JM9222EF99;
+				DEVELOPMENT_TEAM = LUZ9KLPXF2;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RankUp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -965,7 +965,7 @@
 				CODE_SIGN_ENTITLEMENTS = "RankUp/Supporting Files/RankUp.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JM9222EF99;
+				DEVELOPMENT_TEAM = LUZ9KLPXF2;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "RankUp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
