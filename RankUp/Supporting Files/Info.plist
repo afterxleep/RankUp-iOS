@@ -21,7 +21,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>msauth.com.endava.step-up</string>
+				<string>msauth.com.endava.rankup</string>
 			</array>
 		</dict>
 	</array>
