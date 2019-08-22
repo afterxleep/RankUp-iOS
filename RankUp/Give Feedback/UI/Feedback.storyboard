@@ -248,7 +248,7 @@
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit amet consectgeurkja sdkjas dlkajsd lakdj alkdj aslkdja ldkja dlkaj dlaksjd alskjd aslkdjas ldkjas dlkajsd laskjd laskdj asldkj asldkja slkdjalsdl</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="yes" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="yes"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ED-0W-w4b">
                                         <rect key="frame" x="126" y="460" width="162" height="44"/>
