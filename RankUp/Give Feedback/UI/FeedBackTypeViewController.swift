@@ -9,14 +9,20 @@ import UIKit
 
 final class FeedBackTypeViewController: UIViewController {
     
+    private struct Constants {
+        static let viewTitleFirstWord = "New"
+        static let viewTitleSecondWord = "Feedback"
+    }
+    
     var viewModel = FeedBackTypeViewModel(apiClient: APIClient())
     private var selectedButtonIndex: Int?
+    
     
     //MARK: - IBOutlets
     
     @IBOutlet weak private var profileView: ProfileView!
-    @IBOutlet weak private var userRankLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var userJobTitleLabel: UILabel!
     @IBOutlet weak private var buttonsContainer: UIStackView!
     @IBOutlet weak private var feedBackTypeLabel: UILabel!
     @IBOutlet weak private var viewContainer: UIView!
@@ -41,17 +47,20 @@ final class FeedBackTypeViewController: UIViewController {
             let companyValue = viewModel.valueForIndex(index: buttonIndex)
             destination.viewModel.companyValue = companyValue
             destination.viewModel.feedback = viewModel.feedback
-            destination.viewModel.feedBackType = viewModel.feedBackType
         }
     }
     
     //MARK: - Configuration
     
     func configure() {
-        userRankLabel.attributedText = UIHelper.createAttributedAttachmentText(string: " \(viewModel.feedback?.userRank ?? "")", leadingAttachment: "rankingTinted")
         userNameLabel.text = viewModel.feedback?.userName
-        profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
-        feedBackTypeLabel.text = viewModel.feedBackType.rawValue
+        userJobTitleLabel.text = viewModel.feedback?.userJobTitle
+        userNameLabel.text = viewModel.feedback?.userName
+        profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)        
+        
+        let titleLabel = UILabel()
+        titleLabel.attributedText = UIHelper.createAttributedTitle(firstWord: Constants.viewTitleFirstWord, secondWord: Constants.viewTitleSecondWord)
+        self.navigationItem.titleView = titleLabel
     }
     
     private func roundCorners() {

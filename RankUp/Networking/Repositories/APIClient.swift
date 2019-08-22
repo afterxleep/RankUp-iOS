@@ -233,7 +233,7 @@ class APIClient: APIClientFacade {
     
     // MARK: - Rank
     
-    func rankings(filter: RankingFilter, completion: @escaping RetrieveRanksCompletion) {
+    func rankings(filter: RankingFilter?, completion: @escaping RetrieveRanksCompletion) {
         msal.retrieveSecurityToken { [weak self] (result) in
             guard let strongSelf = self else {
                 completion(.failure(.unableToMakeRequest))
@@ -242,12 +242,12 @@ class APIClient: APIClientFacade {
             
             switch result {
             case .success(let token):
-                let filter = [strongSelf.pageKey: "\(filter.page)",
-                    strongSelf.valueKey: filter.value,
-                    strongSelf.locationKey: filter.location,
-                    strongSelf.areaKey: filter.area]
+//                let filter = [strongSelf.pageKey: "\(filter.page)",
+//                    strongSelf.valueKey: filter.value,
+//                    strongSelf.locationKey: filter.location,
+//                    strongSelf.areaKey: filter.area]
                 
-                strongSelf.rank.retrieveRanks(API.rank(token).request(parameters: filter), completion: completion)
+                strongSelf.rank.retrieveRanks(API.rank(token).request(), completion: completion)
             case .failure( _ ):
                 completion(.failure(.unableToMakeRequest))
             }

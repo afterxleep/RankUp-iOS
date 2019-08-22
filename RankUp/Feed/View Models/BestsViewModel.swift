@@ -44,16 +44,14 @@ final class BestsViewModel {
     
     func bestFeed(at index: Int) -> Feedback? {
         guard let feedbacks = bestsFeed?.feedbacks, index >= 0 && index < feedbacks.count else { return nil }
-        
         return feedbacks[index]
     }
     
     func feedbackDetail(at index: Int) -> BestsDetailModel? {
-        guard let feedback = bestFeed(at: index) else { return nil }
-        
+        guard let feedback = bestFeed(at: index) else { return nil }        
         return BestsDetailModel(userMSID: feedback.to?.msid,
                                 valueName: feedback.value?.name,
-                                points: String(describing: 2800),
+                                score: "\(String(describing: feedback.to?.score ?? 0))p",
                                 userName: feedback.to?.name,
                                 jobTitle: feedback.to?.jobTitle,
                                 feedback: feedback.comment,

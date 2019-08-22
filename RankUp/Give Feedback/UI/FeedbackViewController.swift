@@ -11,6 +11,18 @@ final class FeedbackViewController: UIViewController {
     
     private struct Constants {
         static let feedbackPlaceholder = "Enter your comment (max 140 chars)"
+        static let privateTitleLabel = "Keep it private?"
+        static let privateExplanationPrefix = "When enabled only"
+        static let privateExplanationSuffix = "will see your message"
+        static let privateExplanationDefault = "your peer"
+        static let feedbackTypeLabel = "I want to:"
+        static let feedbackTypeExplanation = ""
+        static let viewTitleFirstWord = "New"
+        static let viewTitleSecondWord = "Feedback"
+        static let privateAlertTitle = "Your feedback will be private"
+        static let privateAlertMessage = "Advise feedback will always be private to the receiving user.  \n\n It will not shown in the general feed."
+        static let okMessage = "OK"
+        static let sentMessage = "Feedback sent!"
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -24,6 +36,10 @@ final class FeedbackViewController: UIViewController {
     @IBOutlet weak private var viewContainer: UIView!
     @IBOutlet weak private var privateTitleLabel: UILabel!
     @IBOutlet weak private var privateSubheadLabel: UILabel!
+    @IBOutlet weak var feedbackTypeLabel: UILabel!
+    @IBOutlet weak var feedbackTypeExplanation: UILabel!
+    @IBOutlet weak var recognizeButton: UIButton!
+    @IBOutlet weak var adviseButton: UIButton!
     
     var viewModel = FeedbackViewModel(apiClient: APIClient())
     
@@ -50,13 +66,23 @@ final class FeedbackViewController: UIViewController {
         valueLabel.textColor = valueColor
         valueDescriptionLabel.text = viewModel.companyValue?.description
         
-        privateTitleLabel.text = "Keep it private?"
-        privateSubheadLabel.text = "When enabled only \(viewModel.feedback?.userName ?? "your peer") will see your message. (It will not appear in the feed)."
+        privateTitleLabel.text = Constants.privateTitleLabel
+        privateSubheadLabel.text = "\(Constants.privateExplanationPrefix) \(viewModel.feedback?.userName ?? Constants.privateExplanationDefault) \(Constants.privateExplanationSuffix)"
         
         feedbackTextView.attributedText = NSAttributedString(string: Constants.feedbackPlaceholder,
                                                              attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGreyBlue])
         
         profileView.configure(withName: viewModel.feedback?.userName, userMSID: viewModel.feedback?.userMSID)
+        
+        feedbackTypeLabel.text = Constants.feedbackTypeLabel
+        feedbackTypeExplanation.text = Constants.feedbackTypeExplanation
+        
+        let titleLabel = UILabel()
+        titleLabel.attributedText = UIHelper.createAttributedTitle(firstWord: Constants.viewTitleFirstWord, secondWord: Constants.viewTitleSecondWord)
+        self.navigationItem.titleView = titleLabel
+        
+        enableFeedbackButton(button: recognizeButton)
+        
     }
     
     private func roundCorners() {
@@ -66,12 +92,47 @@ final class FeedbackViewController: UIViewController {
         sendButton.roundCorners(radius: 9)
     }
     
+    func enableFeedbackButton(button: UIButton) {
+        button.titleLabel?.textColor = UIColor.aquaBlue
+        button.tintColor = UIColor.aquaBlue
+        button.setTitleColor(.aquaBlue, for: .normal)
+    }
+    
+    func disableFeedbackButton(button: UIButton) {
+        button.titleLabel?.textColor = UIColor.gray
+        button.tintColor = UIColor.gray
+        button.setTitleColor(.gray, for: .normal)
+    }
+    
+    
     //MARK: - Actions
     
     @IBAction private func didTapSendButton(_ sender: Any) {
-        viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: privacySwitch.isOn) { [weak self] in
+        viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: !privacySwitch.isOn) { [weak self] in            
             self?.navigationController?.popToRootViewController(animated: true)
         }
+    }
+    
+    @IBAction func didTapRecognizeButton(_ sender: Any) {
+        enableFeedbackButton(button: recognizeButton)
+        disableFeedbackButton(button: adviseButton)
+        privacySwitch.isOn = false
+        privacySwitch.isEnabled = true
+    }
+    
+    @IBAction func didTapAdviseButton(_ sender: Any) {
+        enableFeedbackButton(button: adviseButton)
+        disableFeedbackButton(button: recognizeButton)
+        viewModel.feedback?.isPositive = false
+        privacySwitch.isOn = true
+        privacySwitch.isEnabled = false
+        let alertController = UIAlertController(title: Constants.privateAlertTitle, message: Constants.privateAlertMessage, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: Constants.okMessage,
+                                     style: .default,
+                                     handler: nil)
+        alertController.addAction(actionOk)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 }

@@ -15,8 +15,8 @@ struct Contact: Codable {
     var name: String?
     var email: String?
     var jobTitle: String?
-    var image: String?
-    var rank: Int?
+    var image: String?    
+    var score: Int?
     var valuePoints: [String: Int]?
     var role: String?
     var is_registered: Bool?

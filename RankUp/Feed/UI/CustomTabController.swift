@@ -11,13 +11,18 @@ final class MainTabController: UITabBarController {
     
     private struct Constants {
         static let firstLineTitleAttrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
+        static let logoImage = "logo"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titleLabel = UILabel(frame: .zero)
-        titleLabel.attributedText = UIHelper.createAttributedTitle(firstLine: "Rank", secondLine: "Up", firstLineAttrs: Constants.firstLineTitleAttrs)
-        navigationItem.titleView = titleLabel
+        let logo = UIImage(named: Constants.logoImage)
+        let logoImageView = UIImageView(image:logo)
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.widthAnchor.constraint(equalToConstant: 85.51).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        self.navigationItem.titleView = logoImageView
+        
         let leftImageView = UIImageView(frame: .zero)
         leftImageView.translatesAutoresizingMaskIntoConstraints = false
         leftImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
@@ -33,7 +38,7 @@ final class MainTabController: UITabBarController {
     }
     
     @objc private func didTapNewRankButton() {
-        
+        self.performSegue(withIdentifier: K.Segues.feedbackSegue, sender: nil)
     }
     
 }

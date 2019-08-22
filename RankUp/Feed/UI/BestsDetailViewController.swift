@@ -13,9 +13,8 @@ final class BestsDetailViewController: UIViewController {
     
     @IBOutlet weak private var viewContainer: UIView!
     @IBOutlet weak private var profileView: ProfileView!
-    @IBOutlet weak private var valueView: UIView!
     @IBOutlet weak private var valueLabel: UILabel!
-    @IBOutlet weak private var pointsLabel: UILabel!
+    @IBOutlet weak private var scoreLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
     @IBOutlet weak private var jobTitleLabel: UILabel!
     @IBOutlet weak private var feedbackLabel: UILabel!
@@ -36,19 +35,23 @@ final class BestsDetailViewController: UIViewController {
     
     private func configure() {
         profileView.configure(withName: viewModel.detail?.userName, userMSID: viewModel.detail?.userMSID)
-        valueView.backgroundColor = UIHelper.valueColor(forType: viewModel.detail?.valueName)
         valueLabel.text = viewModel.detail?.valueName?.uppercased()
-        pointsLabel.text = viewModel.detail?.points
+        valueLabel.textColor = UIHelper.valueColor(forType: viewModel.detail?.valueName)
+        
+        if let score = viewModel.detail?.score {
+            scoreLabel.text = "\(score)"
+        }
+
         userNameLabel.text = viewModel.detail?.userName
         jobTitleLabel.text = viewModel.detail?.jobTitle
         feedbackLabel.text = #""\#(viewModel.detail?.feedback ?? "Nothing to see here")""#
-        byLineLabel.text = "Rank by \(viewModel.detail?.author ?? "Some shy Endavan")"
+        elapsedTimeLabel.text = viewModel.detail?.createdTime?.formattedElapsedTime()
+        byLineLabel.text = "By \(viewModel.detail?.author ?? "Some shy Endavan")"
     }
     
     private func roundCorners() {
         viewContainer.roundCorners(radius: 33)
         profileView.roundCorners(radius: 15)
-        valueView.roundCorners(radius: 9)
     }
     
     //MARK: - Actions

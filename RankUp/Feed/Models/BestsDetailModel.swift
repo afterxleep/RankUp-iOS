@@ -10,7 +10,7 @@ import UIKit
 struct BestsDetailModel {
     var userMSID: String?
     var valueName: String?
-    var points: String?
+    var score: String?
     var userName: String?
     var jobTitle: String?
     var feedback: String?
