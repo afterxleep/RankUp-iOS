@@ -8,7 +8,9 @@
 import UIKit
 
 final class RankViewCell: UITableViewCell {
-
+    
+    static let reuseIdentifier = String(describing: RankViewCell.self)
+    
     @IBOutlet weak private var rankLabel: UILabel!
     @IBOutlet weak private var rankImageView: UIImageView!
     @IBOutlet weak private var profileView: ProfileView!
@@ -16,15 +18,33 @@ final class RankViewCell: UITableViewCell {
     @IBOutlet weak private var jobTitleLabel: UILabel!
     @IBOutlet weak private var pointsLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - Configuration
+    
+    func configure(with model: Contact?, index: Int) {
+        guard let contact = model else { return }
+        clearData()
+        
+        if 0...2 ~= index {
+            rankLabel.textColor = .aquaBlue
+            rankImageView.image = UIImage(named: "podium")
+        } else {
+            rankImageView.image = nil
+            rankLabel.textColor = .black
+        }
+        
+        rankLabel.text = String(describing: index + 1)
+        profileView.configure(withName: contact.name, userMSID: contact.msid)
+        userNameLabel.text = contact.name
+        jobTitleLabel.text = contact.jobTitle
+        pointsLabel.text = "9999"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    private func clearData() {
+        rankLabel.text = nil
+        userNameLabel.text = nil
+        jobTitleLabel.text = nil
+        pointsLabel.text = nil
+        profileView.reset()
     }
-
+    
 }

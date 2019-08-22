@@ -37,24 +37,12 @@ final class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerTableViews()        
-        
+        registerTableViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchFeeds()
-    }
-    
-    /* Test Scenario to give feedback.
-     This should be moved to the search results table or fucking profile view with a couple of buttons with options (recognise/improve)
-     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? FeedBackTypeViewController,
-            let selectedFeedbackIndex = selectedFeedback {
-            
-            destination.viewModel.feedback = viewModel.feedbackModel(at: selectedFeedbackIndex)
-        }
     }
     
     //MARK: - Private
@@ -95,6 +83,10 @@ extension FeedViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension FeedViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.headerHeight
     }
@@ -115,10 +107,6 @@ extension FeedViewController: UITableViewDataSource {
         
         return header
     }
-    
-}
-
-extension FeedViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let flagAction = UIContextualAction(style: .normal, title: Constants.trailingActionTitle) { [weak self] _, _, successHandler in

@@ -30,16 +30,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xW3-yX-ulb">
-                                        <rect key="frame" x="40" y="111" width="334" height="20"/>
+                                        <rect key="frame" x="40" y="96" width="334" height="20"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bAm-N6-E8F">
+                                        <rect key="frame" x="72" y="121" width="271" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="QTK-4o-RXG"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="xW3-yX-ulb" firstAttribute="centerY" secondItem="Mr2-Gh-yWL" secondAttribute="centerY" id="QGO-aI-kFH"/>
+                                    <constraint firstItem="bAm-N6-E8F" firstAttribute="leading" secondItem="Mr2-Gh-yWL" secondAttribute="leading" constant="72" id="Jpc-hm-RQG"/>
+                                    <constraint firstItem="bAm-N6-E8F" firstAttribute="top" secondItem="xW3-yX-ulb" secondAttribute="bottom" constant="5" id="KTP-9z-zqD"/>
+                                    <constraint firstAttribute="trailing" secondItem="bAm-N6-E8F" secondAttribute="trailing" constant="71" id="OJu-o8-AvV"/>
+                                    <constraint firstItem="xW3-yX-ulb" firstAttribute="centerY" secondItem="Mr2-Gh-yWL" secondAttribute="centerY" constant="-15" id="QGO-aI-kFH"/>
                                     <constraint firstItem="xW3-yX-ulb" firstAttribute="leading" secondItem="Mr2-Gh-yWL" secondAttribute="leading" constant="40" id="cVG-R8-gAQ"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bAm-N6-E8F" secondAttribute="bottom" constant="10" id="pYj-0T-Qd7"/>
                                     <constraint firstAttribute="trailing" secondItem="xW3-yX-ulb" secondAttribute="trailing" constant="40" id="v7F-7T-6lu"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -177,4 +187,7 @@
             <point key="canvasLocation" x="1900.0000000000002" y="140.625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="148" height="45"/>
+    </resources>
 </document>

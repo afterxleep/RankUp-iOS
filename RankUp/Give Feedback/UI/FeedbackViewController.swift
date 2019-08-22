@@ -11,6 +11,10 @@ final class FeedbackViewController: UIViewController {
     
     private struct Constants {
         static let feedbackPlaceholder = "Enter your comment (max 140 chars)"
+        static let privateTitleLabel = "Keep it private?"
+        static let privateExplanationPrefix = "When enabled only"
+        static let privateExplanationSuffix = "will see your message. (It will not appear in the feed)."
+        static let privateExplanationDefault = "your peer"
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -50,8 +54,8 @@ final class FeedbackViewController: UIViewController {
         valueLabel.textColor = valueColor
         valueDescriptionLabel.text = viewModel.companyValue?.description
         
-        privateTitleLabel.text = "Keep it private?"
-        privateSubheadLabel.text = "When enabled only \(viewModel.feedback?.userName ?? "your peer") will see your message. (It will not appear in the feed)."
+        privateTitleLabel.text = Constants.privateTitleLabel
+        privateSubheadLabel.text = "\(Constants.privateExplanationPrefix) \(viewModel.feedback?.userName ?? Constants.privateExplanationDefault) \(Constants.privateExplanationSuffix)"
         
         feedbackTextView.attributedText = NSAttributedString(string: Constants.feedbackPlaceholder,
                                                              attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGreyBlue])
