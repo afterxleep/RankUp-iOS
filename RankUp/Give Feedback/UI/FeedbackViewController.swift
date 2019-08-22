@@ -22,6 +22,7 @@ final class FeedbackViewController: UIViewController {
         static let privateAlertTitle = "Your feedback will be private"
         static let privateAlertMessage = "Advise feedback will always be private to the receiving user.  \n\n It will not shown in the general feed."
         static let okMessage = "OK"
+        static let sentMessage = "Feedback sent!"
     }
     
     @IBOutlet weak private var profileView: ProfileView!
@@ -107,7 +108,7 @@ final class FeedbackViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction private func didTapSendButton(_ sender: Any) {
-        viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: privacySwitch.isOn) { [weak self] in
+        viewModel.sendFeedBack(comment: feedbackTextView.attributedText.string, isPublic: !privacySwitch.isOn) { [weak self] in            
             self?.navigationController?.popToRootViewController(animated: true)
         }
     }
