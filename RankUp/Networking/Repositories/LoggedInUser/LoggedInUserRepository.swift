@@ -18,10 +18,10 @@ struct LoggedInUserRepository: LoggedInUserService {
         }
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            switch self.handleBasicResponse(with: data, response: response, error: error) {
+            switch BasicRequest.handleBasicResponse(with: data, response: response, error: error) {
             case .failure(let error):
                 switch error {
-                case .nonRegisterUser(let data):
+                case .unregisteredUser(let data):
                     guard let model = API.parser(from: data, to: UnregisteredUser.self) else {
                         completion(.failure(.invalidResponse))
                         return
@@ -29,7 +29,7 @@ struct LoggedInUserRepository: LoggedInUserService {
                     
                     completion(.success((nil,model)))
                 default:
-                  completion(.failure(error))
+                    completion(.failure(error))
                 }
             case .success(let data):
                 guard let model = API.parser(from: data, to: LoggedInUser.self) else {
@@ -106,31 +106,4 @@ struct LoggedInUserRepository: LoggedInUserService {
         task.resume()
     }
     
-    private func handleBasicResponse(with data: Data?, response: URLResponse?, error: Error?) -> Result<Data, LoggedInUserRequestError> {
-        if let _ = error {
-            return .failure(.requestFailed)
-        }
-        
-        guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-            return .failure(.requestFailed)
-        }
-        
-        if statusCode == 404 {
-            guard let data = data else {
-                return .failure(.emptyResponse)
-            }
-            
-            return .failure(.nonRegisterUser(data))
-        }
-        
-        guard (200...299).contains(statusCode) else {
-            return .failure(.requestFailed)
-        }
-        
-        guard let data = data else {
-            return .failure(.emptyResponse)
-        }
-        
-        return .success(data)
-    }
 }
